@@ -10,8 +10,13 @@ class SNextDevTools {
                         {
                             "opcode": "fetchUProfile”,
                             "blockType": "command",
-                            "text": "get player’s U Profile”,
+                            "text": "get player’s U Profile [textToSay],
                             "arguments": {
+                                "textToSay": {
+                                    "type": "string",
+                                    "defaultValue": 'lol',
+    },
+
                                 },
                             }
                         },
@@ -34,8 +39,8 @@ class SNextDevTools {
         };
     }
     
-    fetchURL({url}) {
-        return fetch(url).then(response => response.text())
+    fetchUProfile({textToSay}) {
+        return textToSay
     }
     
     jsonExtract({name,data}) {
