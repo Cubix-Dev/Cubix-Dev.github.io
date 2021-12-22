@@ -8,19 +8,6 @@ class SNextDevTools {
             "name": "SNextDevTools",
             "blocks": [
                         {
-                            "opcode": "fetchUProfile”,
-                            "blockType": "command",
-                            "text": "get player’s U Profile [textToSay],
-                            "arguments": {
-                                "textToSay": {
-                                    "type": "string",
-                                    "defaultValue": 'lol',
-    },
-
-                                },
-                            }
-                        },
-                        {
                             "opcode": "jsonExtract",
                             "blockType": "reporter",
                             "text": "extract [name] from [data]",
@@ -37,10 +24,6 @@ class SNextDevTools {
                         },
                 ],
         };
-    }
-    
-    fetchUProfile({textToSay}) {
-        return textToSay
     }
     
     jsonExtract({name,data}) {
