@@ -1,11 +1,11 @@
-class ScratchFetch {
+class ScratchNext_DevTools {
     constructor() {
     }
     
     getInfo() {
         return {
-            "id": "Fetch",
-            "name": "Fetch",
+            "id": "SNext Dev Tools",
+            "name": "SNext Dev Tools",
             "blocks": [
                         {
                             "opcode": "fetchURL",
@@ -58,4 +58,4 @@ class ScratchFetch {
     }
 }
 
-Scratch.extensions.register(new ScratchFetch())
+Scratch.extensions.register(new Scratch-Next Dev Extensions ())
