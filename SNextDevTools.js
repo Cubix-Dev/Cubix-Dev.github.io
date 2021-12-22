@@ -1,34 +1,61 @@
 class SNextDevTools {
+    constructor() {
+    }
+    
     getInfo() {
         return {
-            "id": "SNextDevTools",
-            "name": "SNextDevTools",
-            "blocks": [{
-                    "opcode": "substringy",
-                    "blockType": "reporter",
-                    "text": "letters [num1] through [num2] of [string]",
-                    "arguments": {
-                        "num1": {
-                            "type": "number",
-                            "defaultValue": "2"
+            "id": "Fetch",
+            "name": "Fetch",
+            "blocks": [
+                        {
+                            "opcode": "fetchURL",
+                            "blockType": "reporter",
+                            "text": "fetch data from [url]",
+                            "arguments": {
+                                "url": {
+                                    "type": "string",
+                                    "defaultValue": "https://api.weather.gov/stations/KNYC/observations"
+                                },
+                            }
                         },
-                        "num2": {
-                            "type": "number",
-                            "defaultValue": "5"
+                        {
+                            "opcode": "jsonExtract",
+                            "blockType": "reporter",
+                            "text": "extract [name] from [data]",
+                            "arguments": {
+                                "name": {
+                                    "type": "string",
+                                    "defaultValue": "temperature"
+                                },
+                                "data": {
+                                    "type": "string",
+                                    "defaultValue": '{"temperature": 12.3}'
+                                },
+                            }
                         },
-                        "string": {
-                            "type": "string",
-                            "defaultValue": "hello world"
-                        }
-                    }
-                },
-            }],
-        "menus": { //we will get back to this in a later tutorial
+                ],
+        };
+    }
+    
+    fetchURL({url}) {
+        return fetch(url).then(response => response.text())
+    }
+    
+    jsonExtract({name,data}) {
+        var parsed = JSON.parse(data)
+        if (name in parsed) {
+            var out = parsed[name]
+            var t = typeof(out)
+            if (t == "string" || t == "number")
+                return out
+            if (t == "boolean")
+                return t ? 1 : 0
+            return JSON.stringify(out)
         }
-    };
-    substringy({num1, num2, string}) {
-        return string.substring(num1 - 1, num2);
-    };
+        else {
+            return ""
+        }
+    }
 }
 
-Scratch.extensions.register(new SNextDevTools())
+Scratch.extensions.register(new ScratchFetch())
