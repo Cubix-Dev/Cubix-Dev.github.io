@@ -1,20 +1,17 @@
-class ScratchNext_DevTools {
+class ScratchNextDevTools {
     constructor() {
     }
     
     getInfo() {
         return {
-            "id": "SNext_DevTools",
-            "name": "SNext_DevTools",
+            "id": "SNextDevTools",
+            "name": "SNextDevTools",
             "blocks": [
                         {
-                            "opcode": "fetchURL",
-                            "blockType": "reporter",
-                            "text": "fetch data from [url]",
+                            "opcode": "fetchUProfile”,
+                            "blockType": "stack",
+                            "text": "get player’s U Profile”,
                             "arguments": {
-                                "url": {
-                                    "type": "string",
-                                    "defaultValue": "https://api.weather.gov/stations/KNYC/observations"
                                 },
                             }
                         },
@@ -58,4 +55,4 @@ class ScratchNext_DevTools {
     }
 }
 
-Scratch.extensions.register(new ScratchNext_DevTools ())
+Scratch.extensions.register(new ScratchNextDevTools())
