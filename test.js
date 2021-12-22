@@ -9,7 +9,7 @@ class ScratchNextDevTools {
             "blocks": [
                         {
                             "opcode": "fetchUProfile”,
-                            "blockType": "stack",
+                            "blockType": "command",
                             "text": "get player’s U Profile”,
                             "arguments": {
                                 },
