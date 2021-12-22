@@ -1,4 +1,4 @@
-class ScratchNextDevTools {
+class SNextDevTools {
     constructor() {
     }
     
@@ -55,4 +55,4 @@ class ScratchNextDevTools {
     }
 }
 
-Scratch.extensions.register(new ScratchNextDevTools())
+Scratch.extensions.register(new SNextDevTools())
