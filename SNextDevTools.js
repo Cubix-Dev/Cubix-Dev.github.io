@@ -58,4 +58,4 @@ class SNextDevTools {
     }
 }
 
-Scratch.extensions.register(new ScratchFetch())
+Scratch.extensions.register(new SNextDevTools())
