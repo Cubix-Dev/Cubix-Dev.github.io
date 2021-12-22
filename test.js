@@ -4,8 +4,8 @@ class ScratchNext_DevTools {
     
     getInfo() {
         return {
-            "id": "SNext Dev Tools",
-            "name": "SNext Dev Tools",
+            "id": "SNext_DevTools",
+            "name": "SNext_DevTools",
             "blocks": [
                         {
                             "opcode": "fetchURL",
@@ -58,4 +58,4 @@ class ScratchNext_DevTools {
     }
 }
 
-Scratch.extensions.register(new Scratch-Next Dev Extensions ())
+Scratch.extensions.register(new ScratchNext_DevTools ())
