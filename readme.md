@@ -8,4 +8,11 @@ go to https://turbowarp.org, and add a new extension url. in the url box, type/i
 
 OR GO TO
 
-https://sheeptester.github.io/scratch-gui/?url=https://cube-enix.github.io/SNextDevTools.js to test it in a sandbox mode.
+https://sheeptester.github.io/scratch-gui/?url=https://cube-enix.github.io/SNextDevTools.js to test it in sandbox mode.
+
+<b> how do these things work? </b>
+
+well, there's a bunch of code that gets run at runtime where you put the block, like normal Scratch, except these interact with the ScratchNext console by us.
+Lemme give a quick rundown on the current blocks and what they do:
+
+"
