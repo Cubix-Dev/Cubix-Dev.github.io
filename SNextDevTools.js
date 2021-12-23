@@ -10,22 +10,22 @@ class DevTools {
                         {
                             "opcode": "fetchU",
                             "blockType": "command",
-                            "text": "fetch data",
+                            "text": "get player U profile",
                             "arguments": {
                             }
                         },
                         {
-                            "opcode": "jsonExtract",
-                            "blockType": "reporter",
-                            "text": "extract [name] from [data]",
+                            "opcode": "saveToConsole",
+                            "blockType": "command",
+                            "text": "save [data] to console as [name]",
                             "arguments": {
+                                "data": {
+                                    "type": "data",
+                                    "defaultValue": "6819"
+                                },
                                 "name": {
                                     "type": "string",
-                                    "defaultValue": "temperature"
-                                },
-                                "data": {
-                                    "type": "string",
-                                    "defaultValue": '{"temperature": 12.3}'
+                                    "defaultValue": 'local high score'
                                 },
                             }
                         },
@@ -37,7 +37,7 @@ class DevTools {
         return 
     }
     
-    jsonExtract({name,data}) {
+    saveToConsole({data,name}) {
         var parsed = JSON.parse(data)
         if (name in parsed) {
             var out = parsed[name]
