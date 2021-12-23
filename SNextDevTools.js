@@ -5,7 +5,7 @@ class DevTools {
     getInfo() {
         return {
             "id": "SNextDevTools",
-            "name": "SNextDevTools",
+            "name": "Scratch Next Development Tools",
             "blocks": [
                         {
                             "opcode": "fetchURL",
