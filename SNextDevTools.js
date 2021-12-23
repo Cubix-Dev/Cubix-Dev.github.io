@@ -9,7 +9,7 @@ class DevTools {
             "blocks": [
                         {
                             "opcode": "fetchURL",
-                            "blockType": "reporter",
+                            "blockType": "command",
                             "text": "fetch data from [url]",
                             "arguments": {
                                 "url": {
