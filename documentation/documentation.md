@@ -8,7 +8,7 @@
 in the "Game Over!" broadcast block, i check if the score the player achieved is higher than the high score already saved. if so, then the high score block is set to thr current local score, and we run the SaveToConsole method, buy we imput the "high score" variable to save. and we name it "high score" since we save it with that name.
 
 "get player's U-sername" - this gets the current user's "U name" and puts it into a convenient little string format :)
-"get player's U-serID" - this gets the current user's "U userID" and puts it into a convenient little string too :)
+"get player's U-serID" - this gets the current user's "U userID" and puts it into a convenient little string too :) PlayerIDs are dependant on usernames and are ALWAYS stuck to a username, they NEVER change unless you make a new U with a different name.
 
 example:
 
@@ -19,4 +19,4 @@ we set our local player and local userID variables to the data that we fetch thr
 
 <i> in our ban player broadcast event </i>
 
-we loop through all the playerIDs we have in our Cloud List, "PlayerIDs". We then check each time we loop through if the current id is equal to a certain id we need to find. if not, we go and look at the next id. if so, we then run the <b> 
+we loop through all the playerIDs we have in our Cloud List, "PlayerIDs". We then check each time we loop through if the current id is equal to a certain id we need to find. if not, we go and look at the next id. if so, we then run the <b> Ban with UserID </b> custom block, and we pass in the userID we found with the <b> item [i] of PlayerIDs </b> method.
