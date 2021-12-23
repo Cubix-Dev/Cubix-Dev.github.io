@@ -14,3 +14,6 @@ example:
 
 ![Image](https://github.com/Cube-Enix/Cube-Enix.github.io/blob/main/documentation/images/57792141-5253-40A1-98E9-987F42A89C71.jpeg)
 <i> in the green flag event </i>
+we set our local player and local userID variables to the data that we fetch through the get U-sername and get U-serID functions. 
+
+<i> 
