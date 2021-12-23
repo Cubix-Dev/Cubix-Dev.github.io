@@ -1,11 +1,11 @@
-class SNextDevTools {
+class DevTools {
     constructor() {
     }
     
     getInfo() {
         return {
-            "id": "Fetch",
-            "name": "Fetch",
+            "id": "SNextDevTools",
+            "name": "SNextDevTools",
             "blocks": [
                         {
                             "opcode": "fetchURL",
@@ -58,4 +58,4 @@ class SNextDevTools {
     }
 }
 
-Scratch.extensions.register(new SNextDevTools())
+Scratch.extensions.register(new DevTools())
