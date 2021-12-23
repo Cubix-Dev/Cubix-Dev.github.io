@@ -8,4 +8,4 @@ go to scratch, and add a new extension url. in the url box, type `https://cube-e
 
 OR GO TO
 
-https://sheeptester.github.io/scratch-gui/?url=https://cube-enix.github.io/test.js to test it in a sandbox mode.
+https://sheeptester.github.io/scratch-gui/?url=https://cube-enix.github.io/SNextDevTools.js to test it in a sandbox mode.
