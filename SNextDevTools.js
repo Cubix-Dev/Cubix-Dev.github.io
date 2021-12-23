@@ -8,14 +8,10 @@ class DevTools {
             "name": "SNextDevTools",
             "blocks": [
                         {
-                            "opcode": "fetchURL",
+                            "opcode": "fetchU",
                             "blockType": "command",
-                            "text": "fetch data from [url]",
+                            "text": "fetch data",
                             "arguments": {
-                                "url": {
-                                    "type": "string",
-                                    "defaultValue": "https://api.weather.gov/stations/KNYC/observations"
-                                },
                             }
                         },
                         {
@@ -37,8 +33,8 @@ class DevTools {
         };
     }
     
-    fetchURL({url}) {
-        return fetch(url).then(response => response.text())
+    fetchU() {
+        return 
     }
     
     jsonExtract({name,data}) {
