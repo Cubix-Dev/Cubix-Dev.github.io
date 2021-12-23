@@ -4,7 +4,7 @@ these are extensions that you can use in your games that interact with the conso
 
 <b> how do i use these extensions? </b>
 
-go to scratch, and add a new extension url. in the url box, type `https://cube-enix.github.io/test.js` to test it in its current state.
+go to https://turbowarp.org, and add a new extension url. in the url box, type/import https://cube-enix.github.io/SNextDevTools.js to test it in its current state.
 
 OR GO TO
 
