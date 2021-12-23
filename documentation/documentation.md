@@ -12,6 +12,6 @@ in the "Game Over!" broadcast block, i check if the score the player achieved is
 
 example:
 
-![Image] (https://raw.github.com/Cube-Enix/Cube-Enix.github.io/blob/main/documentation/images/57792141-5253-40A1-98E9-987F42A89C71.jpeg)
+![Image](https://github.com/Cube-Enix/Cube-Enix.github.io/blob/main/documentation/images/57792141-5253-40A1-98E9-987F42A89C71.jpeg)
 
 
