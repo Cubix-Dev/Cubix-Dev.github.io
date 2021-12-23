@@ -4,7 +4,7 @@ class DevTools {
     
     getInfo() {
         return {
-            "id": "SNextDevTools",
+            "id": "Scratch Next Development Tools",
             "name": "Scratch Next Development Tools",
             "blocks": [
                         {
