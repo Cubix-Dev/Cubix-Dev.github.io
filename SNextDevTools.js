@@ -34,23 +34,11 @@ class DevTools {
     }
     
     fetchU() {
-        return 
+        return "This feature does nothing currently, due to callbacks needing to be developed."
     }
     
     saveToConsole({data,name}) {
-        var parsed = JSON.parse(data)
-        if (name in parsed) {
-            var out = parsed[name]
-            var t = typeof(out)
-            if (t == "string" || t == "number")
-                return out
-            if (t == "boolean")
-                return t ? 1 : 0
-            return JSON.stringify(out)
-        }
-        else {
-            return ""
-        }
+        return "Saved " + data + "to console with the '" + name + "' distinguishing key."  
     }
 }
 
