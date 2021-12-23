@@ -16,4 +16,5 @@ example:
 <i> in the green flag event </i>
 we set our local player and local userID variables to the data that we fetch through the get U-sername and get U-serID functions. 
 
-<i> 
+<i> in our ban player broadcast event </i>
+we loop through all the playerIDs we have in our Cloud List, "PlayerIDs". We then check each time we loop through if the current id is equal to a certain id we need to find. if not, we go and look at the next id. if so, we then run the <b> 
