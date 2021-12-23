@@ -8,7 +8,7 @@ go to https://turbowarp.org, and add a new extension url. in the url box, type/i
 
 OR GO TO
 
-https://sheeptester.github.io/scratch-gui/?url= https://cube-enix.github.io/source%20code/SNextDevTools.js to test it in sandbox mode.
+https://sheeptester.github.io/scratch-gui/?url=https://cube-enix.github.io/source%20code/SNextDevTools.js to test it in sandbox mode.
 
 <b> how do these things work? </b>
 
