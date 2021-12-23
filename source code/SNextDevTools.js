@@ -8,12 +8,19 @@ class DevTools {
             "name": "SNextDevTools",
             "blocks": [
                         {
-                            "opcode": "fetchU",
-                            "blockType": "command",
-                            "text": "get player U profile",
+                            "opcode": "fetchUName",
+                            "blockType": "reporter",
+                            "text": "get player's U-sername",
                             "arguments": {
                             }
                         },
+                        {
+                            "opcode": "fetchUiD",
+                            "blockType": "reporter",
+                            "text": "get player's U-serID",
+                            "arguments": {
+                            }
+                        }, 
                         {
                             "opcode": "saveToConsole",
                             "blockType": "command",
@@ -34,10 +41,17 @@ class DevTools {
     }
     
     
-    fetchU() {
-        return "This feature does nothing currently, due to callbacks needing to be developed."
+    fetchUName() {
+
+        return "[Cube-Enix] Kaylerr"
+        
     }
-    
+    fetchUiD() {
+
+        return "0CAB2EA61A4257519FA021939D1388E6"
+
+    }
+
     saveToConsole({data,name}) {
         return "Saved " + data + "to console with the '" + name + "' distinguishing key."  
     }
