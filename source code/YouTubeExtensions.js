@@ -2,10 +2,8 @@ class YouTubeExtensions {
     constructor() {
     }
     
-
-getInfo() {
+    getInfo() {
         return {
-
 
 (function(ext) {
     // Cleanup function when the extension is unloaded
@@ -48,7 +46,10 @@ removeElement("youtube")
     };
  
     // Register the extension
+
+
+
 }
 }
-    ScratchExtensions.register('YouTube Extensions', descriptor, ext);
-})({});
+
+Scratch.extensions.register(new YouTubeExtensions())
