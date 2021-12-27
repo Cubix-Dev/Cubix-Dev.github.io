@@ -3,6 +3,10 @@ class YouTubeExtensions {
     }
     
 
+getInfo() {
+        return {
+
+
 (function(ext) {
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
@@ -44,6 +48,7 @@ removeElement("youtube")
     };
  
     // Register the extension
+}
 }
     ScratchExtensions.register('YouTube Extensions', descriptor, ext);
 })({});
