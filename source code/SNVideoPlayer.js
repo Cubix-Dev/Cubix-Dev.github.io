@@ -1,6 +1,6 @@
 //the following script is by ShipMasterKyle. i did not make this script. i am only hosting it on this server for testing purposes and i will delete this as soon as this test has served it's purpose.
 
-class YouTubeExtensions {
+class SNVideo {
     getInfo(){
         return {
             "id": "SNVideo",
@@ -39,7 +39,7 @@ class YouTubeExtensions {
       };
     }
 }
-Scratch.extensions.register(new YouTubeExtensions());
+Scratch.extensions.register(new SNVideo());
 
 // (function(ext) {
 //     // Cleanup function when the extension is unloaded
