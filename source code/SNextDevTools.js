@@ -48,9 +48,13 @@ class DevTools {
     }
     fetchUiD() {
 
-const userID = Math.random().toString().replace(/[^A-Z]+/g, '').substr(0, 17);
+var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-        return userID;
+  for (var i = 0; i < 5; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
 
     }
 
