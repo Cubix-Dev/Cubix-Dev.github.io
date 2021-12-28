@@ -46,17 +46,18 @@ class DevTools {
         return "[Cube-Enix] Kaylerr"
         
     }
-    fetchUiD() {
 
-var text = "";
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+function fetchUiD() {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < 18; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
 
-  for (var i = 0; i < 18 i++)
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-        return text;
-
-    }
 
     saveToConsole({data,name}) {
         return "Saved " + data + "to console with the '" + name + "' distinguishing key."  
