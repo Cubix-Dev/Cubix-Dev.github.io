@@ -46,7 +46,7 @@ class DevTools {
         return "[Cube-Enix] Kaylerr"
         
     }
- fetchUiD() {
+ function fetchUiD() {
     var result           = '';
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     var charactersLength = characters.length;
