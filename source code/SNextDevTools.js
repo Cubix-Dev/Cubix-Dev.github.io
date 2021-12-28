@@ -48,7 +48,9 @@ class DevTools {
     }
     fetchUiD() {
 
-        return "0CAB2EA61A4257519FA021939D1388E6"
+const userID = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+
+        return userID;
 
     }
 
