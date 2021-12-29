@@ -8,8 +8,7 @@
 in the "Game Over!" broadcast block, i check if the score the player achieved is higher than the high score already saved. if so, then the high score block is set to thr current local score, and we run the SaveToConsole method, buy we imput the "high score" variable to save. and we name it "high score" since we save it with that name.
 
 "get player's U-sername" - this gets the current user's "U name" and puts it into a convenient little string format :)
-"get player's U-serID" - this gets the current user's "U userID" and puts it into a convenient little string too :) PlayerIDs are dependant on usernames and are ALWAYS stuck to a username, they NEVER change unless you make a new U with a different name.
-
+"generate player's U-serID" - this generates an userID of the current user and puts it into a convenient little string too :) 
 example:
 
 ![Image](https://github.com/Cube-Enix/Cube-Enix.github.io/blob/main/documentation/images/57792141-5253-40A1-98E9-987F42A89C71.jpeg)
