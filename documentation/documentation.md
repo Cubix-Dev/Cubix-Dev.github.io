@@ -9,7 +9,7 @@ in the "Game Over!" broadcast block, i check if the score the player achieved is
 
 "get player's U-sername" - this gets the current user's "U name" and puts it into a convenient little string format :)
 
-"generate player's U-serID" - this generates an userID of the current user and puts it into a convenient little string too :) 
+"get player's U-serID" - this generates an userID of the current user and puts it into a convenient little string too :) 
 example:
 
 ![Image](https://github.com/Cube-Enix/Cube-Enix.github.io/blob/main/documentation/images/57792141-5253-40A1-98E9-987F42A89C71.jpeg)
