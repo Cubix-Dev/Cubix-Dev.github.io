@@ -8,6 +8,7 @@
 in the "Game Over!" broadcast block, i check if the score the player achieved is higher than the high score already saved. if so, then the high score block is set to thr current local score, and we run the SaveToConsole method, buy we imput the "high score" variable to save. and we name it "high score" since we save it with that name.
 
 "get player's U-sername" - this gets the current user's "U name" and puts it into a convenient little string format :)
+
 "generate player's U-serID" - this generates an userID of the current user and puts it into a convenient little string too :) 
 example:
 
