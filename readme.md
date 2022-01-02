@@ -1,3 +1,4 @@
+# Welcome!
 <b> so... what is this? </b>
 
 these are extensions that you can use in your games that interact with the console of Scratch Next.
