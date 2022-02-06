@@ -39,6 +39,12 @@ class DevTools {
     
     saveToConsole({data,name}) {
         return "Saved " + data + "to console with the '" + name + "' distinguishing key."  
+        var obj = new Object()
+        obj.name = name;
+        obj.data = data;
+        var jsonString = JSON.stringify(obj);
+        return jsonString;
+
     }
 }
 
