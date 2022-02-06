@@ -43,7 +43,8 @@ class DevTools {
     
     fetchUName() {
 
-        return "[Cube-Enix] Kaylerr"
+        
+        return globalVariable.user
         
     }
  fetchUiD() {
