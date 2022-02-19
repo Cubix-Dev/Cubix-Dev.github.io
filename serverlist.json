@@ -2,5 +2,9 @@
 	"1": {
 		"id": "SNConnect Public Test Link",
 		"url": "wss://SNext-Sample-Server.simple21.repl.co"
-	}
+	},
+  "2":{
+    "id": "SVerse Server",
+    "url":"wss://SVerse-Server.simple21.repl.co"
+  }
 }

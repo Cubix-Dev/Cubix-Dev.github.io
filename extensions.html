@@ -1,4 +1,6 @@
-<head>
+<html>
+
+  <head>
 	<link rel="icon" href="https://media.discordapp.net/attachments/920846599528255538/935687562490687568/up.png" sizes="16x16" type="image/png">
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,22 +13,30 @@
 	<link rel="stylesheet" href="slides.css">
 	<title>Cube Enix - Bring your projects to the next level.</title>
 	<div class="topnav" id="myTopnav">
-		<a href="https://cube-enix.github.io">Home</a>
+		<a href="#" class="active">Home</a>
 		<a href="404.html">News</a>
-		<a href="#" class="active">SN-Edit</a>
-		<a href="404.html">Plugins</a>
+		<a href="DevKit.html">SN-Edit</a>
+		<a href="plugins.html">Plugins</a>
+    <script src="index.js"></script>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			<i class="fa fa-bars"></i>
-          </a>
-      </div>
-</head>
-<body>
-  <h1>SN-Edit</h1>
-  <h2>The Official Editor for SNext</h2>
-  <p>
-    SN-Edit is a custom Scratch Editor built for SNext that has many new features such as <i>Forced 16:9 aspect ratio.</i> Its the official tool for creating a project for SNext!
-  </p>
-  <a href="https://cube-enix.github.io/sn-edit/"><button class="button">Try it!</button></a>
+        </a>
+    </div>
+  </head>
 
-  <!--TODO: Screenshots.-->
-</body>
+<body>
+  <h1> SN-Edit Extensions </h1>
+  <br>
+  <hr>
+  <div class="description">
+    <h2>SN-Connect</h2>
+    <h4><u>About</u></h4>
+    <p> SN-Connect is an extension that allows you to easily connect to SNext Servers. This extension is a great alternative to cloud variables for multiplayer.
+    </p>
+    <input type="text" value="https://cdn.discordapp.com/attachments/917064482591760435/939723481371770910/index.js" id="myInput">
+    <div class="tooltip">
+    <button onclick="myFunction()" onmouseout="outFunc()">
+      <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+      Copy text
+      </button>
+    </div>
