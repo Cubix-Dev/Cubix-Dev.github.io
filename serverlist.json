@@ -6,5 +6,9 @@
   "2":{
     "id": "SVerse Server",
     "url":"wss://SVerse-Server.simple21.repl.co"
+  },
+  "3":{
+    "id": "SNext Shop",
+    "url":"wss://eShop.simple21.repl.co"
   }
 }
