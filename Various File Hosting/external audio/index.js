@@ -73,17 +73,17 @@ Extsnext_youtube.prototype.playaudiofromyoutube = function(args){
 	var inner = function(videoid,starttime,endtime){
 function createFrame(vid,start,end) {
         var ifrm = document.createElement("iframe");
-ifrm.width = 300;
+ifrm.width = 300
 ifrm.id = "youtube"
-        ifrm.height = 300;
+        ifrm.height = 300
 ifrm.src="https://www.youtube.com/embed/"+ vid +"?start="+start+"&end="+end+";autoplay=true"
         ifrm.frameBorder="0"
         ifrm.allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        document.body.appendChild(ifrm);
+        document.body.appendChild(ifrm)
     }
         createFrame(videoid,starttime,endtime)
 };
-	return inner(args.ARG_0, args.ARG_1, args.ARG_2);
+	return inner(args.ARG_0, args.ARG_1, args.ARG_2)
 };
 
 
@@ -91,13 +91,13 @@ ifrm.src="https://www.youtube.com/embed/"+ vid +"?start="+start+"&end="+end+";au
 Extsnext_youtube.prototype.stopyoutubeaudio = function(args){
 	var inner = function(){
 function removeElement(elementId) {
-    var getelement = document.getElementById(elementId);
-    getelement.parentNode.removeChild(getelement);
+    var getelement = document.getElementById(elementId)
+    getelement.parentNode.removeChild(getelement)
 }
 removeElement("youtube")
-};
-	return inner();
-};
+}
+	return inner()
+}
 
 
 
