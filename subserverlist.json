@@ -1,17 +1,17 @@
 {
-	"1.1": {
+	"1": {
 		"id": "SNConnect Public Test Link",
 		"url": "wss://SNext-Sample-Server.simple21.repl.co"
 	},
-	"2.1":{
+	"2":{
 		"id": "SVerse Server",
 		"url":"wss://SVerse-Server.simple21.repl.co"
 	},
-	"3.1":{
+	"3":{
 		"id": "SNext Shop",
 		"url":"wss://eShop.simple21.repl.co"
 	},
-	"4.1":{
+	"4":{
 	    "id": "Legends",
 	    "url":"wss://Legends-Server.simple21.repl.co"
   	}
