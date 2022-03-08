@@ -1,18 +1,34 @@
 {
 	"1": {
-		"id": "SNConnect Public Test Link",
-		"url": "wss://SNext-Sample-Server.simple21.repl.co"
+		"id": "Legends",
+		"url": "https://Legends-SubServer.simple21.repl.co"
 	},
 	"2":{
-		"id": "SVerse Server",
-		"url":"wss://SVerse-Server.simple21.repl.co"
+		"id": "Legends1",
+		"url":"https://Legends-SubServer-1.simple21.repl.co"
 	},
 	"3":{
-		"id": "SNext Shop",
-		"url":"wss://eShop.simple21.repl.co"
+		"id": "Legends2",
+		"url":"https://Legends-SubServer-2.simple21.repl.co"
 	},
 	"4":{
-	    "id": "Legends",
-	    "url":"wss://Legends-Server.simple21.repl.co"
-  	}
+	    "id": "Legends3",
+	    "url":"https://Legends-SubServer-3.simple21.repl.co"
+  	},
+	"5":{
+	    "id": "Legends4",
+	    "url":"https://Legends-SubServer-4.simple21.repl.co"
+  	},
+	"6":{
+	    "id": "Legends5",
+	    "url":"https://Legends-SubServer-5.simple21.repl.co"
+  	},
+	"7":{
+	    "id": "Legends5",
+	    "url":"https://Legends-SubServer-6.simple21.repl.co"
+  	},
+	"8":{
+	    "id": "Legends5",
+	    "url":"https://Legends-SubServer-7.simple21.repl.co"
+  	},
 }
