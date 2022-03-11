@@ -80,12 +80,12 @@ class DevTools {
                 } else {
 
                     return "XMLHttpRequest Error"
-                }
+                    }
 
             } else {
 
                     return "XMLHttpRequest Error"
-                }
+            }
         };
 
 
