@@ -60,9 +60,9 @@ class DevTools {
         httpRequest.open("GET", constructedURL, false);
         httpRequest.send();
 
-        xhr.onload = function () {
-            if (xhr.readyState === xhr.DONE) {
-                if (xhr.status === 200) {
+        httpRequest.onload = function () {
+            if (httpRequest.readyState === httpRequest.DONE) {
+                if (httpRequest.status === 200) {
 
                     if(httpRequest.responseText.includes("OK")) {
             
@@ -96,9 +96,9 @@ class DevTools {
         xhttp.open("GET", "https://snextapi.bluefalconhd.repl.co/users/$" + username, false);
         xhttp.send();
 
-        xhr.onload = function () {
-            if (xhr.readyState === xhr.DONE) {
-                if (xhr.status === 200) {
+        xhttp.onload = function () {
+            if (xhttp.readyState === xhttp.DONE) {
+                if (xhttp.status === 200) {
 
                     if(xhttp.responseText.includes("Cannot GET")) {
                         //means player cannot be fetched, return this.
