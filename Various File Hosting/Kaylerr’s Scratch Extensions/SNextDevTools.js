@@ -9,7 +9,7 @@ class DevTools {
             "blocks": [
                         {
                             "opcode": "fetchU",
-                            "blockType": "reporter",
+                            "blockType": "command",
                             "text": "get [username]'s U profile",
                             "arguments": {
                                 "username": {
@@ -37,7 +37,7 @@ class DevTools {
 
                         {
                             "opcode": "FetchDLCKey",
-                            "blockType": "reporter",
+                            "blockType": "command",
                             "text": "FetchDLCKey with Dreamlo Public Code: [publicCode] with key: [key]",
                             "arguments": {
                                 "publicCode": {
