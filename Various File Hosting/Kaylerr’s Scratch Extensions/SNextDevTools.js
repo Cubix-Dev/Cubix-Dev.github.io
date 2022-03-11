@@ -48,30 +48,6 @@ class DevTools {
                                     "type": "string",
                                     "defaultValue": 'NFGN-KBIQ-TGET'
                                 },
-                                "Value": {
-                                    "type": "data",
-                                    "defaultValue": 'upgrade'
-                                },
-                            }
-                        },
-
-                        {
-                            "opcode": "",
-                            "blockType": "command",
-                            "text": "FetchDLCKey with Dreamlo Public Code: [publicCode] with key: [key]",
-                            "arguments": {
-                                "publicCode": {
-                                    "type": "string",
-                                    "defaultValue": '122b406c8f40bc123c1df420'
-                                },
-                                "key": {
-                                    "type": "string",
-                                    "defaultValue": 'NFGN-KBIQ-TGET'
-                                },
-                                "Value": {
-                                    "type": "data",
-                                    "defaultValue": 'upgrade'
-                                },
                             }
                         },
                 ],
