@@ -9,11 +9,16 @@ class DevTools {
             "blocks": [
                         {
                             "opcode": "fetchU",
-                            "blockType": "command",
-                            "text": "get player U profile",
+                            "blockType": "reporter",
+                            "text": "get [username]'s U profile",
                             "arguments": {
+                                "username": {
+                                    "type": "string",
+                                    "defaultValue": 'Kaylerr'
+                                },
                             }
                         },
+
                         {
                             "opcode": "saveToConsole",
                             "blockType": "command",
@@ -29,12 +34,86 @@ class DevTools {
                                 },
                             }
                         },
+
+                        {
+                            "opcode": "FetchDLCKey",
+                            "blockType": "reporter",
+                            "text": "FetchDLCKey with Dreamlo Public Code: [publicCode] with key: [key]",
+                            "arguments": {
+                                "publicCode": {
+                                    "type": "string",
+                                    "defaultValue": '122b406c8f40bc123c1df420'
+                                },
+                                "key": {
+                                    "type": "string",
+                                    "defaultValue": 'NFGN-KBIQ-TGET'
+                                },
+                                "Value": {
+                                    "type": "data",
+                                    "defaultValue": 'upgrade'
+                                },
+                            }
+                        },
+
+                        {
+                            "opcode": "",
+                            "blockType": "command",
+                            "text": "FetchDLCKey with Dreamlo Public Code: [publicCode] with key: [key]",
+                            "arguments": {
+                                "publicCode": {
+                                    "type": "string",
+                                    "defaultValue": '122b406c8f40bc123c1df420'
+                                },
+                                "key": {
+                                    "type": "string",
+                                    "defaultValue": 'NFGN-KBIQ-TGET'
+                                },
+                                "Value": {
+                                    "type": "data",
+                                    "defaultValue": 'upgrade'
+                                },
+                            }
+                        },
                 ],
         };
     }
+
+    FetchDLCKey({publicCode, key}) {
+        const httpRequest = new XMLHttpRequest();
+        const constructedURL = "http://dreamlo.com/pc/" + publicCode + "/redeem/" + key;
+        httpRequest.open("GET", constructedURL, false);
+
+        if(httpRequest.responseText.includes("OK")) {
+            
+            return "DLC Redeemed"
+
+        } else if(httpRequest.responseText == "ERROR|Code already used.") {
+
+            return "Code Used Before"
+
+        } else if (httpRequest.responseText == "ERROR|Unknown Code") {
+
+            return "XMLHttpRequest Error"
+        } 
+
+    }
     
-    fetchU() {
-        return "This feature does nothing currently, due to callbacks needing to be developed."
+    fetchU({username}) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "https://snextapi.bluefalconhd.repl.co/users/$" + username, false);
+        if(xhttp.responseText.includes("Cannot GET")) {
+            //means player cannot be fetched, return this.
+            return "Could not GET player '" + username + "'"
+
+        } else if(xhttp.responseText.includes("Something BLUE needs to tell me")) {
+
+            return username
+
+        } else {
+            
+            return "XMLHttpRequest Error"
+        }
+
     }
     
     saveToConsole({data,name}) {
