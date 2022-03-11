@@ -56,7 +56,7 @@ class DevTools {
 
     FetchDLCKey({publicCode, key}) {
         const httpRequest = new XMLHttpRequest();
-        const constructedURL = "http://dreamlo.com/pc/" + publicCode + "/redeem/" + key;
+        const constructedURL = 'http://dreamlo.com/pc/' + publicCode + "/redeem/" + key;
         httpRequest.open("GET", constructedURL, false);
         httpRequest.send();
 
@@ -93,7 +93,7 @@ class DevTools {
     
     fetchU({username}) {
         const xhttp = new XMLHttpRequest();
-        xhttp.open("GET", "https://snextapi.bluefalconhd.repl.co/users/$" + username, false);
+        xhttp.open("GET", 'https://snextapi.bluefalconhd.repl.co/users/$' + username, false);
         xhttp.send();
 
         xhttp.onload = function () {
