@@ -83,36 +83,69 @@ class DevTools {
         const constructedURL = "http://dreamlo.com/pc/" + publicCode + "/redeem/" + key;
         httpRequest.open("GET", constructedURL, false);
 
-        if(httpRequest.responseText.includes("OK")) {
+        xhr.onload = function () {
+            if (xhr.readyState === xhr.DONE) {
+                if (xhr.status === 200) {
+
+                    if(httpRequest.responseText.includes("OK")) {
             
-            return "DLC Redeemed"
+                        return "DLC Redeemed"
+            
+                    } else if(httpRequest.responseText == "ERROR|Code already used.") {
+            
+                        return "Code Used Before"
+            
+                    } else if (httpRequest.responseText == "ERROR|Unknown Code") {
+            
+                        return "Code Not Recognizable"
+                    } 
 
-        } else if(httpRequest.responseText == "ERROR|Code already used.") {
+                } else {
 
-            return "Code Used Before"
+                    return "XMLHttpRequest Error"
+                }
 
-        } else if (httpRequest.responseText == "ERROR|Unknown Code") {
+            } else {
 
-            return "XMLHttpRequest Error"
-        } 
+                    return "XMLHttpRequest Error"
+                }
+        };
+
 
     }
     
     fetchU({username}) {
         const xhttp = new XMLHttpRequest();
         xhttp.open("GET", "https://snextapi.bluefalconhd.repl.co/users/$" + username, false);
-        if(xhttp.responseText.includes("Cannot GET")) {
-            //means player cannot be fetched, return this.
-            return "Could not GET player '" + username + "'"
+        
+        xhr.onload = function () {
+            if (xhr.readyState === xhr.DONE) {
+                if (xhr.status === 200) {
 
-        } else if(xhttp.responseText.includes("Something BLUE needs to tell me")) {
-
-            return username
-
-        } else {
+                    if(xhttp.responseText.includes("Cannot GET")) {
+                        //means player cannot be fetched, return this.
+                        return "Could not GET player '" + username + "'"
             
-            return "XMLHttpRequest Error"
-        }
+                    } else if(xhttp.responseText.includes("Something BLUE needs to tell me")) {
+            
+                        return username
+            
+                    } else {
+                        
+                        return "XMLHttpRequest Error"
+                    }
+
+
+                } else {
+
+                    return "XMLHttpRequest Error"
+                }
+
+            } else {
+
+                    return "XMLHttpRequest Error"
+                }
+        };
 
     }
     
