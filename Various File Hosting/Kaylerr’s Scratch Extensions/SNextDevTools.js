@@ -82,6 +82,7 @@ class DevTools {
         const httpRequest = new XMLHttpRequest();
         const constructedURL = "http://dreamlo.com/pc/" + publicCode + "/redeem/" + key;
         httpRequest.open("GET", constructedURL, false);
+        httpRequest.send();
 
         xhr.onload = function () {
             if (xhr.readyState === xhr.DONE) {
@@ -117,7 +118,8 @@ class DevTools {
     fetchU({username}) {
         const xhttp = new XMLHttpRequest();
         xhttp.open("GET", "https://snextapi.bluefalconhd.repl.co/users/$" + username, false);
-        
+        xhttp.send();
+
         xhr.onload = function () {
             if (xhr.readyState === xhr.DONE) {
                 if (xhr.status === 200) {
