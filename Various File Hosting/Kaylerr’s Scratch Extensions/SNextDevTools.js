@@ -56,14 +56,16 @@ class DevTools {
 
     FetchDLCKey({publicCode, key}) {
 
-        return fetch('http://dreamlo.com/pc/' + publicCode + "/redeem/" + key).then(response => response.text())
+        var url = "http://dreamlo.com/pc/" + publicCode + "/redeem/" + key
+        return fetch(url).then(response => response.text())
         
 
 
     }
     
     fetchU({username}) {
-        return fetch("https://snextapi.bluefalconhd.repl.co/users/$" + username).then(response => response.text())
+                var url = "https://snextapi.bluefalconhd.repl.co/users/$" + username
+                return fetch(url).then(response => response.text())
     }
     
     saveToConsole({data,name}) {
