@@ -55,10 +55,10 @@ class DevTools {
     }
 
     FetchDLCKey({publicCode, key}) {
-        const httpRequest = new XMLHttpRequest();
-        const constructedURL = 'http://dreamlo.com/pc/' + publicCode + "/redeem/" + key;
-        httpRequest.open("GET", constructedURL, false);
-        httpRequest.send();
+        const httpRequest = new XMLHttpRequest()
+        const constructedURL = 'http://dreamlo.com/pc/' + publicCode + "/redeem/" + key
+        httpRequest.open("GET", constructedURL, false)
+        httpRequest.send()
 
         httpRequest.onload = function () {
             if (httpRequest.readyState === httpRequest.DONE) {
@@ -86,15 +86,15 @@ class DevTools {
 
                     return "XMLHttpRequest Error"
             }
-        };
+        }
 
 
     }
     
     fetchU({username}) {
-        const xhttp = new XMLHttpRequest();
-        xhttp.open("GET", 'https://snextapi.bluefalconhd.repl.co/users/$' + username, false);
-        xhttp.send();
+        const xhttp = new XMLHttpRequest()
+        xhttp.open("GET", 'https://snextapi.bluefalconhd.repl.co/users/$' + username, false)
+        xhttp.send()
         
 
         xhttp.onload = function () {
@@ -118,7 +118,7 @@ class DevTools {
 
                     return "XMLHttpRequest Error"
                 }
-        };
+        }
 
 
 
