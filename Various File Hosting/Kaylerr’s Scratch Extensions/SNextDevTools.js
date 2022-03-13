@@ -1,8 +1,6 @@
 class DevTools {
     constructor() {
     }
-
- request = require('request');
     
     getInfo() {
         return {
