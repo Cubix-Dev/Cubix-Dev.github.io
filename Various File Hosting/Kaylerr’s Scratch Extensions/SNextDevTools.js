@@ -55,76 +55,15 @@ class DevTools {
     }
 
     FetchDLCKey({publicCode, key}) {
-        const httpRequest = new XMLHttpRequest()
-        const constructedURL = 'http://dreamlo.com/pc/' + publicCode + "/redeem/" + key
-        httpRequest.open("GET", constructedURL, false)
-        httpRequest.send()
 
-        httpRequest.onload = function () {
-            if (httpRequest.readyState === httpRequest.DONE) {
-                if (httpRequest.status === 200) {
-
-                    if(httpRequest.responseText.includes("OK")) {
-            
-                        return "DLC Redeemed"
-            
-                    } else if(httpRequest.responseText == "ERROR|Code already used.") {
-            
-                        return "Code Used Before"
-            
-                    } else if (httpRequest.responseText == "ERROR|Unknown Code") {
-            
-                        return "Code Not Recognizable"
-                    } 
-
-                } else {
-
-                    return "XMLHttpRequest Error"
-                    }
-
-            } else {
-
-                    return "XMLHttpRequest Error"
-            }
-        }
+        return fetch('http://dreamlo.com/pc/' + publicCode + "/redeem/" + key).then(response => response.text())
+        
 
 
     }
     
     fetchU({username}) {
-        const xhttp = new XMLHttpRequest()
-        xhttp.open("GET", 'https://snextapi.bluefalconhd.repl.co/users/$' + username, false)
-        xhttp.send()
-        
-
-        xhttp.onreadystatechange = function () {
-            if (xhttp.readyState === xhttp.DONE) {
-
-                    if(xhttp.responseText.includes("Cannot GET") == true) {
-                        //means player cannot be fetched, return this.
-                        return "Could not GET player '" + username + "'"
-            
-                    } else if(xhttp.responseText.includes("Something BLUE needs to tell me") == true) {
-            
-                        return username
-            
-                    } else {
-                        
-                        return "XMLHttpRequest Error"
-                    }
-
-
-                } else {
-
-                    return "XMLHttpRequest Error"
-                }
-        }
-
-
-
-
-
-
+        return fetch("https://snextapi.bluefalconhd.repl.co/users/$" + username).then(response => response.text())
     }
     
     saveToConsole({data,name}) {
