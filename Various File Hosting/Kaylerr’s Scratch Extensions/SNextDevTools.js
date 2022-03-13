@@ -1,6 +1,8 @@
 class DevTools {
     constructor() {
     }
+
+ request = require('request');
     
     getInfo() {
         return {
@@ -61,14 +63,14 @@ class DevTools {
         fetch(url).then(response => thing(response.text))
         return thing
         
+        
 
 
     }
     
     fetchU({username}) {
 
-                var url = "https://snextapi.bluefalconhd.repl.co/users/$" + username
-                return fetch("https://cube-enix.github.io/Various%20File%20Hosting/Kaylerr%E2%80%99s%20Scratch%20Extensions/SNextDevTools.js").then(response => response.text())
+                return fetch("https://snextapi.bluefalconhd.repl.co/users/$").then(response => response.text())
     }
     
     saveToConsole({data,name}) {
