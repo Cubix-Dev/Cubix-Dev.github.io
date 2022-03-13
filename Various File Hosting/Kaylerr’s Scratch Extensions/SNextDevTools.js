@@ -97,7 +97,8 @@ class DevTools {
         xhttp.send()
         
 
-        xhttp.onload = function () {
+        xhttp.onreadystatechange = function () {
+            alert("Getting");
             if (xhttp.readyState === xhttp.DONE) {
 
                     if(xhttp.responseText.includes("Cannot GET") == true) {
@@ -119,6 +120,10 @@ class DevTools {
                     return "XMLHttpRequest Error"
                 }
         }
+
+        alert("finished getting")
+
+
 
 
 
