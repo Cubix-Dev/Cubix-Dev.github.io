@@ -95,16 +95,16 @@ class DevTools {
         const xhttp = new XMLHttpRequest();
         xhttp.open("GET", 'https://snextapi.bluefalconhd.repl.co/users/$' + username, false);
         xhttp.send();
+        
 
         xhttp.onload = function () {
             if (xhttp.readyState === xhttp.DONE) {
-                if (xhttp.status === 200) {
 
-                    if(xhttp.responseText.includes("Cannot GET")) {
+                    if(xhttp.responseText.includes("Cannot GET") == true) {
                         //means player cannot be fetched, return this.
                         return "Could not GET player '" + username + "'"
             
-                    } else if(xhttp.responseText.includes("Something BLUE needs to tell me")) {
+                    } else if(xhttp.responseText.includes("Something BLUE needs to tell me") == true) {
             
                         return username
             
@@ -118,12 +118,9 @@ class DevTools {
 
                     return "XMLHttpRequest Error"
                 }
-
-            } else {
-
-                    return "XMLHttpRequest Error"
-                }
         };
+
+
 
     }
     
