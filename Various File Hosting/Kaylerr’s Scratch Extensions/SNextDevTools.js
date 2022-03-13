@@ -98,7 +98,6 @@ class DevTools {
         
 
         xhttp.onreadystatechange = function () {
-            alert("Getting");
             if (xhttp.readyState === xhttp.DONE) {
 
                     if(xhttp.responseText.includes("Cannot GET") == true) {
@@ -121,7 +120,6 @@ class DevTools {
                 }
         }
 
-        alert("finished getting")
 
 
 
