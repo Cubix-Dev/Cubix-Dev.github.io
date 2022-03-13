@@ -57,7 +57,9 @@ class DevTools {
     FetchDLCKey({publicCode, key}) {
 
         var url = "http://dreamlo.com/pc/" + publicCode + "/redeem/" + key
-        return fetch(url).then(response => response.text())
+        var thing;
+        fetch(url).then(response => thing(response.text))
+        return thing
         
 
 
