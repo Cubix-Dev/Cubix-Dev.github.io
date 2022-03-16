@@ -207,15 +207,15 @@ class cloudlink {
 				},
 			}, 	{
 				opcode: 'getComState',
-				blockType: "boolean",
+				blockType: "reporter",
 				text: 'Connected?',
 			}, 	{
 				opcode: 'getUsernameState',
-				blockType: "boolean",
+				blockType: "reporter",
 				text: 'Username synced?',
 			}, 	{
 				opcode: 'returnIsNewData',
-				blockType: "boolean",
+				blockType: "reporter",
 				text: 'Got New [TYPE] Data?',
 				arguments: {
 					TYPE: {
@@ -226,7 +226,7 @@ class cloudlink {
 				},
 			}, 	{
 				opcode: 'returnIsNewVarData',
-				blockType: "boolean",
+				blockType: "reporter",
 				text: 'Got New [TYPE] Var [VAR] Data?',
 				arguments: {
 					VAR: {
@@ -241,7 +241,7 @@ class cloudlink {
 				},
 			},      {
 				opcode: 'checkForID',
-				blockType: "boolean",
+				blockType: "reporter",
 				text: 'ID [ID] Connected?',
 				arguments: {
 					ID: {
