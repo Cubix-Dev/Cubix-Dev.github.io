@@ -116,295 +116,295 @@ class cloudlink {
 			blocks: [
 			{
 				opcode: 'returnGlobalData',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'Global data',
 			}, 	{
 				opcode: 'returnPrivateData',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'Private data',
 			}, 	{
 				opcode: 'returnDirectData',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'Direct Data',
 			}, {
 				opcode: 'returnLinkData',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'Link Status',
 			}, 	{
 				opcode: 'returnStatusCode',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'Status Code',
 			}, {
 				opcode: 'returnUserListData',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'Usernames',
 			}, 	{
 				opcode: 'returnUsernameData',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'My Username',
 			}, 	{
 				opcode: 'returnVersionData',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'Extension Version',
 			}, 	{
 				opcode: 'returnServerVersion',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'Server Version',
 			}, {
 				opcode: 'returnServerList',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'Server List',
 			},{
 				opcode: 'returnSubServerList',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'SubServer List',
 			}, 	{
 				opcode: 'returnMOTD',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'Server Message',
 			},  {
 				opcode: 'returnClientIP',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: 'IP Address',
 			}, 	{
 				opcode: 'returnVarData',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: '[TYPE] var [VAR] data',
 				arguments: {
 					VAR: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'Apple',
 					},
 					TYPE: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						menu: 'varmenu',
 						defaultValue: 'Global',
 					},
 				},
 			}, {
 				opcode: 'fetchURL', 
-				blockType: Scratch.BlockType.REPORTER,
+				blockType:"reporter",
 				text: 'Fetch data from URL [url]',
 				arguments: {
 						url: {
-							type: Scratch.ArgumentType.STRING,
+							type: "string",
 							defaultValue: 'https://cube-enix.github.io/fetch_text.txt'
 						}
 					}
 			},	{
 				opcode: 'parseJSON',
-				blockType: Scratch.BlockType.REPORTER,
+				blockType: "reporter",
 				text: '[PATH] of [JSON_STRING]',
 				arguments: {
 					PATH: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'fruit/apples',
 					},
 					JSON_STRING: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: '{"fruit": {"apples": 2, "bananas": 3}, "total_fruit": 5}',
 					},
 				},
 			}, 	{
 				opcode: 'getComState',
-				blockType: Scratch.BlockType.BOOLEAN,
+				blockType: "boolean",
 				text: 'Connected?',
 			}, 	{
 				opcode: 'getUsernameState',
-				blockType: Scratch.BlockType.BOOLEAN,
+				blockType: "boolean",
 				text: 'Username synced?',
 			}, 	{
 				opcode: 'returnIsNewData',
-				blockType: Scratch.BlockType.BOOLEAN,
+				blockType: "boolean",
 				text: 'Got New [TYPE] Data?',
 				arguments: {
 					TYPE: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						menu: 'datamenu',
 						defaultValue: 'Global',
 					},
 				},
 			}, 	{
 				opcode: 'returnIsNewVarData',
-				blockType: Scratch.BlockType.BOOLEAN,
+				blockType: "boolean",
 				text: 'Got New [TYPE] Var [VAR] Data?',
 				arguments: {
 					VAR: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'Apple',
 					},
 					TYPE: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						menu: 'varmenu',
 						defaultValue: 'Global',
 					},
 				},
 			},      {
 				opcode: 'checkForID',
-				blockType: Scratch.BlockType.BOOLEAN,
+				blockType: "boolean",
 				text: 'ID [ID] Connected?',
 				arguments: {
 					ID: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'testSubject2',
 					},
 				},
 			},      {
 				opcode: 'changeIPFetcher', 
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Get IP address using [url] fetcher',
 				arguments: {
 						url: {
-							type: Scratch.ArgumentType.STRING,
+							type: "string",
 							menu: 'ipfetchers',
 							defaultValue: 'Default'
 						}
 					}
 			},	{
 				opcode: 'openSocket',
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Connect to [IP]',
 				arguments: {
 					IP: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: defIP,
 					},
 				},
 			}, {	
 				opcode: 'openSocketPublicServers',
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Connect to Server [ID]',
 				arguments: {
 					ID: {
-						type: Scratch.ArgumentType.NUMBER,
+						type: "number",
 						defaultValue: '',
 					},
 				},
 			},{	
 				opcode: 'openSocketPublicSubServers',
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Connect to SubServer [ID]',
 				arguments: {
 					ID: {
-						type: Scratch.ArgumentType.NUMBER,
+						type: "number",
 						defaultValue: '',
 					},
 				},
 			}, {
 				opcode: 'closeSocket',
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Disconnect',
 			}, 	{
 				opcode: 'onClose',
-				blockType: Scratch.BlockType.Hat,
+				blockType: "hat",
 				text: 'On Close',
 			},{
 				opcode: 'setMyName',
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Set [NAME] as username',
 				arguments: {
 					NAME: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'testSubject',
 					},
 				},
 			},	{
 				opcode: 'sendGData',
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Send [DATA]',
 				arguments: {
 					DATA: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'Apple',
 					},
 				},
 			}, 	{
 				opcode: 'sendPData',
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Send [DATA] to [ID]',
 				arguments: {
 					DATA: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'Apple',
 					},
 					ID: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'testSubject',
 					},
 				},
 			},  {
 				opcode: 'sendGDataAsVar',
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Send Var [VAR] with Data [DATA]',
 				arguments: {
 					DATA: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'Banana',
 					},
 					VAR: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'Apple',
 					},
 				},
 			},	{
 				opcode: 'sendPDataAsVar',
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Send Var [VAR] to [ID] with Data [DATA]',
 				arguments: {
 					DATA: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'Banana',
 					},
 					ID: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'testSubject',
 					},
 					VAR: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'Apple',
 					},
 				},
 			},	{
 				opcode: 'resetNewData',
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Reset Got New [TYPE] Data',
 				arguments: {
 					TYPE: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						menu: 'datamenu',
 						defaultValue: 'Global',
 					},
 				},
 			},	{
 				opcode: 'resetNewVarData',
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Reset Got New [TYPE] Var [VAR] Data',
 				arguments: {
 					TYPE: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						menu: 'varmenu',
 						defaultValue: 'Global',
 					},
 					VAR: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'Apple',
 					},
 				},
 			}, {
 				opcode: 'runCMD',
-				blockType: Scratch.BlockType.COMMAND,
+				blockType: "command",
 				text: 'Send command [CMD] [ID] [DATA]',
 				arguments: {
 					CMD: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'cmd',
 					},
 					ID: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'id',
 					},
 					DATA: {
-						type: Scratch.ArgumentType.STRING,
+						type: "string",
 						defaultValue: 'val',
 					},
 				},
