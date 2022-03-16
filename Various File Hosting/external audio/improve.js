@@ -1,4 +1,4 @@
-class sn_yt {
+class externalaudio {
   constructor (runtime) {
     this.runtime = runtime;
   }
@@ -64,7 +64,7 @@ class sn_yt {
 }
 
 (function() {
-    var extensionClass = sn_yt;
+    var extensionClass = externalaudio;
     if (typeof window === "undefined" || !window.vm) {
         Scratch.extensions.register(new extensionClass());
 		console.log("Sandboxed mode detected, performance will suffer because of the extension being sandboxed.");
