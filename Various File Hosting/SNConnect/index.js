@@ -99,8 +99,8 @@ try {
 };
 
 
-// CloudLink class for the primary extension.
-class cloudlink {
+// sn-connect class for the primary extension.
+class snc {
 	constructor(runtime, extensionId) {
 		this.runtime = runtime;
 	}
@@ -1093,7 +1093,7 @@ class cloudlink {
 };
 
 (function() {
-    var extensionClass = Networking;
+    var extensionClass = snc;
     if (typeof window === "undefined" || !window.vm) {
         Scratch.extensions.register(new extensionClass());
 		console.log("Sandboxed mode detected, performance will suffer because of the extension being sandboxed.");
