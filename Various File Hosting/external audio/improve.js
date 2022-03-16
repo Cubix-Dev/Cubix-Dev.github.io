@@ -62,3 +62,16 @@ class sn_yt {
     }
   }
 }
+
+(function() {
+    var extensionClass = sn_yt;
+    if (typeof window === "undefined" || !window.vm) {
+        Scratch.extensions.register(new extensionClass());
+		console.log("Sandboxed mode detected, performance will suffer because of the extension being sandboxed.");
+    } else {
+        var extensionInstance = new extensionClass(window.vm.extensionManager.runtime);
+        var serviceName = window.vm.extensionManager._registerInternalExtension(extensionInstance);
+        window.vm.extensionManager._loadedExtensions.set(extensionInstance.getInfo().id, serviceName);
+		console.log("Unsandboxed mode detected. Good.");
+    };
+})()
