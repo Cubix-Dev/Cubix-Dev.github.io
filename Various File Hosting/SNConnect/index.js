@@ -295,6 +295,10 @@ class cloudlink {
 				blockType: Scratch.BlockType.COMMAND,
 				text: 'Disconnect',
 			}, 	{
+				opcode: 'onClose',
+				blockType: Scratch.BlockType.Hat,
+				text: 'On Close',
+			},{
 				opcode: 'setMyName',
 				blockType: Scratch.BlockType.COMMAND,
 				text: 'Set [NAME] as username',
@@ -420,6 +424,14 @@ class cloudlink {
 					items: ['Default'],
 				},
 			}
+		};
+	};
+	onClose() {
+		if (this.close_hat == 0 && !this.isRunning) {
+			this.close_hat = 1;
+			return true;
+		} else {
+			return false;
 		};
 	};
 	returnClientIP() {
@@ -1080,4 +1092,15 @@ class cloudlink {
 	};
 };
 
-Scratch.extensions.register(new cloudlink());
+(function() {
+    var extensionClass = Networking;
+    if (typeof window === "undefined" || !window.vm) {
+        Scratch.extensions.register(new extensionClass());
+		console.log("Sandboxed mode detected, performance will suffer because of the extension being sandboxed.");
+    } else {
+        var extensionInstance = new extensionClass(window.vm.extensionManager.runtime);
+        var serviceName = window.vm.extensionManager._registerInternalExtension(extensionInstance);
+        window.vm.extensionManager._loadedExtensions.set(extensionInstance.getInfo().id, serviceName);
+		console.log("Unsandboxed mode detected. Good.");
+    };
+})()
