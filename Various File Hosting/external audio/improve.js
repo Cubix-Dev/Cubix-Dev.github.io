@@ -44,7 +44,7 @@ class externalaudio {
         }
       ]
     }
-    playaudio({ID}) {
+    playaudio(ID) {
       var inner = function(ID) {
         function iframe(ID) {
           var ifrm = document.createElement("iframe");
