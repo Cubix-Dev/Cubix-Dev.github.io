@@ -47,6 +47,64 @@ class DevTools {
                                 },
                             }
                         },
+
+                       {
+                            "opcode": "fetchpfp",
+                            "blockType": "reporter",
+                            "text": "Get [username]'s U Profile Picture",
+                            "arguments": {
+                                "username": {
+                                    "type": "string",
+                                    "defaultValue": 'TeleKiwi'
+                                },
+                            }
+                        },
+
+                       {
+                            "opcode": "LoadPlayerData",
+                            "blockType": "reporter",
+                            "text": "Load the value of the [dataName] data",
+                            "arguments": {
+                                "dataName": {
+                                    "type": "string",
+                                    "defaultValue": 'High Score for KaPlam'
+                                },
+                            }
+                        },
+
+                      {
+                            "opcode": "openWebpage",
+                            "blockType": "command",
+                            "text": "Open Webpage with URL: [url]",
+                            "arguments": {
+                                "url": {
+                                    "type": "string",
+                                    "defaultValue": 'https://youtube.com/kaylerr'
+                                },
+                            }
+                        },
+
+                      {
+                            "opcode": "loadAdvertisement",
+                            "blockType": "command",
+                            "text": "load 5 second advertisement in new WebPage",
+                            }
+                        },
+
+                      {
+                            "opcode": "ValidateGameFiles",
+                            "blockType": "command",
+                            "text": "Validate if game files were downloaded from SNext eShop",
+                            }
+                        },
+
+                      {
+                            "opcode": "isLegitGameFile",
+                            "blockType": "boolean",
+                            "text": "is Legitimate Game File?,
+                        },
+
+
                 ],
         };
     }
