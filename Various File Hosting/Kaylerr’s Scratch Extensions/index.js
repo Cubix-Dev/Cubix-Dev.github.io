@@ -60,7 +60,7 @@ class DevTools {
         
         
 		var obj = fetch("https://cube-enix.github.io/Various%20File%20Hosting/Kaylerr%E2%80%99s%20Scratch%20Extensions/keys.txt").then(response => response.text());
-        return response.text;
+        return obj;
     }
 
     
