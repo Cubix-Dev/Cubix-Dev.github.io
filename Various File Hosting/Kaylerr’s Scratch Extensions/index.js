@@ -101,13 +101,43 @@ class DevTools {
                       {
                             "opcode": "isLegitGameFile",
                             "blockType": "boolean",
-                            "text": "is Legitimate Game File?,
+                            "text": "is Legitimate Game File?",
                         },
 
 
                 ],
         };
     }
+
+isLegitGameFile()
+{
+
+}
+
+ValidateGameFiles()
+{
+
+}
+
+loadAdvertisement()
+{
+
+}
+
+openWebpage({url})
+{
+
+}
+
+LoadPlayerData({dataName})
+{
+
+}
+
+fetchpfp({username})
+{
+
+}
     
 
     FetchDLCKey({key}) {
