@@ -57,26 +57,10 @@ class DevTools {
         
         //we can check this against the .txt imma create
 
-        function customSplit(str, maxLength){
-            if(str.length <= maxLength)
-                return str;
-            var reg = new RegExp(".{1," + maxLength + "}","g");
-            var parts = str.match(reg);
-            parts.join('\n');
-
-            for (let index = 0; index < parts.length; index++) {
-                if(key == parts[index]) {
-                    return "Key accepted.";
-                } else {
-                    return "finding new key i guess";
-                                }
-                
-            }
-        }
-
         
-		fetch("https://cube-enix.github.io/Various%20File%20Hosting/Kaylerr%E2%80%99s%20Scratch%20Extensions/keys.txt").then(response => response.text())
-customSplit(response.text, 15);
+        
+		var obj = fetch("https://cube-enix.github.io/Various%20File%20Hosting/Kaylerr%E2%80%99s%20Scratch%20Extensions/keys.txt").then(response => response.text());
+        return response.text;
     }
 
     
