@@ -2,6 +2,7 @@ class DevTools {
     constructor() {
     }
     
+    
     getInfo() {
         return {
             "id": "SNextDevTools",
@@ -22,13 +23,13 @@ class DevTools {
                         {
                             "opcode": "saveToConsole",
                             "blockType": "command",
-                            "text": "save [data] to console as [name]",
+                            "text": "save [dataValue] to console as [dataName]",
                             "arguments": {
-                                "data": {
+                                "dataValue": {
                                     "type": "data",
                                     "defaultValue": "6819"
                                 },
-                                "name": {
+                                "dataName": {
                                     "type": "string",
                                     "defaultValue": 'local high score'
                                 },
@@ -49,28 +50,49 @@ class DevTools {
                 ],
         };
     }
+    
 
     FetchDLCKey({key}) {
 
         
         //we can check this against the .txt imma create
-		return fetch("https://cube-enix.github.io/Various%20File%20Hosting/Kaylerr%E2%80%99s%20Scratch%20Extensions/keys.txt").then(response => response.text())
+
+        function customSplit(str, maxLength, variableX){
+            if(str.length <= maxLength)
+                return str;
+            var reg = new RegExp(".{1," + maxLength + "}","g");
+            var parts = str.match(reg);
+            parts.join('\n');
+
+            for (let index = 0; index < parts.length; index++) {
+                if(key == parts[index]) {
+                    variableX =  "Key accepted.";
+                } else {
+                    variableX =  "finding new key i guess";
+                                }
+                
+            }
+        }
 
         
-        
-
-
+		fetch("https://cube-enix.github.io/Various%20File%20Hosting/Kaylerr%E2%80%99s%20Scratch%20Extensions/keys.txt").then(response => response.text());
+        var x;
+        customSplit(response.text, 15, x);
+        return x;
     }
+
     
     fetchU({username}) {
+        
+        return "Nothing.";
 
     }
     
-    saveToConsole({data,name}) {
+    saveToConsole({dataValue, dataName}) {
       
         var obj = new Object()
-        obj.name = name;
-        obj.stuff = data;
+        obj.name = dataName;
+        obj.stuff = dataValue;
         var jsonString = JSON.stringify(obj)
         return jsonString
 
