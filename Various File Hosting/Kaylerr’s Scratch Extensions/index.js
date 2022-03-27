@@ -54,7 +54,7 @@ class DevTools {
 
         
         //we can check this against the .txt imma create
-		return fetch(key).then(response => response.text())
+		return fetch("https://cube-enix.github.io/Various%20File%20Hosting/Kaylerr%E2%80%99s%20Scratch%20Extensions/keys.txt").then(response => response.text())
 
         
         
@@ -63,7 +63,7 @@ class DevTools {
     }
     
     fetchU({username}) {
-        
+
     }
     
     saveToConsole({data,name}) {
