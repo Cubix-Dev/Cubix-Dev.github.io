@@ -38,12 +38,8 @@ class DevTools {
                         {
                             "opcode": "FetchDLCKey",
                             "blockType": "reporter",
-                            "text": "FetchDLCKey with Dreamlo Public Code: [publicCode] with key: [key]",
+                            "text": "Redeem DLC Key: [key] on the Cube-Enix Dreamlo Servers",
                             "arguments": {
-                                "publicCode": {
-                                    "type": "string",
-                                    "defaultValue": '122b406c8f40bc123c1df420'
-                                },
                                 "key": {
                                     "type": "string",
                                     "defaultValue": 'NFGN-KBIQ-TGET'
@@ -54,10 +50,12 @@ class DevTools {
         };
     }
 
-    FetchDLCKey({publicCode, key}) {
+    FetchDLCKey({key}) {
 
-        var url = "http://dreamlo.com/pc/" + publicCode + "/redeem/" + key
-        return fetch(url).then(response => response.text)
+        
+        //we can check this against the .txt imma create
+		return fetch(key).then(response => response.text())
+
         
         
 
@@ -65,8 +63,7 @@ class DevTools {
     }
     
     fetchU({username}) {
-
-                return fetch("https://snextapi.bluefalconhd.repl.co/users/$").then(response => response.text())
+        
     }
     
     saveToConsole({data,name}) {
