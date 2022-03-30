@@ -105,7 +105,7 @@ class DevTools {
 
     openWebpage({url})
     {
-        open(url, '_blank');
+        open("//www.hscripts.com","_blank","height=150");
     }
 
     LoadPlayerData({dataName})
