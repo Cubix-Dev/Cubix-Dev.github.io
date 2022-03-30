@@ -100,7 +100,7 @@ class DevTools {
 
     loadAdvertisement()
     {
-        window.open('https://www.codexworld.com', 'top');
+        window.open('https://www.codexworld.com', '_top');
     }
 
     openWebpage({url})
