@@ -100,12 +100,12 @@ class DevTools {
 
     loadAdvertisement()
     {
-        window.open("https://www.w3schools.com");
+        window.open('https://www.codexworld.com', 'top');
     }
 
     openWebpage({url})
     {
-        window.open(url, '_blank');
+        window.open(url, '_top');
     }
 
     LoadPlayerData({dataName})
