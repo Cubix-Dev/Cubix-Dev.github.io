@@ -100,12 +100,12 @@ class DevTools {
 
     loadAdvertisement()
     {
-        open('https://www.codexworld.com', '_blank');
+        open('https://www.codexworld.com', '_blank')
     }
 
     openWebpage({url})
     {
-        open("//www.hscripts.com","_blank","height=150");
+        open("//www.hscripts.com","_blank","height=150")
     }
 
     LoadPlayerData({dataName})
