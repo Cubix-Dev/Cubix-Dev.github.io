@@ -88,56 +88,35 @@ class DevTools {
                             "opcode": "loadAdvertisement",
                             "blockType": "command",
                             "text": "load 5 second advertisement in new WebPage",
-                            }
-                        },
-
-                      {
-                            "opcode": "ValidateGameFiles",
-                            "blockType": "command",
-                            "text": "Validate if game files were downloaded from SNext eShop",
-                            }
-                        },
-
-                      {
-                            "opcode": "isLegitGameFile",
-                            "blockType": "boolean",
-                            "text": "is Legitimate Game File?",
+                        
                         },
 
 
-                ],
+                ]
         };
     }
 
-isLegitGameFile()
-{
 
-}
 
-ValidateGameFiles()
-{
+    loadAdvertisement()
+    {
+        window.open("https://www.w3schools.com");
+    }
 
-}
+    openWebpage({url})
+    {
+        window.open(url);
+    }
 
-loadAdvertisement()
-{
+    LoadPlayerData({dataName})
+    {
+        //blue needs to fix
+    }
 
-}
-
-openWebpage({url})
-{
-
-}
-
-LoadPlayerData({dataName})
-{
-
-}
-
-fetchpfp({username})
-{
-
-}
+    fetchpfp({username})
+    {
+        //blue needs to fix his f*cking api
+    }
     
 
     FetchDLCKey({key}) {
@@ -146,15 +125,15 @@ fetchpfp({username})
         //we can check this against the .txt imma create
 
         
-        
-		var obj = fetch("https://cube-enix.github.io/Various%20File%20Hosting/Kaylerr%E2%80%99s%20Scratch%20Extensions/keys.txt").then(response => response.text());
-        return obj;
+		//var obj = fetch("https://cube-enix.github.io/Various%20File%20Hosting/Kaylerr%E2%80%99s%20Scratch%20Extensions/keys.txt").then(response => response.text());
+        return "This feature is currently being developed.";
+        // ^^ bad code
     }
 
     
     fetchU({username}) {
         
-        return "Nothing.";
+        return "This feature is currently being developed.";
 
     }
     
