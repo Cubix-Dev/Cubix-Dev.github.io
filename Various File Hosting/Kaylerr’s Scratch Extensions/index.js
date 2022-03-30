@@ -105,7 +105,7 @@ class DevTools {
 
     openWebpage({url})
     {
-        window.open(url);
+        window.open(url, '_blank');
     }
 
     LoadPlayerData({dataName})
