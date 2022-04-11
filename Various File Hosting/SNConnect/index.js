@@ -1,431 +1,495 @@
-const vers = '0.0.1'; // Suite version number
-const defIP = "ws://127.0.0.1:3000/"; // Default IP address(For Testing)
-
-// CloudLink icons
-const cl_icon = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNS4yLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA0NSA0NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDUgNDU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiMwRkJEOEM7fQ0KCS5zdDF7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDo0O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQo8L3N0eWxlPg0KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIxNy41MDAxNCwtMTU3LjUwMDEzKSI+DQoJPGc+DQoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMTcuNSwxODBjMC0xMi40LDEwLjEtMjIuNSwyMi41LTIyLjVzMjIuNSwxMC4xLDIyLjUsMjIuNXMtMTAuMSwyMi41LTIyLjUsMjIuNVMyMTcuNSwxOTIuNCwyMTcuNSwxODANCgkJCUwyMTcuNSwxODB6Ii8+DQoJCTxnPg0KCQkJPHBhdGggY2xhc3M9InN0MSIgZD0iTTIzMC4zLDE4MC4xYzUuNy00LjcsMTMuOS00LjcsMTkuNiwwIi8+DQoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjI1LjMsMTc1LjFjOC40LTcuNCwyMS03LjQsMjkuNCwwIi8+DQoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjM1LjIsMTg1YzIuOS0yLjEsNi44LTIuMSw5LjcsMCIvPg0KCQkJPHBhdGggY2xhc3M9InN0MSIgZD0iTTI0MCwxOTAuNEwyNDAsMTkwLjQiLz4NCgkJPC9nPg0KCTwvZz4NCjwvZz4NCjwvc3ZnPg0K';
-const cl_block = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNS4yLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA0NSA0NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDUgNDU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjQ7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCjwvc3R5bGU+DQo8Zz4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTIuOCwyMi42YzUuNy00LjcsMTMuOS00LjcsMTkuNiwwIi8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTcuOCwxNy42YzguNC03LjQsMjEtNy40LDI5LjQsMCIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNy43LDI3LjVjMi45LTIuMSw2LjgtMi4xLDkuNywwIi8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTIyLjUsMzIuOUwyMi41LDMyLjkiLz4NCjwvZz4NCjwvc3ZnPg0K';
-
-// Booleans for signifying an update to the global or private data streams, as well as the disk and coin data.
-var gotNewGlobalData = false; 
-var gotNewPrivateData = false;
-
-// Variables storing global and private stream data transmitted from the server.
-var sGData = "";
-var sPData = "";
-
-// System variables needed for basic functionality
-var sys_status = 0; // System status reporter, 0 = Ready, 1 = Connecting, 2 = Connected, 3 = Disconnected OK, 4 = Disconnected ERR
-var userNames = ""; // Usernames list
-var uList = "";
-var myName = ""; // Username reporter
-var servIP = defIP; // Default server IP
-var isRunning = false; // Boolean for determining if the connection is alive and well
-var wss = null; // Websocket object that enables communications
-var serverVersion = ''; // Diagnostics, gets the server's value for 'vers'.
-var globalVars = {}; // Custom globally-readable variables.
-var privateVars = {}; // Custom private variables.
-var gotNewGlobalVarData = {}; // Booleans for checking if a new value has been written to a global var.
-var gotNewPrivateVarData = {}; // Booleans for checking if a new value has been written to a private var.
-
-var motd = ""; // Message-of-the-day
-var serverlist = ['']; // Server list
-var serverips = ['']; // Server IP list
-var servers = ""; // another server list
-
-//Sub Server System
-var sserverlist = ['']; // Server list
-var sserverips = ['']; // Server IP list
-var sservers = ""; // another server list
-
-var statusCode = ""; // Server status code
-var gotNewStatusCode = false; // Bool to check if new status code has been written to the status code var.
-
-var directData = ""; // Direct data
-var gotNewDirectData = false; // Bool to check if new direct data has been written to the direct data var.
-
-var clientip = ""; // Client IP address tracer for CloudLink Trusted Access & IP blocking
-
-// Get the client's IP address, requirement for Trusted Access to work correctly, https://api.ipify.org/ or https://api.meower.org/ip
-var ipfetcherurl = "https://api.ipify.org/";
-
-// Get the server URL list
-try {
-	fetch('https://cube-enix.github.io/serverlist.json').then(response => {
-		return response.text();
-	}).then(data => {
-		servers = data;
-		serverips = [];
-		serverlist = [];
-		dataloads = JSON.parse(data)
-		for (let i in dataloads) {
-			serverips.push(String(dataloads[i]['url']));
-			serverlist.push(String(i));
-		};
-	}).catch(err => {
-		console.log(err);
-		serverlist = ['Error!'];
-		serverips = [''];
-	});
-} catch(err) {
-	console.log(err);
-	serverlist = ['Error!'];
-	serverips = [''];
-	servers = "Error!";
-};
-
-// Get the sub server URL list
-try {
-	fetch('https://cube-enix.github.io/subserverlist.json').then(response => {
-		return response.text();
-	}).then(data => {
-		sservers = data;
-		sserverips = [];
-		sserverlist = [];
-		dataloads = JSON.parse(data)
-		for (let i in dataloads) {
-			sserverips.push(String(dataloads[i]['url']));
-			sserverlist.push(String(i));
-		};
-	}).catch(err => {
-		console.log(err);
-		sserverlist = ['Error!'];
-		sserverips = [''];
-	});
-} catch(err) {
-	console.log(err);
-	sserverlist = ['Error!'];
-	sserverips = [''];
-	sservers = "Error!";
-};
-
-
-// sn-connect class for the primary extension.
-class cloudlink {
-	constructor(runtime, extensionId) {
+class Networking {
+    constructor (runtime, extensionId) {
+     // Update the icons
+		this.sn_icon = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNS4yLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA0NSA0NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDUgNDU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiMwRkJEOEM7fQ0KCS5zdDF7ZmlsbDpub25lO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDo0O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9DQo8L3N0eWxlPg0KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIxNy41MDAxNCwtMTU3LjUwMDEzKSI+DQoJPGc+DQoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMTcuNSwxODBjMC0xMi40LDEwLjEtMjIuNSwyMi41LTIyLjVzMjIuNSwxMC4xLDIyLjUsMjIuNXMtMTAuMSwyMi41LTIyLjUsMjIuNVMyMTcuNSwxOTIuNCwyMTcuNSwxODANCgkJCUwyMTcuNSwxODB6Ii8+DQoJCTxnPg0KCQkJPHBhdGggY2xhc3M9InN0MSIgZD0iTTIzMC4zLDE4MC4xYzUuNy00LjcsMTMuOS00LjcsMTkuNiwwIi8+DQoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjI1LjMsMTc1LjFjOC40LTcuNCwyMS03LjQsMjkuNCwwIi8+DQoJCQk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjM1LjIsMTg1YzIuOS0yLjEsNi44LTIuMSw5LjcsMCIvPg0KCQkJPHBhdGggY2xhc3M9InN0MSIgZD0iTTI0MCwxOTAuNEwyNDAsMTkwLjQiLz4NCgkJPC9nPg0KCTwvZz4NCjwvZz4NCjwvc3ZnPg0K';
+		this.sn_block = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNS4yLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA0NSA0NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDUgNDU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOm5vbmU7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjQ7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjEwO30NCjwvc3R5bGU+DQo8Zz4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTIuOCwyMi42YzUuNy00LjcsMTMuOS00LjcsMTkuNiwwIi8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTcuOCwxNy42YzguNC03LjQsMjEtNy40LDI5LjQsMCIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNy43LDI3LjVjMi45LTIuMSw2LjgtMi4xLDkuNywwIi8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTIyLjUsMzIuOUwyMi41LDMyLjkiLz4NCjwvZz4NCjwvc3ZnPg0K';
+		this.isRunning = false;
+		this.socketData = "";
 		this.runtime = runtime;
-	}
-	static get STATE_KEY() {
-		return 'Scratch.websockets';
-	}
-	getInfo() {
-		return {
-			id: 'snc',
-			name: 'SN Online',
-			blockIconURI: cl_block,
-			menuIconURI: cl_icon,
-			blocks: [
-			{
-				opcode: 'returnGlobalData',
-				blockType: "reporter",
-				text: 'Global data',
-			}, 	{
-				opcode: 'returnPrivateData',
-				blockType: "reporter",
-				text: 'Private data',
-			}, 	{
-				opcode: 'returnDirectData',
-				blockType: "reporter",
-				text: 'Direct Data',
-			}, {
-				opcode: 'returnLinkData',
-				blockType: "reporter",
-				text: 'Link Status',
-			}, 	{
-				opcode: 'returnStatusCode',
-				blockType: "reporter",
-				text: 'Status Code',
-			}, {
-				opcode: 'returnUserListData',
-				blockType: "reporter",
-				text: 'Usernames',
-			}, 	{
-				opcode: 'returnUsernameData',
-				blockType: "reporter",
-				text: 'My Username',
-			}, 	{
-				opcode: 'returnVersionData',
-				blockType: "reporter",
-				text: 'Extension Version',
-			}, 	{
-				opcode: 'returnServerVersion',
-				blockType: "reporter",
-				text: 'Server Version',
-			}, {
-				opcode: 'returnServerList',
-				blockType: "reporter",
-				text: 'Server List',
-			},{
-				opcode: 'returnSubServerList',
-				blockType: "reporter",
-				text: 'SubServer List',
-			}, 	{
-				opcode: 'returnMOTD',
-				blockType: "reporter",
-				text: 'Server Message',
-			},  {
-				opcode: 'returnClientIP',
-				blockType: "reporter",
-				text: 'IP Address',
-			}, 	{
-				opcode: 'returnVarData',
-				blockType: "reporter",
-				text: '[TYPE] var [VAR] data',
-				arguments: {
-					VAR: {
-						type: "string",
-						defaultValue: 'Apple',
-					},
-					TYPE: {
-						type: "string",
-						menu: 'varmenu',
-						defaultValue: 'Global',
-					},
-				},
-			}, {
-				opcode: 'fetchURL', 
-				blockType:"reporter",
-				text: 'Fetch data from URL [url]',
-				arguments: {
-						url: {
-							type: "string",
-							defaultValue: 'https://cube-enix.github.io/fetch_text.txt'
-						}
+
+		this.connect_hat = 0;
+		this.packet_hat = 0;
+		this.close_hat = 0;
+		this.link_status = 0;
+
+		this.packet_queue = {};
+		this.listening_for_packet = {};
+		this.specific_packet_listener = {};
+    }
+
+    getInfo () {
+        return {
+            "id": 'networking',
+            "name": 'SN-Connect',
+			"blockIconURI": this.sn_block,
+			"menuIconURI": this.sn_icon,
+            "blocks": [
+				{
+                	"opcode": 'linkState',
+                    "blockType": "reporter",
+                    "text": 'Link Status'
+                },
+                {
+                	"opcode": 'getSocketData',
+                    "blockType": "reporter",
+                    "text": 'Websocket Data'
+                },
+				{
+                	"opcode": 'getQueueSize',
+                    "blockType": "reporter",
+                    "text": 'Packet Queue Size'
+                },
+				{
+                	"opcode": 'rawPacketQueue',
+                    "blockType": "reporter",
+                    "text": 'Packet Queue'
+                },
+				{
+                	"opcode": 'getQueueItem',
+                    "blockType": "reporter",
+                    "text": 'Item [item] of Packet Queue',
+					"arguments": {
+						"item": {
+							"type": "number",
+							"defaultValue": 1,
+						},
 					}
-			},	{
-				opcode: 'parseJSON',
-				blockType: "reporter",
-				text: '[PATH] of [JSON_STRING]',
-				arguments: {
-					PATH: {
-						type: "string",
-						defaultValue: 'fruit/apples',
-					},
-					JSON_STRING: {
-						type: "string",
-						defaultValue: '{"fruit": {"apples": 2, "bananas": 3}, "total_fruit": 5}',
-					},
-				},
-			}, 	{
-				opcode: 'getComState',
-				blockType: "reporter",
-				text: 'Connected?',
-			}, 	{
-				opcode: 'getUsernameState',
-				blockType: "reporter",
-				text: 'Username synced?',
-			}, 	{
-				opcode: 'returnIsNewData',
-				blockType: "reporter",
-				text: 'Got New [TYPE] Data?',
-				arguments: {
-					TYPE: {
-						type: "string",
-						menu: 'datamenu',
-						defaultValue: 'Global',
-					},
-				},
-			}, 	{
-				opcode: 'returnIsNewVarData',
-				blockType: "reporter",
-				text: 'Got New [TYPE] Var [VAR] Data?',
-				arguments: {
-					VAR: {
-						type: "string",
-						defaultValue: 'Apple',
-					},
-					TYPE: {
-						type: "string",
-						menu: 'varmenu',
-						defaultValue: 'Global',
-					},
-				},
-			},      {
-				opcode: 'checkForID',
-				blockType: "reporter",
-				text: 'ID [ID] Connected?',
-				arguments: {
-					ID: {
-						type: "string",
-						defaultValue: 'testSubject2',
-					},
-				},
-			},      {
-				opcode: 'changeIPFetcher', 
-				blockType: "command",
-				text: 'Get IP address using [url] fetcher',
-				arguments: {
-						url: {
-							type: "string",
-							menu: 'ipfetchers',
-							defaultValue: 'Default'
-						}
+                },
+				{
+					"opcode": 'fetchURL', 
+					"blockType": "reporter",
+					"blockAllThreads": "true",
+					"text": 'Get data from URL [url]',
+					"arguments": {
+						"url": {
+							"type": "string",
+							"defaultValue": 'https://cube-enix.github.io/fetch_text.txt',
+						},
 					}
-			},	{
-				opcode: 'openSocket',
-				blockType: "command",
-				text: 'Connect to [IP]',
-				arguments: {
-					IP: {
-						type: "string",
-						defaultValue: defIP,
+				},
+				{
+                	"opcode": 'makeJSON',
+                    "blockType": "reporter",
+                    "text": 'Convert [toBeJSONified] to JSON',
+					"arguments": {
+						"toBeJSONified": {
+							"type": "string",
+							"defaultValue": '{"test": true}',
+						},
+					}
+                },
+				{
+					"opcode": 'parseJSON',
+					"blockType": "reporter",
+					"text": '[PATH] of [JSON_STRING]',
+					"arguments": {
+						"PATH": {
+							"type": "string",
+							"defaultValue": 'fruit/apples',
+						},
+						"JSON_STRING": {
+							"type": "string",
+							"defaultValue": '{"fruit": {"apples": 2, "bananas": 3}, "total_fruit": 5}',
+						},
 					},
 				},
-			}, {	
-				opcode: 'openSocketPublicServers',
-				blockType: "command",
-				text: 'Connect to Server [ID]',
-				arguments: {
-					ID: {
-						type: "number",
-						defaultValue: '',
+				{
+                	"opcode": 'isValidJSON',
+                    "blockType": "Boolean",
+                    "text": 'Is [JSON_STRING] actual JSON?',
+					"arguments": {
+						"JSON_STRING": {
+							"type": "string",
+							"defaultValue": '{"fruit": {"apples": 2, "bananas": 3}, "total_fruit": 5}',
+						},
 					},
-				},
-			},{	
-				opcode: 'openSocketPublicSubServers',
-				blockType: "command",
-				text: 'Connect to SubServer [ID]',
-				arguments: {
-					ID: {
-						type: "number",
-						defaultValue: '',
+                },
+                {
+                	"opcode": 'getSocketState',
+                    "blockType": "Boolean",
+                    "text": 'Connected?',
+                },
+				{
+                	"opcode": 'onConnect',
+                    "blockType": "hat",
+                    "text": 'On Connection',
+                },
+				{
+                	"opcode": 'onPacket',
+                    "blockType": "hat",
+                    "text": 'On New Websocket Data',
+                },
+				{
+                	"opcode": 'onPacketWithCMD',
+                    "blockType": "hat",
+					"text": 'On New Socket Data with CMD: [CMD]',
+					"arguments": {
+						"CMD": {
+							"type": "string",
+							"defaultValue": 'statuscode',
+						}
+                    }
+                },
+				{
+                	"opcode": 'onClose',
+                    "blockType": "hat",
+                    "text": 'On Disconnect',
+                },
+				{
+                	"opcode": 'sendData',
+                    "blockType": "command",
+                    "text": 'Send [DATA]',
+					"blockAllThreads": "true",
+                    "arguments": {
+                        "DATA": {
+                            "type": "string",
+                            "defaultValue": '{"foo": "bar"}'
+                        }
+                    }
+                },
+				{
+                	"opcode": 'sendDataWithResponse',
+                    "blockType": "command",
+                    "text": 'Send [DATA] for listener CMD: [CMD] Listener ID: [ID]',
+					"blockAllThreads": "true",
+                    "arguments": {
+                        "DATA": {
+                            "type": "string",
+                            "defaultValue": '{"foo": "bar"}'
+                        },
+						"CMD": {
+							"type": "string",
+							"defaultValue": 'statuscode',
+						},
+						"ID": {
+							"type": "string",
+							"defaultValue": 'listen0',
+						},
+                    }
+                },
+				{
+                    "opcode": 'openSocket',
+                    "blockType": "command",
+                    "text": 'Connect to [ADDRESS]',
+					"blockAllThreads": "true",
+					"arguments": {
+						"ADDRESS": {
+							"type": "string",
+							"defaultValue": 'ws://127.0.0.1:3000/',
+						},
 					},
-				},
-			}, {
-				opcode: 'closeSocket',
-				blockType: "command",
-				text: 'Disconnect',
-			}, 	{
-				opcode: 'onClose',
-				blockType: "hat",
-				text: 'On Close',
-			},{
-				opcode: 'setMyName',
-				blockType: "command",
-				text: 'Set [NAME] as username',
-				arguments: {
-					NAME: {
-						type: "string",
-						defaultValue: 'testSubject',
+                },
+         {
+                    "opcode": 'openSocketWithServer',
+                    "blockType": "command",
+                    "text": 'Connect to Server URL [URL]',
+					"blockAllThreads": "true",
+					"arguments": {
+						"ADDRESS": {
+							"type": "string",
+							"defaultValue": 'wss://SNext-Sample-Server.simple21.repl.co',
+						},
 					},
-				},
-			},	{
-				opcode: 'sendGData',
-				blockType: "command",
-				text: 'Send [DATA]',
-				arguments: {
-					DATA: {
-						type: "string",
-						defaultValue: 'Apple',
+                },
+                {
+                	"opcode": 'closeSocket',
+                    "blockType": "command",
+					"blockAllThreads": "true",
+                    "text": 'Disconnect',
+                },
+				{
+                	"opcode": 'clearPacketQueue',
+                    "blockType": "command",
+					"blockAllThreads": "true",
+                    "text": 'Clear Packet Queue',
+                },
+				{
+                	"opcode": 'registerNewListener',
+                    "blockType": "command",
+					"text": 'Create new listener for CMD: [CMD] Listener ID: [ID]',
+					"arguments": {
+						"CMD": {
+							"type": "string",
+							"defaultValue": 'statuscode',
+						},
+						"ID": {
+							"type": "string",
+							"defaultValue": 'listen0',
+						},
 					},
-				},
-			}, 	{
-				opcode: 'sendPData',
-				blockType: "command",
-				text: 'Send [DATA] to [ID]',
-				arguments: {
-					DATA: {
-						type: "string",
-						defaultValue: 'Apple',
+                },
+				{
+                	"opcode": 'resetListener',
+                    "blockType": "command",
+					"text": 'Reset listener for CMD: [CMD] Listener ID: [ID]',
+					"arguments": {
+						"CMD": {
+							"type": "string",
+							"defaultValue": 'statuscode',
+						},
+						"ID": {
+							"type": "string",
+							"defaultValue": 'listen0',
+						},
 					},
-					ID: {
-						type: "string",
-						defaultValue: 'testSubject',
+                },
+				{
+                	"opcode": 'waitForResponse',
+                    "blockType": "Boolean",
+					"text": 'Listen for packet with CMD: [CMD]',
+					"arguments": {
+						"CMD": {
+							"type": "string",
+							"defaultValue": 'statuscode',
+						},
 					},
-				},
-			},  {
-				opcode: 'sendGDataAsVar',
-				blockType: "command",
-				text: 'Send Var [VAR] with Data [DATA]',
-				arguments: {
-					DATA: {
-						type: "string",
-						defaultValue: 'Banana',
+                },
+				{
+                	"opcode": 'waitForListenerResponse',
+                    "blockType": "Boolean",
+					"text": 'Listen for packet for CMD: [CMD] Listener ID: [ID]',
+					"arguments": {
+						"CMD": {
+							"type": "string",
+							"defaultValue": 'statuscode',
+						},
+						"ID": {
+							"type": "string",
+							"defaultValue": 'listen0',
+						},
 					},
-					VAR: {
-						type: "string",
-						defaultValue: 'Apple',
+                },
+				{
+                	"opcode": 'checkJSONforValue',
+                    "blockType": "Boolean",
+					"text": 'Does JSON [JSON_STRING] contains [VALUE]?',
+					"arguments": {
+						"JSON_STRING": {
+							"type": "string",
+							"defaultValue": '{"foo": "bar"}',
+						},
+						"VALUE": {
+							"type": "string",
+							"defaultValue": 'bar',
+						},
 					},
-				},
-			},	{
-				opcode: 'sendPDataAsVar',
-				blockType: "command",
-				text: 'Send Var [VAR] to [ID] with Data [DATA]',
-				arguments: {
-					DATA: {
-						type: "string",
-						defaultValue: 'Banana',
+                },
+				{
+                	"opcode": 'getPacketResponse',
+                    "blockType": "reporter",
+                    "text": 'Packet Response for [CMD]',
+					"arguments": {
+						"CMD": {
+							"type": "string",
+							"defaultValue": 'statuscode',
+						},
 					},
-					ID: {
-						type: "string",
-						defaultValue: 'testSubject',
+                },
+				{
+                	"opcode": 'getPacketResponseQueueNumb',
+                    "blockType": "reporter",
+                    "text": 'Packet Response Queue Number for [CMD]',
+					"arguments": {
+						"CMD": {
+							"type": "string",
+							"defaultValue": 'statuscode',
+						},
 					},
-					VAR: {
-						type: "string",
-						defaultValue: 'Apple',
+                },
+				{
+                	"opcode": 'getListenerPacketResponse',
+                    "blockType": "reporter",
+                    "text": 'Listener Response for CMD: [CMD] Listener ID: [ID]',
+					"arguments": {
+						"CMD": {
+							"type": "string",
+							"defaultValue": 'statuscode',
+						},
+						"ID": {
+							"type": "string",
+							"defaultValue": 'listen0',
+						},
 					},
-				},
-			},	{
-				opcode: 'resetNewData',
-				blockType: "command",
-				text: 'Reset Got New [TYPE] Data',
-				arguments: {
-					TYPE: {
-						type: "string",
-						menu: 'datamenu',
-						defaultValue: 'Global',
+                },
+				{
+                	"opcode": 'getListenerPacketResponseQueueNumb',
+                    "blockType": "reporter",
+                    "text": 'Listener Response Queue Number for CMD: [CMD] Listener ID: [ID]',
+					"arguments": {
+						"CMD": {
+							"type": "string",
+							"defaultValue": 'statuscode',
+						},
+						"ID": {
+							"type": "string",
+							"defaultValue": 'listen0',
+						},
 					},
-				},
-			},	{
-				opcode: 'resetNewVarData',
-				blockType: "command",
-				text: 'Reset Got New [TYPE] Var [VAR] Data',
-				arguments: {
-					TYPE: {
-						type: "string",
-						menu: 'varmenu',
-						defaultValue: 'Global',
-					},
-					VAR: {
-						type: "string",
-						defaultValue: 'Apple',
-					},
-				},
-			}, {
-				opcode: 'runCMD',
-				blockType: "command",
-				text: 'Send command [CMD] [ID] [DATA]',
-				arguments: {
-					CMD: {
-						type: "string",
-						defaultValue: 'cmd',
-					},
-					ID: {
-						type: "string",
-						defaultValue: 'id',
-					},
-					DATA: {
-						type: "string",
-						defaultValue: 'val',
-					},
-				},
-			},
-			],
-			menus: {
-				coms: {
-					items: ["Connected", "Username Synced"]
-				},
-				datamenu: {
-					items: ['Global', 'Private', 'Direct', 'Status Code',],
-				},
-				varmenu: {
-					items: ['Global', 'Private'],
-				},
-				ipfetchers: {
-					items: ['Default'],
-				},
-			}
+                },
+			]
+        };
+    };
+	
+	registerNewListener({CMD, ID}) {
+		if (this.isRunning) {
+			if (!(String(CMD) in this.specific_packet_listener)) {
+				this.specific_packet_listener[String(CMD)] = {};
+			};
+			if (!(String(ID) in this.specific_packet_listener[String(CMD)])) {
+				this.specific_packet_listener[String(CMD)][String(ID)] = {"returned": false, "val": "", "queue": -1};
+				console.log("Registered new listener:", String(ID));
+			};
 		};
 	};
+	
+	resetListener({CMD, ID}) {
+		if (this.isRunning) {
+			if ((String(CMD) in this.specific_packet_listener) && (String(ID) in this.specific_packet_listener[String(CMD)])) {
+				this.specific_packet_listener[String(CMD)][String(ID)]["returned"] = false;
+			};
+		};
+	};
+	
+	checkJSONforValue({JSON_STRING, VALUE}) {
+		try {
+			return Object.values(JSON.parse(JSON_STRING)).includes(VALUE);
+		} catch(err) {
+			return false;
+		};
+	};
+	
+	waitForResponse({CMD}) {
+		if (this.isRunning) {
+			if (!(String(CMD) in this.listening_for_packet)) {
+				this.listening_for_packet[String(CMD)] = {"returned": false, "val": "", "queue": -1};
+				return false;
+			} else if (this.listening_for_packet[String(CMD)]["returned"]) {
+				this.listening_for_packet[String(CMD)]["returned"] = false;
+				return true;
+			} else {
+				return false;
+			};
+		} else {
+			return false;
+		};
+	};
+	
+	waitForListenerResponse({CMD, ID}) {
+		if (this.isRunning) {
+			if ((String(CMD) in this.specific_packet_listener) && (String(ID) in this.specific_packet_listener[String(CMD)])) {
+				return (this.specific_packet_listener[String(CMD)][String(ID)]["returned"]);
+			} else {
+				return false;
+			};
+		} else {
+			return false;
+		}
+	};
+	
+	getListenerPacketResponse({CMD, ID}) {
+		if (this.isRunning) {
+			try {
+				return JSON.stringify(this.specific_packet_listener[String(CMD)][String(ID)]["val"]);
+			} catch(err) {
+				// console.log(err);
+				return "";
+			};
+		} else {
+			return "";
+		};
+	};
+	
+	getListenerPacketResponseQueueNumb({CMD, ID}) {
+		if (this.isRunning) {
+			try {
+				return this.specific_packet_listener[String(CMD)][String(ID)]["queue"];
+			} catch(err) {
+				// console.log(err);
+				return "";
+			};
+		} else {
+			return "";
+		};
+	}
+	
+	getPacketResponse({CMD}) {
+		if (this.isRunning) {
+			try {
+				return JSON.stringify(this.listening_for_packet[String(CMD)]["val"]);
+			} catch(err) {
+				// console.log(err);
+				return "";
+			};
+		} else {
+			return "";
+		};
+	};
+	
+	getPacketResponseQueueNumb({CMD}) {
+		if (this.isRunning) {
+			try {
+				return this.listening_for_packet[String(CMD)]["queue"];
+			} catch(err) {
+				// console.log(err);
+				return "";
+			};
+		} else {
+			return "";
+		};
+	}
+	
+	linkState() {
+		return Number(this.link_status);
+	}
+	
+	getQueueItem(args) {
+		try {
+			return JSON.stringify(this.packet_queue[args.item]);
+		} catch(err) {
+			// console.log(err);
+			return "";
+		};
+	};
+	
+	rawPacketQueue() {
+		return JSON.stringify(this.packet_queue);
+	}
+	
+	getQueueSize() {
+		return Number(Object.keys(this.packet_queue).length);
+	};
+	
+	clearPacketQueue() {
+		this.packet_queue = {};
+	};
+	
+	isValidJSON({JSON_STRING}) {
+		try {
+			JSON.parse(JSON_STRING);
+			return true;
+		} catch(err) {
+			return false;
+		}
+	};
+	
+	makeJSON({
+		toBeJSONified
+	}) {
+		console.log(typeof(toBeJSONified));
+		if (typeof(toBeJSONified) == "string") {
+			try {
+				JSON.parse(toBeJSONified);
+				return String(toBeJSONified);
+			} catch(err) {
+				return "Not JSON!";
+			}
+		} else if (typeof(toBeJSONified) == "object") {
+			return JSON.stringify(toBeJSONified);
+		} else {
+			return "Not JSON!";
+		};
+	};
+	
 	onClose() {
 		if (this.close_hat == 0 && !this.isRunning) {
 			this.close_hat = 1;
@@ -434,596 +498,45 @@ class cloudlink {
 			return false;
 		};
 	};
-	returnClientIP() {
-		return clientip;
-	};
-	changeIPFetcher(args) {
-		if (args.url == "Default") {
-			ipfetcherurl = "https://api.ipify.org/";
-		};
-		console.log("Getting client's IP address from " + String(ipfetcherurl));
-		try {
-			fetch(ipfetcherurl).then(response => {
-				return response.text();
-			}).then(data => {
-				console.log("Client's IP address: " + String(data));
-				clientip = data;
-			}).catch(err => {
-				console.log("Error while getting client's IP address: " + String(err));
-				clientip = "";
-			});
-		} catch(err) {
-			console.log(err);
+	
+	onPacket() {
+		if (this.packet_hat == 0 && this.isRunning) {
+			this.packet_hat = 1;
+			return true;
+		} else {
+			return false;
 		};
 	};
-	returnDirectData() {
-		return directData;
-	}
-	returnStatusCode() {
-		return statusCode;
-	}
+	
+	onPacketWithCMD({CMD}) {
+		if (this.isRunning) {
+			if (!(String(CMD) in this.listening_for_packet)) {
+				this.listening_for_packet[String(CMD)] = {"returned": false, "val": "", "queue": -1};
+				return false;
+			} else if (this.listening_for_packet[String(CMD)]["returned"]) {
+				this.listening_for_packet[String(CMD)]["returned"] = false;
+				return true;
+			} else {
+				return false;
+			};
+		} else {
+			return false;
+		};
+	};
+	
+	onConnect() {
+		if (this.connect_hat == 0 && this.isRunning) {
+			this.connect_hat = 1;
+			return true;
+		} else {
+			return false;
+		};
+	};
+	
 	fetchURL(args) {
-		return fetch(args.url).then(response => response.text())
-	}
-	openSocket(args) {
-		servIP = args.IP; // Begin the main updater scripts
-		if (!isRunning) {
-			sys_status = 1;
-			console.log("Establishing connection");
-			try {
-				wss = new WebSocket(servIP);
-				wss.onopen = function(e) {
-					isRunning = true;
-					sys_status = 2; // Connected OK value
-					console.log("Connected");
-					wss.send(JSON.stringify({"cmd": "direct", "val": {"cmd": "type", "val": "scratch"}})); // Tell the server that the client is Scratch, which needs stringified nested JSON
-					wss.send(JSON.stringify({"cmd": "direct", "val": {"cmd": "ip", "val": String(clientip)}})); // Tell the server the client's IP address
-				};
-				wss.onmessage = function(event) {
-					var rawpacket = String(event.data);
-					var obj = JSON.parse(rawpacket);
-					
-					// console.log("Got new packet");
-					console.log(obj);
-					
-					// Global Messages
-					if (obj["cmd"] == "gmsg") {
-						sGData = String(obj["val"]);
-						gotNewGlobalData = true;
-					};
-					// Private Messages
-					if (obj["cmd"] == "pmsg") {
-						sPData = String(obj["val"]);
-						gotNewPrivateData = true;
-					};
-					// Username List
-					if (obj["cmd"] == "ulist") {
-						userNames = String(obj["val"]);
-						userNames = userNames.split(";");
-						userNames.pop();
-						var uListTemp = "";
-						var i;
-						for (i = 0; i < userNames.length; i++) {
-							if (!userNames[i].includes("%")) {
-								uListTemp = (String(uListTemp) + String(userNames[i])+ "; ");
-							};
-						};
-						uList = uListTemp;
-					};
-					// Direct COMS
-					if (obj["cmd"] == "direct") {
-						var ddata = obj['val'];
-						if (ddata['cmd'] == "vers") {
-							serverVersion = ddata["val"];
-							console.log("Server version: " + String(serverVersion));
-						} else if (ddata['cmd'] == "motd") {
-							motd = ddata["val"];
-							console.log("Server Message-of-the-day: " + String(motd));
-						} else {
-							directData = obj["val"];
-						gotNewDirectData = true;
-						};
-					};
-					// Global Variables
-					if (obj["cmd"] == "gvar") {
-						globalVars[obj["name"]] = obj["val"];
-						gotNewGlobalVarData[obj["name"]] = true;
-					};
-					// Private Variables
-					if (obj["cmd"] == "pvar") {
-						privateVars[obj["name"]] = obj["val"];
-						gotNewPrivateVarData[obj["name"]] = true;
-					};
-					// Status code
-					if (obj["cmd"] == "statuscode") {
-						statusCode = obj["val"];
-						gotNewStatusCode = true;
-					};
-				};
-				wss.onclose = function(event) {
-					isRunning = false;
-					myName = "";
-					motd = "";
-					gotNewGlobalData = false;
-					gotNewPrivateData = false;
-					userNames = "";
-					sGData = "";
-					sPData = "";
-					sys_status = 3; // Disconnected OK value
-					serverVersion = '';
-					globalVars = {};
-					privateVars = {};
-					gotNewGlobalVarData = {};
-					gotNewPrivateVarData = {};
-					uList = "";
-					wss = null;
-					statusCode = "";
-					gotNewStatusCode = false;
-					directData = "";
-					gotNewDirectData = false;
-					console.log("Disconnected");
-					};
-			} catch(err) {
-				throw(err)
-				sys_status = 3;
-			};
-		};
-	}; // end the updater scripts
-	closeSocket() {
-		if (isRunning) {
-			wss.close(1000);
-			isRunning = false;
-			myName = "";
-			gotNewGlobalData = false;
-			gotNewPrivateData = false;
-			userNames = "";
-			motd = "";
-			sGData = "";
-			sPData = "";
-			sys_status = 3; // Disconnected OK value
-			serverVersion = '';
-			globalVars = {};
-			privateVars = {};
-			gotNewGlobalVarData = {};
-			gotNewPrivateVarData = {};
-			uList = "";
-			statusCode = "";
-			gotNewStatusCode = false;
-			wss = null;
-		};
+		return fetch(args.url).then(response => response.text());
 	};
-	openSocketPublicServers(args) {
-		servIP = serverips[String(args.ID)-1];
-		clientip = "";
-		console.log(serverlist);
-		if ((servIP == "-1") || !(serverlist.includes(String(args.ID)))) {
-			console.log("Blocking attempt to connect to a nonexistent server #")
-		}
-		else if (!isRunning) {
-			sys_status = 1;
-			try {
-				wss = new WebSocket(servIP);
-				wss.onopen = function(e) {
-					isRunning = true;
-					sys_status = 2; // Connected OK value
-					console.log("Connected");
-					wss.send(JSON.stringify({"cmd": "direct", "val": {"cmd": "type", "val": "scratch"}})); // Tell the server that the client is Scratch, which needs stringified nested JSON
-					wss.send(JSON.stringify({"cmd": "direct", "val": {"cmd": "ip", "val": String(clientip)}})); // Tell the server the client's IP address
-				};
-				wss.onmessage = function(event) {
-					var rawpacket = String(event.data);
-					var obj = JSON.parse(rawpacket);
-					
-					// console.log("Got new packet");
-					console.log(obj);
-					
-					// Global Messages
-					if (obj["cmd"] == "gmsg") {
-						sGData = String(obj["val"]);
-						gotNewGlobalData = true;
-					};
-					// Private Messages
-					if (obj["cmd"] == "pmsg") {
-						sPData = String(obj["val"]);
-						gotNewPrivateData = true;
-					};
-					// Username List
-					if (obj["cmd"] == "ulist") {
-						userNames = String(obj["val"]);
-						userNames = userNames.split(";");
-						userNames.pop();
-						var uListTemp = "";
-						var i;
-						for (i = 0; i < userNames.length; i++) {
-							if (!userNames[i].includes("%")) {
-								uListTemp = (String(uListTemp) + String(userNames[i])+ "; ");
-							};
-						};
-						uList = uListTemp;
-					};
-					// Direct COMS
-					if (obj["cmd"] == "direct") {
-						var ddata = obj['val'];
-						if (ddata['cmd'] == "vers") {
-							serverVersion = ddata["val"];
-							console.log("Server version: " + String(serverVersion));
-						} else if (ddata['cmd'] == "motd") {
-							motd = ddata["val"];
-							console.log("Server Message-of-the-day: " + String(motd));
-						} else {
-							directData = obj["val"];
-						gotNewDirectData = true;
-						};
-					};
-					// Global Variables
-					if (obj["cmd"] == "gvar") {
-						globalVars[obj["name"]] = obj["val"];
-						gotNewGlobalVarData[obj["name"]] = true;
-					};
-					// Private Variables
-					if (obj["cmd"] == "pvar") {
-						privateVars[obj["name"]] = obj["val"];
-						gotNewPrivateVarData[obj["name"]] = true;
-					};
-					// Status code
-					if (obj["cmd"] == "statuscode") {
-						statusCode = obj["val"];
-						gotNewStatusCode = true;
-					};
-				};
-				wss.onclose = function(event) {
-					isRunning = false;
-					myName = "";
-					gotNewGlobalData = false;
-					gotNewPrivateData = false;
-					userNames = "";
-					sGData = "";
-					sPData = "";
-					sys_status = 3; // Disconnected OK value
-					serverVersion = '';
-					globalVars = {};
-					privateVars = {};
-					gotNewGlobalVarData = {};
-					gotNewPrivateVarData = {};
-					uList = "";
-					wss = null;
-					statusCode = "";
-					gotNewStatusCode = false;
-					directData = "";
-					gotNewDirectData = false;
-					console.log("Disconnected");
-					};
-			} catch(err) {
-				throw(err)
-				sys_status = 3;
-			};
-		};
-	}
 	
-	//Sub Servers Block
-	openSocketPublicSubServers(args) {
-		servIP = sserverips[String(args.ID)-1];
-		clientip = "";
-		console.log(serverlist);
-		if ((servIP == "-1") || !(sserverlist.includes(String(args.ID)))) {
-			console.log("Blocking attempt to connect to a nonexistent server #")
-		}
-		else if (!isRunning) {
-			sys_status = 1;
-			try {
-				wss = new WebSocket(servIP);
-				wss.onopen = function(e) {
-					isRunning = true;
-					sys_status = 2; // Connected OK value
-					console.log("Connected");
-					wss.send(JSON.stringify({"cmd": "direct", "val": {"cmd": "type", "val": "scratch"}})); // Tell the server that the client is Scratch, which needs stringified nested JSON
-					wss.send(JSON.stringify({"cmd": "direct", "val": {"cmd": "ip", "val": String(clientip)}})); // Tell the server the client's IP address
-				};
-				wss.onmessage = function(event) {
-					var rawpacket = String(event.data);
-					var obj = JSON.parse(rawpacket);
-					
-					// console.log("Got new packet");
-					console.log(obj);
-					
-					// Global Messages
-					if (obj["cmd"] == "gmsg") {
-						sGData = String(obj["val"]);
-						gotNewGlobalData = true;
-					};
-					// Private Messages
-					if (obj["cmd"] == "pmsg") {
-						sPData = String(obj["val"]);
-						gotNewPrivateData = true;
-					};
-					// Username List
-					if (obj["cmd"] == "ulist") {
-						userNames = String(obj["val"]);
-						userNames = userNames.split(";");
-						userNames.pop();
-						var uListTemp = "";
-						var i;
-						for (i = 0; i < userNames.length; i++) {
-							if (!userNames[i].includes("%")) {
-								uListTemp = (String(uListTemp) + String(userNames[i])+ "; ");
-							};
-						};
-						uList = uListTemp;
-					};
-					// Direct COMS
-					if (obj["cmd"] == "direct") {
-						var ddata = obj['val'];
-						if (ddata['cmd'] == "vers") {
-							serverVersion = ddata["val"];
-							console.log("Server version: " + String(serverVersion));
-						} else if (ddata['cmd'] == "motd") {
-							motd = ddata["val"];
-							console.log("Server Message-of-the-day: " + String(motd));
-						} else {
-							directData = obj["val"];
-						gotNewDirectData = true;
-						};
-					};
-					// Global Variables
-					if (obj["cmd"] == "gvar") {
-						globalVars[obj["name"]] = obj["val"];
-						gotNewGlobalVarData[obj["name"]] = true;
-					};
-					// Private Variables
-					if (obj["cmd"] == "pvar") {
-						privateVars[obj["name"]] = obj["val"];
-						gotNewPrivateVarData[obj["name"]] = true;
-					};
-					// Status code
-					if (obj["cmd"] == "statuscode") {
-						statusCode = obj["val"];
-						gotNewStatusCode = true;
-					};
-				};
-				wss.onclose = function(event) {
-					isRunning = false;
-					myName = "";
-					gotNewGlobalData = false;
-					gotNewPrivateData = false;
-					userNames = "";
-					sGData = "";
-					sPData = "";
-					sys_status = 3; // Disconnected OK value
-					serverVersion = '';
-					globalVars = {};
-					privateVars = {};
-					gotNewGlobalVarData = {};
-					gotNewPrivateVarData = {};
-					uList = "";
-					wss = null;
-					statusCode = "";
-					gotNewStatusCode = false;
-					directData = "";
-					gotNewDirectData = false;
-					console.log("Disconnected");
-					};
-			} catch(err) {
-				throw(err)
-				sys_status = 3;
-			};
-		};
-	}
-	
-	returnMOTD() {
-		return motd;
-	};
-	getComState() {
-		return isRunning;
-	};
-	checkForID(args) {
-		if (isRunning) {
-			return (userNames.indexOf(String(args.ID)) >= 0);
-		} else {
-			return false;
-		};
-	};
-	getUsernameState() {
-		if (isRunning) {
-			if (String(myName) != '') {
-				return (userNames.indexOf(String(myName)) >= 0);
-			} else {
-				return false;
-			}
-		} else {
-			return false;
-		};
-	};
-	runCMD(args) {
-		if (isRunning) {
-			if (!(String(args.DATA).length > 1000)) {
-				wss.send(JSON.stringify({
-					cmd: args.CMD,
-					id: args.ID,
-					val: args.DATA
-				}));
-			} else {
-				console.log("Blocking attempt to send packet larger than 1000 bytes (1 KB), packet is " + String(String(args.DATA).length) + " bytes");
-			};
-		};
-	};
-	sendGData(args) {
-		if (isRunning) {
-			if (!(String(args.DATA).length > 1000)) {
-				wss.send(JSON.stringify({
-					cmd: "gmsg",
-					val: args.DATA
-				}));
-			} else {
-				console.log("Blocking attempt to send packet larger than 1000 bytes (1 KB), packet is " + String(String(args.DATA).length) + " bytes");
-			};
-		};
-	};
-	sendPData(args) {
-		if (isRunning) {
-			if (String(myName) != "") {
-				if (userNames.indexOf(String(args.ID)) >= 0) {
-					if (!(String(args.DATA).length > 1000)) {
-						wss.send(JSON.stringify({
-						cmd: "pmsg",
-						id: args.ID,
-						val: args.DATA,
-						origin: String(myName)
-						}));
-					} else {
-						console.log("Blocking attempt to send packet larger than 1000 bytes (1 KB), packet is " + String(String(args.DATA).length) + " bytes");
-					};
-				} else {
-					console.log("Blocking attempt to send private packet to nonexistent ID");
-				};
-			};
-		};
-	}; 
-	sendGDataAsVar(args) {
-		if (isRunning) {
-			if (!(String(args.DATA).length > 1000)) {
-				wss.send(JSON.stringify({
-					cmd: "gvar",
-					name: args.VAR,
-					val: args.DATA
-				}));
-			} else {
-				console.log("Blocking attempt to send packet larger than 1000 bytes (1 KB), packet is " + String(String(args.DATA).length) + " bytes");
-			};
-		};
-	};
-	sendPDataAsVar(args) {
-		if (isRunning) {
-			if (String(myName) != "") {
-				if (userNames.indexOf(String(args.ID)) >= 0) {
-					if (!(String(args.DATA).length > 1000)) {
-						wss.send(JSON.stringify({
-							cmd: "pvar",
-							name: args.VAR,
-							id: args.ID,
-							val: args.DATA,
-							origin: String(myName)
-						}));
-					} else {
-						console.log("Blocking attempt to send packet larger than 1000 bytes (1 KB), packet is " + String(String(args.DATA).length) + " bytes");
-					};	
-				} else {
-					console.log("Blocking attempt to send private variable packet to nonexistent ID");
-				};
-			};
-		};
-	};
-	returnGlobalData() {
-		return sGData;
-	};
-	returnPrivateData() {
-		return sPData;
-	};
-	returnGlobalLinkedData() {
-		return sGLinkedData;
-	};
-	returnPrivateLinkedData() {
-		return sPLinkedData;
-	};
-	returnVarData(args) {
-		if (args.TYPE == "Global") {
-			if (args.VAR in globalVars) {
-				return globalVars[args.VAR];
-			} else {
-				return "";
-			}
-		} else if (args.TYPE == "Private") {
-			if (args.VAR in privateVars) {
-				return privateVars[args.VAR];
-			} else {
-				return "";
-			}
-		}
-	};
-	returnIsNewVarData(args) {
-		if (args.TYPE == "Global") {
-			if (args.VAR in globalVars) {
-				return gotNewGlobalVarData[args.VAR];
-			} else {
-				return false;
-			}
-		} else if (args.TYPE == "Private") {
-			if (args.VAR in privateVars) {
-				return gotNewPrivateVarData[args.VAR];
-			} else {
-				return false;
-			}
-		};
-	};
-	returnLinkData() {
-		return sys_status;
-	}; 
-	returnUserListData() {
-		return uList;
-	}; 
-	returnUsernameData() {
-		return myName;
-	}; 
-	returnVersionData() {
-		return vers;
-	}; 
-	returnServerList() {
-		return servers;
-	};
-	returnSubServerList() {
-		return sservers;
-	};
-	returnServerVersion() {
-		return serverVersion;
-	};
-	returnIsNewData(args) {
-		if (args.TYPE == "Global") {
-			return gotNewGlobalData;
-		};
-		if (args.TYPE == "Private") {
-			return gotNewPrivateData;
-		};
-		if (args.TYPE == "Global (Linked)") {
-			return gotNewGlobalLinkedData;
-		};
-		if (args.TYPE == "Private (Linked)") {
-			return gotNewPrivateLinkedData;
-		};
-		if (args.TYPE == "Direct") {
-			return gotNewDirectData; 
-		};
-		if (args.TYPE == "Status Code") {
-			return gotNewStatusCode; 
-		};
-	}
-	setMyName(args) {
-		if (isRunning) {
-			if (myName == ""){
-				if (String(args.NAME) != "") {
-					if (!(userNames.indexOf(args.NAME) >= 0)) {
-						if ((!(String(args.NAME).length > 20))) {
-							if (!(args.NAME == "%CA%" || args.NAME == "%CC%" || args.NAME == "%CD%" || args.NAME == "%MS%")){
-								wss.send(JSON.stringify({
-									cmd: "setid",
-									val: String(args.NAME)
-								}));
-								myName = args.NAME;
-							} else {
-								console.log("Blocking attempt to use reserved usernames");
-							};
-						} else {
-							console.log("Blocking attempt to use username larger than 20 characters, username is " + String(String(args.NAME).length) + " characters long");
-						};
-					} else {
-						console.log("Blocking attempt to use duplicate username");
-					};
-				} else {
-					console.log("Blocking attempt to use blank username");
-				};
-			} else {
-				console.log("Username already has been set");
-			};
-		};
-	};
 	parseJSON({
 		PATH,
 		JSON_STRING
@@ -1037,7 +550,7 @@ class cloudlink {
 				json = JSON.parse(' ' + JSON_STRING);
 			} catch (e) {
 				return e.message;
-			}
+			};
 			path.forEach(prop => json = json[prop]);
 			if (json === null) return 'null';
 			else if (json === undefined) return '';
@@ -1045,55 +558,220 @@ class cloudlink {
 			else return json.toString();
 		} catch (err) {
 			return '';
-		}
-	};
-	resetNewData(args) {
-		if (args.TYPE == "Global") {
-			if (gotNewGlobalData == true) {
-				gotNewGlobalData = false;
-			};
-		};
-		if (args.TYPE == "Private") {
-			if (gotNewPrivateData == true) {
-				gotNewPrivateData = false;
-			};
-		};
-		if (args.TYPE == "Global (Linked)") {
-			if (gotNewGlobalLinkedData == true) {
-				gotNewGlobalLinkedData = false;
-			};
-		};
-		if (args.TYPE == "Private (Linked)") {
-			if (gotNewPrivateLinkedData == true) {
-				gotNewPrivateLinkedData = false;
-			};
-		};
-		if (args.TYPE == "Direct") {
-			if (gotNewDirectData == true) {
-				gotNewDirectData = false;
-			};
-		};
-		if (args.TYPE == "Status Code") {
-			if (gotNewStatusCode == true) {
-				gotNewStatusCode = false;
-			};
 		};
 	};
-	resetNewVarData(args) {
-		if (args.TYPE == "Global") {
-			if (args.VAR in globalVars) {
-				gotNewGlobalVarData[args.VAR] = false;
-			}
-		} else if (args.TYPE == "Private") {
-			if (args.VAR in privateVars) {
-				gotNewPrivateVarData[args.VAR] = false;
-			}
-		}
+	
+    openSocket({
+		ADDRESS
+	}) {
+    	if (this.isRunning == false) {
+    		console.log("Starting socket.");
+			const self = this;
+			self.link_status = 1;
+    		this.mWS = new WebSocket(String(ADDRESS));
+    		
+    		this.mWS.onerror = function(){
+    			self.isRunning = false;
+				console.log("failed to connect to the server.");
+				self.link_status = 3;
+    		};
+    		this.mWS.onopen = function(){
+    			self.isRunning = true;
+				self.packet_queue = {};
+				self.link_status = 2;
+    			console.log("successfully connected to the server.");
+    		};
+			this.mWS.onmessage = function(event){
+   				self.socketData = JSON.parse(event.data);
+				self.packet_hat = 0;
+				
+				if (String(self.socketData["cmd"]) in self.listening_for_packet) {
+					if (!(self.listening_for_packet[String(self.socketData["cmd"])]["returned"])) {
+						self.listening_for_packet[String(self.socketData["cmd"])]["val"] = self.socketData;
+						self.listening_for_packet[String(self.socketData["cmd"])]["returned"] = true;
+						self.listening_for_packet[String(self.socketData["cmd"])]["queue"] = (Number(Object.keys(self.packet_queue).length) + 1);
+						console.log("GOT RESPONSE FOR", String(self.socketData["cmd"]), ":", self.socketData);
+					};
+				};
+				
+				if (String(self.socketData["cmd"]) in self.specific_packet_listener){
+					if ("listener" in self.socketData) {
+						if (String(self.socketData["listener"]) in self.specific_packet_listener[String(self.socketData["cmd"])]) {
+							if (!(self.specific_packet_listener[String(self.socketData["cmd"])][String(self.socketData["listener"])]["returned"])) {
+								self.specific_packet_listener[String(self.socketData["cmd"])][String(self.socketData["listener"])]["val"] = self.socketData;
+								self.specific_packet_listener[String(self.socketData["cmd"])][String(self.socketData["listener"])]["returned"] = true;
+								self.specific_packet_listener[String(self.socketData["cmd"])][String(self.socketData["listener"])]["queue"] = (Number(Object.keys(self.packet_queue).length) + 1);
+								console.log("GOT RESPONSE FOR LISTENER", String(self.socketData["listener"]), ":", self.socketData);
+							};
+						};
+					};
+				};
+				
+				self.packet_queue[String(Number(Object.keys(self.packet_queue).length) + 1)] = self.socketData;
+   				console.log("RECEIVED:", self.socketData);
+   			};
+			this.mWS.onclose = function() {
+				self.isRunning = false;
+				self.connect_hat = 0;
+				self.packet_hat = 0;
+				if (self.close_hat == 1) {
+					self.close_hat = 0;
+				};
+				self.socketData = "";
+				self.link_status = 3;
+				self.packet_queue = {};
+				self.listening_for_packet = {};
+				self.specific_packet_listener = {};
+				console.log("Server has disconnected.");
+			};
+    	} else {
+    		console.log("Socket is already open.");
+    	};
+    }
+
+  openSocketWithServer({
+		ADDRESS
+	}) {
+    	if (this.isRunning == false) {
+    		console.log("Starting socket.");
+			const self = this;
+			self.link_status = 1;
+    		this.mWS = new WebSocket(ADDRESS);
+    		
+    		this.mWS.onerror = function(){
+    			self.isRunning = false;
+				console.log("failed to connect to the server.");
+				self.link_status = 3;
+    		};
+    		this.mWS.onopen = function(){
+    			self.isRunning = true;
+				self.packet_queue = {};
+				self.link_status = 2;
+    			console.log("successfully connected to the server.");
+    		};
+			this.mWS.onmessage = function(event){
+   				self.socketData = JSON.parse(event.data);
+				self.packet_hat = 0;
+				
+				if (String(self.socketData["cmd"]) in self.listening_for_packet) {
+					if (!(self.listening_for_packet[String(self.socketData["cmd"])]["returned"])) {
+						self.listening_for_packet[String(self.socketData["cmd"])]["val"] = self.socketData;
+						self.listening_for_packet[String(self.socketData["cmd"])]["returned"] = true;
+						self.listening_for_packet[String(self.socketData["cmd"])]["queue"] = (Number(Object.keys(self.packet_queue).length) + 1);
+						console.log("GOT RESPONSE FOR", String(self.socketData["cmd"]), ":", self.socketData);
+					};
+				};
+				
+				if (String(self.socketData["cmd"]) in self.specific_packet_listener){
+					if ("listener" in self.socketData) {
+						if (String(self.socketData["listener"]) in self.specific_packet_listener[String(self.socketData["cmd"])]) {
+							if (!(self.specific_packet_listener[String(self.socketData["cmd"])][String(self.socketData["listener"])]["returned"])) {
+								self.specific_packet_listener[String(self.socketData["cmd"])][String(self.socketData["listener"])]["val"] = self.socketData;
+								self.specific_packet_listener[String(self.socketData["cmd"])][String(self.socketData["listener"])]["returned"] = true;
+								self.specific_packet_listener[String(self.socketData["cmd"])][String(self.socketData["listener"])]["queue"] = (Number(Object.keys(self.packet_queue).length) + 1);
+								console.log("GOT RESPONSE FOR LISTENER", String(self.socketData["listener"]), ":", self.socketData);
+							};
+						};
+					};
+				};
+				
+				self.packet_queue[String(Number(Object.keys(self.packet_queue).length) + 1)] = self.socketData;
+   				console.log("RECEIVED:", self.socketData);
+   			};
+			this.mWS.onclose = function() {
+				self.isRunning = false;
+				self.connect_hat = 0;
+				self.packet_hat = 0;
+				if (self.close_hat == 1) {
+					self.close_hat = 0;
+				};
+				self.socketData = "";
+				self.link_status = 3;
+				self.packet_queue = {};
+				self.listening_for_packet = {};
+				self.specific_packet_listener = {};
+				console.log("Server has disconnected.");
+			};
+    	} else {
+    		console.log("Socket is already open.");
+    	};
+    }
+  
+    closeSocket() {
+        if (this.isRunning == true) {
+    		console.log("Closing socket.");
+    		this.mWS.close(1000,'script closure');
+			this.connect_hat = 0;
+			this.packet_hat = 0;
+			this.close_hat = 0;
+    		this.isRunning = false;
+			this.link_status = 3;
+			this.socketData = "";
+			this.packet_queue = {};
+			this.listening_for_packet = {};
+			this.specific_packet_listener = {};
+    	} else {
+    		console.log("Socket is not open.");
+    	};
+    }
+
+   	getSocketState() {
+   		//Check is the server is still running
+   		if (this.isRunning){
+   			var response = this.mWS.readyState;
+   			if (response == 2 || response == 3) {
+   				this.isRunning = false;
+				this.connect_hat = 0;
+				this.packet_hat = 0;
+				if (this.close_hat == 1) {
+					this.close_hat = 0;
+				};
+				this.link_status = 3;
+				this.socketData = "";
+				this.packet_queue = {};
+				this.listening_for_packet = {};
+				this.specific_packet_listener = {};
+   				// console.log("Server has disconnected.")
+   			};
+   		};
+   		return this.isRunning;
+   	}
+
+   	sendData(args) {
+   		if (this.isRunning == true) {
+   			this.mWS.send(args.DATA);
+   			console.log("SENT:", args.DATA);
+   		};
+   	};
+	
+	sendDataWithResponse({DATA, CMD, ID}) {
+		if (this.isRunning) {
+			// Create listener if not already created
+			if (!(String(CMD) in this.specific_packet_listener)) {
+				this.specific_packet_listener[String(CMD)] = {};
+			};
+			if (!(String(ID) in this.specific_packet_listener[String(CMD)])) {
+				this.specific_packet_listener[String(CMD)][String(ID)] = {"returned": false, "val": "", "queue": -1};
+				console.log("Registered new listener:", String(ID));
+			} else if ((String(CMD) in this.specific_packet_listener) && (String(ID) in this.specific_packet_listener[String(CMD)])) {
+				// Reset listener if already created
+				this.specific_packet_listener[String(CMD)][String(ID)]["returned"] = false;
+			};
+			
+			// Send payload
+			this.mWS.send(DATA);
+   			console.log("SENT:", DATA);
+		};
 	};
+
+   	getSocketData() {
+   		//Check is the server is still running
+   		return JSON.stringify(this.socketData);
+   	};
 };
 
 (function() {
-    var extensionClass = cloudlink;
+    var extensionClass = Networking;
     if (typeof window === "undefined" || !window.vm) {
         Scratch.extensions.register(new extensionClass());
 		console.log("Sandboxed mode detected, performance will suffer because of the extension being sandboxed.");
