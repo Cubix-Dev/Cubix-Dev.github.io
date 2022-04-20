@@ -19,7 +19,7 @@ class Networking {
 
     getInfo () {
         return {
-            "id": 'networking',
+            "id": 'snc',
             "name": 'SN-Connect',
 			"blockIconURI": this.sn_block,
 			"menuIconURI": this.sn_icon,
