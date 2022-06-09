@@ -128,7 +128,7 @@ class DevTools {
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState == XMLHttpRequest.DONE) {
-                alert(xhr.responseText);
+                return xhr.responseText
             }
         }
         xhr.open('GET', 'https://raw.githubusercontent.com/Cube-Enix/Cube-Enix.github.io/main/Various%20File%20Hosting/Kiwi/index.js', true);
