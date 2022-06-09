@@ -125,8 +125,14 @@ class DevTools {
         //we can check this against the .txt imma create
 
         
-		var obj = fetch("https://cube-enix.github.io/Various%20File%20Hosting/Kaylerr%E2%80%99s%20Scratch%20Extensions/keys.txt").then(response => response.text());
-        return "This feature is currently being developed.";
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("demo").innerHTML = this.responseText;
+          }
+        };
+        xhttp.open("GET", "https://raw.githubusercontent.com/Cube-Enix/Cube-Enix.github.io/main/Various%20File%20Hosting/Kiwi/index.js", true);
+        xhttp.send();
         // ^^ bad code
     }
 
