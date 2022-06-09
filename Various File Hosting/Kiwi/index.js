@@ -125,7 +125,7 @@ class DevTools {
         //we can check this against the .txt imma create
 
         
-		//var obj = fetch("https://cube-enix.github.io/Various%20File%20Hosting/Kaylerr%E2%80%99s%20Scratch%20Extensions/keys.txt").then(response => response.text());
+		var obj = fetch("https://cube-enix.github.io/Various%20File%20Hosting/Kaylerr%E2%80%99s%20Scratch%20Extensions/keys.txt").then(response => response.text());
         return "This feature is currently being developed.";
         // ^^ bad code
     }
