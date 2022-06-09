@@ -125,14 +125,14 @@ class DevTools {
         //we can check this against the .txt imma create
 
         
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("demo").innerHTML = this.responseText;
-          }
-        };
-        xhttp.open("GET", "https://raw.githubusercontent.com/Cube-Enix/Cube-Enix.github.io/main/Various%20File%20Hosting/Kiwi/index.js", true);
-        xhttp.send();
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                alert(xhr.responseText);
+            }
+        }
+        xhr.open('GET', 'https://raw.githubusercontent.com/Cube-Enix/Cube-Enix.github.io/main/Various%20File%20Hosting/Kiwi/index.js', true);
+        xhr.send(null);
         // ^^ bad code
     }
 
