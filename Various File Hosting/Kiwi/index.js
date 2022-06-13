@@ -108,9 +108,15 @@ class DevTools {
         open("//www.hscripts.com","_blank","height=150")
     }
 
-    LoadPlayerData({dataName})
+    LoadPlayerData({player})
     {
-        //blue needs to fix
+        const xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "https://snext-eservice-database.simple21.repl.co/"+player);
+            xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            // xhttp.send(JSON.stringify({
+            // "username": username,
+            // "password": password
+        // }));
     }
 
     fetchpfp({username})
@@ -131,7 +137,7 @@ class DevTools {
                 return xhr.responseText
             }
         }
-        xhr.open('GET', 'https://cube-enix.github.io/index.js', true);
+        xhr.open('GET', 'https://snext-eservice-database.simple21.repl.co/');
         xhr.send();
         // ^^ bad code
     }
