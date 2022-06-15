@@ -110,12 +110,23 @@ class DevTools {
 
     LoadPlayerData({url})
     {
-        return fetch(url).then(response => response.text())
 
-            // xhttp.send(JSON.stringify({
-            // "username": username,
-            // "password": password
-        // }));
+        return fetch(url).then(response => response.text()
+        
+        //const xhttp = new XMLHttpRequest();
+        //xhttp.open('GET', "https://snext-eservice-database.simple21.repl.co/" + player);
+        //xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        //xhttp.send();
+        //xhttp.onreadystatechange = function() {
+          //  if (xhttp.readyState == xhttp.DONE) {
+            //    return xhttp.responseText
+            //}
+        //}
+
+        // xhttp.send(JSON.stringify({
+        // "username": username,
+        // "password": password
+    // }));
     }
 
     fetchpfp({username})
