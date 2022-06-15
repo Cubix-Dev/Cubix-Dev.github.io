@@ -115,7 +115,7 @@ class DevTools {
             xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             xhttp.send();
             xhttp.onreadystatechange = function() {
-                if (xhttp.readyState == XMLHttpRequest.DONE) {
+                if (xhttp.readyState == xhttp.DONE) {
                     return xhttp.responseText
                 }
             }
