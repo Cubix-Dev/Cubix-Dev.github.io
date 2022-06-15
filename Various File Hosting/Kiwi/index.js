@@ -111,9 +111,15 @@ class DevTools {
     LoadPlayerData({player})
     {
         const xhttp = new XMLHttpRequest();
-            xhttp.open("GET", "https://snext-eservice-database.simple21.repl.co/" + player);
+            xhttp.open('GET', "https://snext-eservice-database.simple21.repl.co/" + player);
             xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            return xhttp.responseText;
+            xhttp.send();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == XMLHttpRequest.DONE) {
+                    return xhttp.responseText
+                }
+            }
+
             // xhttp.send(JSON.stringify({
             // "username": username,
             // "password": password
