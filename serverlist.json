@@ -14,5 +14,9 @@
 	"4":{
 	    "id": "Legends",
 	    "url":"wss://Legends-Server.simple21.repl.co"
-  	}
+  	},
+	"5":{
+	    "id": "Electro",
+	    "url":"wss://snconnect-server.itz-electro.repl.co/"
+  	},
 }
