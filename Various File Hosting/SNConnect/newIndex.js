@@ -32,11 +32,6 @@ var serverlist = ['']; // Server list
 var serverips = ['']; // Server IP list
 var servers = ""; // another server list
 
-//Sub Server System
-var sserverlist = ['']; // Server list
-var sserverips = ['']; // Server IP list
-var sservers = ""; // another server list
-
 var statusCode = ""; // Server status code
 var gotNewStatusCode = false; // Bool to check if new status code has been written to the status code var.
 
@@ -47,57 +42,6 @@ var clientip = ""; // Client IP address tracer for CloudLink Trusted Access & IP
 
 // Get the client's IP address, requirement for Trusted Access to work correctly, https://api.ipify.org/ or https://api.meower.org/ip
 var ipfetcherurl = "https://api.ipify.org/";
-
-// Get the server URL list
-try {
-	fetch('https://cube-enix.github.io/serverlist.json').then(response => {
-		return response.text();
-	}).then(data => {
-		servers = data;
-		serverips = [];
-		serverlist = [];
-		dataloads = JSON.parse(data)
-		for (let i in dataloads) {
-			serverips.push(String(dataloads[i]['url']));
-			serverlist.push(String(i));
-		};
-	}).catch(err => {
-		console.log(err);
-		serverlist = ['Error!'];
-		serverips = [''];
-	});
-} catch(err) {
-	console.log(err);
-	serverlist = ['Error!'];
-	serverips = [''];
-	servers = "Error!";
-};
-
-// Get the sub server URL list
-try {
-	fetch('https://cube-enix.github.io/subserverlist.json').then(response => {
-		return response.text();
-	}).then(data => {
-		sservers = data;
-		sserverips = [];
-		sserverlist = [];
-		dataloads = JSON.parse(data)
-		for (let i in dataloads) {
-			sserverips.push(String(dataloads[i]['url']));
-			sserverlist.push(String(i));
-		};
-	}).catch(err => {
-		console.log(err);
-		sserverlist = ['Error!'];
-		sserverips = [''];
-	});
-} catch(err) {
-	console.log(err);
-	sserverlist = ['Error!'];
-	sserverips = [''];
-	sservers = "Error!";
-};
-
 
 // sn-connect class for the primary extension.
 class cloudlink {
@@ -110,7 +54,7 @@ class cloudlink {
 	getInfo() {
 		return {
 			id: 'snc',
-			name: 'SN Online',
+			name: 'SN Connect LITE',
 			blockIconURI: cl_block,
 			menuIconURI: cl_icon,
 			blocks: [
@@ -150,14 +94,6 @@ class cloudlink {
 				opcode: 'returnServerVersion',
 				blockType: "reporter",
 				text: 'Server Version',
-			}, {
-				opcode: 'returnServerList',
-				blockType: "reporter",
-				text: 'Server List',
-			},{
-				opcode: 'returnSubServerList',
-				blockType: "reporter",
-				text: 'SubServer List',
 			}, 	{
 				opcode: 'returnMOTD',
 				blockType: "reporter",
@@ -268,26 +204,6 @@ class cloudlink {
 					IP: {
 						type: "string",
 						defaultValue: defIP,
-					},
-				},
-			}, {	
-				opcode: 'openSocketPublicServers',
-				blockType: "command",
-				text: 'Connect to Server [ID]',
-				arguments: {
-					ID: {
-						type: "number",
-						defaultValue: '',
-					},
-				},
-			},{	
-				opcode: 'openSocketPublicSubServers',
-				blockType: "command",
-				text: 'Connect to SubServer [ID]',
-				arguments: {
-					ID: {
-						type: "number",
-						defaultValue: '',
 					},
 				},
 			}, {
@@ -592,223 +508,6 @@ class cloudlink {
 			wss = null;
 		};
 	};
-	openSocketPublicServers(args) {
-		servIP = serverips[String(args.ID)-1];
-		clientip = "";
-		console.log(serverlist);
-		if ((servIP == "-1") || !(serverlist.includes(String(args.ID)))) {
-			console.log("Blocking attempt to connect to a nonexistent server #")
-		}
-		else if (!isRunning) {
-			sys_status = 1;
-			try {
-				wss = new WebSocket(servIP);
-				wss.onopen = function(e) {
-					isRunning = true;
-					sys_status = 2; // Connected OK value
-					console.log("Connected");
-					wss.send(JSON.stringify({"cmd": "direct", "val": {"cmd": "type", "val": "scratch"}})); // Tell the server that the client is Scratch, which needs stringified nested JSON
-					wss.send(JSON.stringify({"cmd": "direct", "val": {"cmd": "ip", "val": String(clientip)}})); // Tell the server the client's IP address
-				};
-				wss.onmessage = function(event) {
-					var rawpacket = String(event.data);
-					var obj = JSON.parse(rawpacket);
-					
-					// console.log("Got new packet");
-					console.log(obj);
-					
-					// Global Messages
-					if (obj["cmd"] == "gmsg") {
-						sGData = String(obj["val"]);
-						gotNewGlobalData = true;
-					};
-					// Private Messages
-					if (obj["cmd"] == "pmsg") {
-						sPData = String(obj["val"]);
-						gotNewPrivateData = true;
-					};
-					// Username List
-					if (obj["cmd"] == "ulist") {
-						userNames = String(obj["val"]);
-						userNames = userNames.split(";");
-						userNames.pop();
-						var uListTemp = "";
-						var i;
-						for (i = 0; i < userNames.length; i++) {
-							if (!userNames[i].includes("%")) {
-								uListTemp = (String(uListTemp) + String(userNames[i])+ "; ");
-							};
-						};
-						uList = uListTemp;
-					};
-					// Direct COMS
-					if (obj["cmd"] == "direct") {
-						var ddata = obj['val'];
-						if (ddata['cmd'] == "vers") {
-							serverVersion = ddata["val"];
-							console.log("Server version: " + String(serverVersion));
-						} else if (ddata['cmd'] == "motd") {
-							motd = ddata["val"];
-							console.log("Server Message-of-the-day: " + String(motd));
-						} else {
-							directData = obj["val"];
-						gotNewDirectData = true;
-						};
-					};
-					// Global Variables
-					if (obj["cmd"] == "gvar") {
-						globalVars[obj["name"]] = obj["val"];
-						gotNewGlobalVarData[obj["name"]] = true;
-					};
-					// Private Variables
-					if (obj["cmd"] == "pvar") {
-						privateVars[obj["name"]] = obj["val"];
-						gotNewPrivateVarData[obj["name"]] = true;
-					};
-					// Status code
-					if (obj["cmd"] == "statuscode") {
-						statusCode = obj["val"];
-						gotNewStatusCode = true;
-					};
-				};
-				wss.onclose = function(event) {
-					isRunning = false;
-					myName = "";
-					gotNewGlobalData = false;
-					gotNewPrivateData = false;
-					userNames = "";
-					sGData = "";
-					sPData = "";
-					sys_status = 3; // Disconnected OK value
-					serverVersion = '';
-					globalVars = {};
-					privateVars = {};
-					gotNewGlobalVarData = {};
-					gotNewPrivateVarData = {};
-					uList = "";
-					wss = null;
-					statusCode = "";
-					gotNewStatusCode = false;
-					directData = "";
-					gotNewDirectData = false;
-					console.log("Disconnected");
-					};
-			} catch(err) {
-				throw(err)
-				sys_status = 3;
-			};
-		};
-	}
-	
-	//Sub Servers Block
-	openSocketPublicSubServers(args) {
-		servIP = sserverips[String(args.ID)-1];
-		clientip = "";
-		console.log(serverlist);
-		if ((servIP == "-1") || !(sserverlist.includes(String(args.ID)))) {
-			console.log("Blocking attempt to connect to a nonexistent server #")
-		}
-		else if (!isRunning) {
-			sys_status = 1;
-			try {
-				wss = new WebSocket(servIP);
-				wss.onopen = function(e) {
-					isRunning = true;
-					sys_status = 2; // Connected OK value
-					console.log("Connected");
-					wss.send(JSON.stringify({"cmd": "direct", "val": {"cmd": "type", "val": "scratch"}})); // Tell the server that the client is Scratch, which needs stringified nested JSON
-					wss.send(JSON.stringify({"cmd": "direct", "val": {"cmd": "ip", "val": String(clientip)}})); // Tell the server the client's IP address
-				};
-				wss.onmessage = function(event) {
-					var rawpacket = String(event.data);
-					var obj = JSON.parse(rawpacket);
-					
-					// console.log("Got new packet");
-					console.log(obj);
-					
-					// Global Messages
-					if (obj["cmd"] == "gmsg") {
-						sGData = String(obj["val"]);
-						gotNewGlobalData = true;
-					};
-					// Private Messages
-					if (obj["cmd"] == "pmsg") {
-						sPData = String(obj["val"]);
-						gotNewPrivateData = true;
-					};
-					// Username List
-					if (obj["cmd"] == "ulist") {
-						userNames = String(obj["val"]);
-						userNames = userNames.split(";");
-						userNames.pop();
-						var uListTemp = "";
-						var i;
-						for (i = 0; i < userNames.length; i++) {
-							if (!userNames[i].includes("%")) {
-								uListTemp = (String(uListTemp) + String(userNames[i])+ "; ");
-							};
-						};
-						uList = uListTemp;
-					};
-					// Direct COMS
-					if (obj["cmd"] == "direct") {
-						var ddata = obj['val'];
-						if (ddata['cmd'] == "vers") {
-							serverVersion = ddata["val"];
-							console.log("Server version: " + String(serverVersion));
-						} else if (ddata['cmd'] == "motd") {
-							motd = ddata["val"];
-							console.log("Server Message-of-the-day: " + String(motd));
-						} else {
-							directData = obj["val"];
-						gotNewDirectData = true;
-						};
-					};
-					// Global Variables
-					if (obj["cmd"] == "gvar") {
-						globalVars[obj["name"]] = obj["val"];
-						gotNewGlobalVarData[obj["name"]] = true;
-					};
-					// Private Variables
-					if (obj["cmd"] == "pvar") {
-						privateVars[obj["name"]] = obj["val"];
-						gotNewPrivateVarData[obj["name"]] = true;
-					};
-					// Status code
-					if (obj["cmd"] == "statuscode") {
-						statusCode = obj["val"];
-						gotNewStatusCode = true;
-					};
-				};
-				wss.onclose = function(event) {
-					isRunning = false;
-					myName = "";
-					gotNewGlobalData = false;
-					gotNewPrivateData = false;
-					userNames = "";
-					sGData = "";
-					sPData = "";
-					sys_status = 3; // Disconnected OK value
-					serverVersion = '';
-					globalVars = {};
-					privateVars = {};
-					gotNewGlobalVarData = {};
-					gotNewPrivateVarData = {};
-					uList = "";
-					wss = null;
-					statusCode = "";
-					gotNewStatusCode = false;
-					directData = "";
-					gotNewDirectData = false;
-					console.log("Disconnected");
-					};
-			} catch(err) {
-				throw(err)
-				sys_status = 3;
-			};
-		};
-	}
-	
 	returnMOTD() {
 		return motd;
 	};
