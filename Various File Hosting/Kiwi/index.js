@@ -154,6 +154,7 @@ class DevTools {
 
     
     fetchU({username}) {
+        console.log("ahh.");
         return fetch("https://snext-eservice-database.simple21.repl.co/" + username).then(response => response.text())
         // return "This feature is currently being developed.";
 
