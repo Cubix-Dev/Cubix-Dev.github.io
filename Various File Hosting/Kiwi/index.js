@@ -2,7 +2,9 @@ class DevTools {
     constructor() {
     }
     
-    
+// hosted link: https://cube-enix.github.io/Various%20File%20Hosting/Kiwi/index.js
+
+
     getInfo() {
         return {
             "id": "SNextDevTools",
@@ -98,7 +100,7 @@ class DevTools {
 
 
 
-    loadAdvertisement()
+    loadAd()
     {
         open('https://www.codexworld.com', '_blank')
     }
@@ -111,7 +113,7 @@ class DevTools {
     LoadPlayerData({url})
     {
 
-        return fetch(url).then(response => response.text()
+        return fetch(url).then(response => response.text())
         
         //const xhttp = new XMLHttpRequest();
         //xhttp.open('GET', "https://snext-eservice-database.simple21.repl.co/" + player);
