@@ -155,7 +155,7 @@ class DevTools {
     
     fetchU({username}) {
 
-            if (window.XMLHttpRequest)
+            if (Window.XMLHttpRequest)
             {// code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp = new XMLHttpRequest();
             }
