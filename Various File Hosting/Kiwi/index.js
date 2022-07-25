@@ -110,10 +110,8 @@ class DevTools {
         open("//www.hscripts.com","_blank","height=150")
     }
 
-    LoadPlayerData({url})
+    LoadPlayerData({dataName})
     {
-
-        return fetch(url).then(response => response.text())
         
         //const xhttp = new XMLHttpRequest();
         //xhttp.open('GET', "https://snext-eservice-database.simple21.repl.co/" + player);
@@ -156,8 +154,8 @@ class DevTools {
 
     
     fetchU({username}) {
-        
-        return "This feature is currently being developed.";
+        return fetch("https://snext-eservice-database.simple21.repl.co/" + username).then(response => response.text())
+        // return "This feature is currently being developed.";
 
     }
     
