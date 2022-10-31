@@ -1,7 +1,3 @@
-const BlockType = import('../../../components/block-type');
-const ArgumentType = import('../../../components/argument-type');
-const Cast = import('../../../components/cast');
-
 
 class DevTools {
     constructor() {
