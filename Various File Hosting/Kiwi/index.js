@@ -1,8 +1,8 @@
-const formatMessage = require('format-message');
-const Swal = require('sweetalert2');
-const BlockType = require('../../../components/block-type');
-const ArgumentType = require('../../../components/argument-type');
-const Cast = require('../../../components/cast');
+const formatMessage = import('format-message');
+const Swal = import('sweetalert2');
+const BlockType = import('../../../components/block-type');
+const ArgumentType = import('../../../components/argument-type');
+const Cast = import('../../../components/cast');
 
 
 class DevTools {
