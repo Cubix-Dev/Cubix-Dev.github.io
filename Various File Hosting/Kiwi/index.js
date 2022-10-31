@@ -1,5 +1,3 @@
-const formatMessage = import('format-message');
-const Swal = import('sweetalert2');
 const BlockType = import('../../../components/block-type');
 const ArgumentType = import('../../../components/argument-type');
 const Cast = import('../../../components/cast');
