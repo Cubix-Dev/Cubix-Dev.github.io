@@ -1,3 +1,10 @@
+const formatMessage = require('format-message');
+const Swal = require('sweetalert2');
+const BlockType = require('../../extension-support/block-type');
+const ArgumentType = require('../../extension-support/argument-type');
+const Cast = require('../../util/cast');
+
+
 class DevTools {
     constructor() {
     }
@@ -75,16 +82,28 @@ class DevTools {
                         },
 
                       {
-                            "opcode": "openWebpage",
-                            "blockType": "command",
-                            "text": "Open Webpage with URL: [url]",
-                            "arguments": {
-                                "url": {
-                                    "type": "string",
-                                    "defaultValue": 'https://youtube.com/kaylerr'
-                                },
-                            }
+                            "opcode": "alertUser",
+                       text: formatMessage({
+                        id: 'sn.blocks.sweetalert',
+                        default: 'Alert Message [title] with description [desc] type: [type]',
+                        description: 'Block that returns the last key that was pressed'
+                    }),
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        title: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'Welcome Back!'
                         },
+                        desc: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'Hello testSubject!'
+                        },
+                        types: {
+                            type: ArgumentType.STRING,
+                            defaultValue: 'success'
+                        },
+                    }
+                },
 
                       {
                             "opcode": "loadAdvertisement",
@@ -105,9 +124,14 @@ class DevTools {
         open('https://www.codexworld.com', '_blank')
     }
 
-    openWebpage({url})
+    alertUser({url})
     {
-        open("//www.hscripts.com","_blank","height=150")
+                Swal.fire({
+            title: args.title,
+            text: args.desc,
+            icon: args.types,
+            confirmButtonText: 'Cool'
+          })
     }
 
     LoadPlayerData({dataName})
