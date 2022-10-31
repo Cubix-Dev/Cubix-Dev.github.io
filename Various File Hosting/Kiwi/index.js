@@ -114,7 +114,7 @@ class DevTools {
     {
         
         //const xhttp = new XMLHttpRequest();
-        //xhttp.open('POST', "https://snext-eservice-database.simple21.repl.co/" + player);
+        //xhttp.open('POST', "https://snext-eservice-database.simple21.repl.co/users/snext/" + player);
         //xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         //xhttp.send();
         //xhttp.onreadystatechange = function() {
@@ -170,7 +170,7 @@ class DevTools {
                     return xmlhttp.responseText;
                 }
             }
-            xmlhttp.open("POST", "https://snext-eservice-database.simple21.repl.co/" + username, false);
+            xmlhttp.open("POST", "https://snext-eservice-database.simple21.repl.co/users/snext/" + username, false);
             xmlhttp.send();    
         }
         // return "This feature is currently being developed.";
