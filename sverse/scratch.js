@@ -6,7 +6,7 @@ class SVerseSDK {
     
     getInfo() {
         return {
-            "id": "SVerse SDK",
+            "id": "SVerseSDK",
             "name": "SVerse",
             "blocks": [
                         {
