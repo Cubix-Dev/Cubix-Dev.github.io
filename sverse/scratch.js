@@ -14,7 +14,7 @@ class SVerseSDK {
                             "blockType": "reporter",
                             "text": "Log In With SVerse with Username [username] and Password [password]",
                             "arguments": {
-                                "password": {
+                                "username": {
                                     "type": "string",
                                     "defaultValue": "RelicStar"
                                 },
@@ -29,7 +29,7 @@ class SVerseSDK {
     }
     
     authenticateUser({username, password}) {
-    const url = new URL('https://cube-enix.github.io/sverse/Server.html?username=Kaylerr&password=isCool');
+    const url = new URL('https://cube-enix.github.io/sverse/Server.html?username=' + username + '&password=' + password);
     const params1 = new URLSearchParams(url.search);
         
     //Next, let's check if we have a "username" in our url.
