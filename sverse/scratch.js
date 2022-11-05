@@ -12,7 +12,7 @@ class SVerseSDK {
                         {
                             "opcode": "authenticateUser",
                             "blockType": "reporter",
-                            "text": "Log In With SVerse with Username [username] and Password [password],
+                            "text": "Log In With SVerse with Username [username] and Password [password]",
                             "arguments": {
                                 "password": {
                                     "type": "string",
@@ -29,8 +29,8 @@ class SVerseSDK {
     }
     
     authenticateUser({username, password}) {
-const url = new URL('https://cube-enix.github.io/sverse/Server.html?username=Kaylerr&password=isCool');
-const params1 = new URLSearchParams(url.search);
+    const url = new URL('https://cube-enix.github.io/sverse/Server.html?username=Kaylerr&password=isCool');
+    const params1 = new URLSearchParams(url.search);
         
     //Next, let's check if we have a "username" in our url.
     if(params1.has('username')) {
@@ -55,6 +55,7 @@ const params1 = new URLSearchParams(url.search);
         //Nope! Let's return an error to the console.
         return "Failed to find a Username in the URL."
     }
+}
     
     jsonExtract({name,data}) {
         var parsed = JSON.parse(data)
@@ -73,4 +74,4 @@ const params1 = new URLSearchParams(url.search);
     }
 }
 
-Scratch.extensions.register(new ScratchFetch())
+Scratch.extensions.register(new SVerseSDK())
