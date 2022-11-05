@@ -1,6 +1,40 @@
+<body>
+<html>
+
 <p>Welcome to the SVerse!
 This is the main page for the Server. And this is quite basic, as there isn't much needing to be done here.
 
 Anyway, we hope you enjoyed your stay! Now look at the rest of the blank white Background! :D
 
 - Kaylerr </p>
+
+<p id="authentication"></p>
+
+<script>
+const url = new URL('https://cube-enix.github.io/sverse/Server.html?username=Kaylerr&password=isCool');
+const params1 = new URLSearchParams(url.search);
+
+function CheckCredentials() {
+    //Next, let's check if we have a "username" in our url.
+    if(searchParams.has(username)) {
+
+        //Seems like we do! If we check for the "password" in our url?
+        if(searchParams.has(password)) {
+
+            //okay, let's try to use them here.
+            console.log("We have both! Next: Authentication!");
+
+        } else {
+            //Nope! Let's return an error to the console.
+            console.log("hmm... do we have a username? Doesn't look like it!");
+        } 
+
+    } else {
+        //Nope! Let's return an error to the console.
+        console.log("hmm... do we have a username? Doesn't look like it!");
+    }
+}
+</script>
+
+</body>
+</html>
