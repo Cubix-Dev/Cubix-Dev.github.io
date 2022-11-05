@@ -2,12 +2,12 @@
 <html>
 <body onload="CheckCredentials()">
 
-<p>Welcome to the SVerse!
-This is the main page for the Server. And this is quite basic, as there isn't much needing to be done here.
-
-Anyway, we hope you enjoyed your stay! Now look at the rest of the blank white Background! :D
-
-- Kaylerr </p>
+    <p>Welcome to the SVerse!
+        This is the main page for the Server. And this is quite basic, as there isn't much needing to be done here.
+        
+        Anyway, we hope you enjoyed your stay! Now look at the rest of the blank white Background! :D
+        
+        - Kaylerr </p>
 
 <p id="authentication"></p>
 
@@ -24,6 +24,11 @@ function CheckCredentials() {
 
             //okay, let's try to use them here.
             console.log("We have both! Next: Authentication!");
+            const user = params1.get('username');
+            const pass = params1.get('password');
+
+            //add authentication shit here
+            window.location.replace("https://cube-enix.github.io/sverse/pages/AuthenticationSuccess.html");
 
         } else {
             //Nope! Let's return an error to the console.
