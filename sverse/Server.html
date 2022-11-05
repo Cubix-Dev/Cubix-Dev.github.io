@@ -17,10 +17,10 @@ const params1 = new URLSearchParams(url.search);
 
 function CheckCredentials() {
     //Next, let's check if we have a "username" in our url.
-    if(searchParams.has(username)) {
+    if(params1.has(username)) {
 
         //Seems like we do! If we check for the "password" in our url?
-        if(searchParams.has(password)) {
+        if(params1.has(password)) {
 
             //okay, let's try to use them here.
             console.log("We have both! Next: Authentication!");
