@@ -44,7 +44,7 @@ class SVerseSDK {
             const pass = params1.get('password');
 
             //add authentication shit here
-            return "Authenticated User!"
+            return "username: " + params1.get('username')
 
         } else {
             //Nope! Let's return an error to the console.
