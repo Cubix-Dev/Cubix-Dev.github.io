@@ -29,27 +29,19 @@ function CheckCredentials() {
 
             //add authentication shit here
             //OKAY!
-            console.log("trying to log in with AJAX");
-            fetch('/signin', {method: 'POST', body: new FormData(e.target), credentials: 'include',});
-            console.log("success...?");
-
-            if (window.PasswordCredential) {
-                var c = new PasswordCredential(e.target);
-                console.log("we did done good. we stored password");
-            } else {
-                console.log("we did done NOT good. we DIDNT stored password");
-            }
-
-            //window.location.replace("https://cube-enix.github.io/sverse/pages/AuthenticationSuccess.html");
+            
+            window.location.replace("https://cube-enix.github.io/sverse/pages/AuthenticationSuccess.html");
 
         } else {
             //Nope! Let's return an error to the console.
             console.log("hmm... do we have a username? Doesn't look like it!");
+            window.location.replace("https://cube-enix.github.io/sverse/pages/AuthenticationFail.html");
         } 
 
     } else {
         //Nope! Let's return an error to the console.
         console.log("hmm... do we have a username? Doesn't look like it!");
+        window.location.replace("https://cube-enix.github.io/sverse/pages/AuthenticationFail.html");
     }
 }
 </script>
