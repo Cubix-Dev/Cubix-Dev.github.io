@@ -1,4 +1,12 @@
 //Welcome guys! The original code here is made by Kaylerr. Thanks for checking this out, and make any changes necessary.
+import { initializeApp } from 'firebase/app';
+
+// TODO: Replace the following with your app's Firebase project configuration
+const firebaseConfig = {
+  //...
+};
+
+const app = initializeApp(firebaseConfig);
 
 class SVerseSDK {
     constructor() {

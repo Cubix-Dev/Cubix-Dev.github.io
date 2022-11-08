@@ -1,0 +1,14 @@
+{
+  "name": "firebase",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "google",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "firebase": "^9.13.0"
+  }
+}
