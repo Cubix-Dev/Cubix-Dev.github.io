@@ -34,7 +34,7 @@ const firebaseConfig = {
       return
       // Don't continue running the code
     }
-    if (validate_field(full_name) == false)
+    if (validate_field(username) == false)
     {
       alert("The username field is either too short, or there isn't anything IN it (SVerse Servers, Firebase API).")
       return
@@ -154,4 +154,6 @@ const firebaseConfig = {
     } else {
       return true
     }
+
+
   }
