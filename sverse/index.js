@@ -56,7 +56,7 @@ const firebaseConfig = {
         last_login : Date.now()
       }
   
-      // Push to Firebase Database
+      // Push to Firebase Database.
       database_ref.child('users/' + user.uid).set(user_data)
   
       // DOne
