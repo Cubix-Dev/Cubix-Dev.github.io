@@ -637,4 +637,14 @@ class HighClass {
 }
 
 
-Scratch.extensions.register(new HighClass());
+(function() {
+    var extensionClass = HighClass;
+    if (typeof window === "undefined" || !window.vm) {
+	console.log("Sandboxed mode detected, Load unsandboxed.");
+    } else {
+        var extensionInstance = new extensionClass(window.vm.extensionManager.runtime);
+        var serviceName = window.vm.extensionManager._registerInternalExtension(extensionInstance);
+        window.vm.extensionManager._loadedExtensions.set(extensionInstance.getInfo().id, serviceName);
+		console.log("Unsandboxed mode detected. Good.");
+    };
+})()
