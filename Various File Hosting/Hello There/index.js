@@ -23,7 +23,9 @@ function function_log(x) {
 }
 
 class HighClass {
-    constructor()
+    constructor(runtime, extensionId) {
+		this.runtime = runtime;
+	}
    
     getInfo() {
         return {
