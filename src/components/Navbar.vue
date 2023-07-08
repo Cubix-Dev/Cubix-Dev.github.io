@@ -1,6 +1,7 @@
 <template>
     <nav
-        :class="[`navbar-${theme}`, `bg-${theme}`, 'navbar', 'navbar-expand-lg']"
+        :data-bs-theme="theme"
+        class="navbar navbar-expand-lg bg-body-tertiary"
         >
             <a class="navbar-brand" href="#">{{title}}</a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -14,13 +15,13 @@
                             @click.prevent="navLinkClick(index)"
                         ></navbar-link>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownId">
                             <a class="dropdown-item" href="#">Action 1</a>
                             <a class="dropdown-item" href="#">Action 2</a>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
                 <form class="d-flex">
                     <button
@@ -46,6 +47,9 @@ export default {
     components: {
         NavbarLink
     },
+    created() {
+        this.getTheme()
+    },
     methods: {
         changeTheme() {
             let theme = "dark";
@@ -55,6 +59,16 @@ export default {
             }
 
             this.theme = theme
+            this.storeTheme()
+        },
+        storeTheme() {
+            localStorage.setItem('theme', this.theme)
+        },
+        getTheme() {
+            let theme = localStorage.getItem('theme')
+            if (theme) {
+                this.theme = theme
+            }
         }
     }
 }

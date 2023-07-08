@@ -7,6 +7,7 @@
   >
   </navbar>
   <router-view></router-view>
+  <CFooter></CFooter>
 </template>
 
 <script>
@@ -16,13 +17,15 @@
 
   import PageContent from './components/PageContent.vue';
   import Navbar from './components/Navbar.vue';
+  import CFooter from './components/CFooter.vue'
 
   export default {
     components: {
       PageContent,
       Navbar,
       Swiper,
-      SwiperSlide
+      SwiperSlide,
+      CFooter
     },
     data() {
           return {

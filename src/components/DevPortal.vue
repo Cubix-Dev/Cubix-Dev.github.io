@@ -1,5 +1,5 @@
 <template>
-    <header class="masthead bg-orange text-white text-center">
+    <header class="masthead bg-orange text-white text-center" :data-bs-theme="theme">
         <div class="container d-flex align-items-center flex-column">
             <img class="masthead-avatar mb-5" src="@/assets/Cube_Portal.svg" alt="Cubix Developer Portal"/>
             <!-- Masthead Heading-->
@@ -19,19 +19,55 @@
         padding-bottom: 6rem;
     }
     .bg-orange {
-    color: #fd7e14;
+    color: #ffffff;
     background-color: #fd7e14;
+        &[data-bs-theme="dark"] {
+            background-color: #a54a00;
+        }
     }
-    
+    .bg-pink {
+        color: #ffffff;
+        background-color: #FF1970;
+        &-accent {
+            background-color: #ff3996;
+            &:hover {
+                background-color: #ff70b3;
+            }
+        }
+        &:hover {
+            background-color: #ff3996;
+        }
+    }
+    .bg-grey {
+        background-color: #2c3e50;
+        color: #ffffff;
+    }
 </style>
 
-<!-- <script>
-import TemplateVue from './Swal/Template.vue';
-
+<script>
 export default {
-    components: {
-      TemplateVue
+    data() {
+        return {
+           theme: "light",
+        }
     },
+    created() {
+        this.getTheme()
+    },
+    methods: {
+        getTheme() {
+            let theme = localStorage.getItem('theme')
+            if (theme) {
+                this.theme = theme
+            }
+        }
+    },
+    watch: {
+        token() {
+            if (this.theme !== localStorage.getItem('theme')) {
+                this.getTheme()
+            }
+        }
+    }
 }
-
-</script> -->
+</script>
