@@ -1,27 +1,59 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <navbar
+      title="Cubix"
+      :pages="pages"
+      :active-page="activePage"
+      :nav-link-click=" (index) => activePage = index"
+  >
+  </navbar>
+  <router-view></router-view>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+<script>
+  import { Swiper, SwiperSlide } from 'swiper/vue'
+  import 'swiper/css'
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
+
+  import PageContent from './components/PageContent.vue';
+  import Navbar from './components/Navbar.vue';
+
+  export default {
+    components: {
+      PageContent,
+      Navbar,
+      Swiper,
+      SwiperSlide
+    },
+    data() {
+          return {
+            activePage: 0,
+            navTitle: "Cubix",
+            theme: 'light',
+            imgs: [
+              '01.png',
+              '02.jpg',
+              '03.png',
+              '04.png',
+              '05.jpg'
+            ],
+            pages: [
+              {
+                  link: {text: 'Home', url: 'home'},
+                  pageTitle: 'SNext Vue Proto',
+                  content: 'Snext will be using vue!'
+              },
+              {
+                  link: {text: 'About', url: 'details'},
+                  pageTitle: 'SNext Vue About',
+                  content: 'Snext will be using vue!'
+              },
+              {
+                  link: {text: 'Discover', url: 'discover'},
+                  pageTitle: 'SNext Vue Discovery',
+                  content: 'Snext will be using vue!'
+              }
+            ]
+          };
+        }
   }
-});
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
