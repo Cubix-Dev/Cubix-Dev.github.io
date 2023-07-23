@@ -17,6 +17,8 @@
     .masthead {
         padding-top: calc(6rem + 74px);
         padding-bottom: 6rem;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 700 !important
     }
     .bg-orange {
     color: #ffffff;
