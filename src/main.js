@@ -11,12 +11,11 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import $bus from './utils/events'
 import router from './routes'
 
-
 let initialState = {
     theme: 'light',
   }
 
-const app = createApp(App)
+const app = createApp(App).use(router)
 
 app.config.globalProperties.$bus = $bus
 
