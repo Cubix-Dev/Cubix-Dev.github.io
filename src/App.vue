@@ -11,10 +11,6 @@
 </template>
 
 <script>
-  import { Swiper, SwiperSlide } from 'swiper/vue'
-  import 'swiper/css'
-
-
   import PageContent from './components/PageContent.vue';
   import Navbar from './components/Navbar.vue';
   import CFooter from './components/CFooter.vue'
@@ -23,8 +19,6 @@
     components: {
       PageContent,
       Navbar,
-      Swiper,
-      SwiperSlide,
       CFooter
     },
     data() {
@@ -32,13 +26,6 @@
             activePage: 0,
             navTitle: "Cubix",
             theme: 'light',
-            imgs: [
-              '01.png',
-              '02.jpg',
-              '03.png',
-              '04.png',
-              '05.jpg'
-            ],
             pages: [
               {
                   link: {text: 'Home', url: 'home'},

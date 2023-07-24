@@ -1,5 +1,5 @@
 <template>
-    <header class="masthead bg-orange text-white text-center" :data-bs-theme="theme">
+    <header class="masthead bg-orange text-white text-center">
         <div class="container d-flex align-items-center flex-column">
             <img class="masthead-avatar mb-5" src="@/assets/Cube_Portal.svg" alt="Cubix Developer Portal"/>
             <!-- Masthead Heading-->
@@ -21,9 +21,6 @@
     .bg-orange {
     color: #ffffff;
     background-color: #fd7e14;
-        &[data-bs-theme="dark"] {
-            background-color: #a54a00;
-        }
     }
     .bg-pink {
         color: #ffffff;
@@ -43,31 +40,3 @@
         color: #ffffff;
     }
 </style>
-
-<script>
-export default {
-    data() {
-        return {
-           theme: "light",
-        }
-    },
-    created() {
-        this.getTheme()
-    },
-    methods: {
-        getTheme() {
-            let theme = localStorage.getItem('theme')
-            if (theme) {
-                this.theme = theme
-            }
-        }
-    },
-    watch: {
-        token() {
-            if (this.theme !== localStorage.getItem('theme')) {
-                this.getTheme()
-            }
-        }
-    }
-}
-</script>
