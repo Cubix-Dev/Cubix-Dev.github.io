@@ -12,7 +12,6 @@
                         <navbar-link
                             :page="page"
                             :isActive="activePage == index"
-                            @click.prevent="navLinkClick(index)"
                         ></navbar-link>
                     </li>
                     <!-- <li class="nav-item dropdown">
@@ -30,7 +29,7 @@
                     >Toggle Theme</button>
                 </form>
             </div>
-        </nav>
+    </nav>
 
 </template>
 

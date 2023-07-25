@@ -7,19 +7,17 @@
   >
   </navbar>
   <router-view></router-view>
-  <CFooter></CFooter>
+  
 </template>
 
 <script>
   import PageContent from './components/PageContent.vue';
   import Navbar from './components/Navbar.vue';
-  import CFooter from './components/CFooter.vue'
 
   export default {
     components: {
       PageContent,
-      Navbar,
-      CFooter
+      Navbar
     },
     data() {
           return {
@@ -33,7 +31,7 @@
                   content: 'Snext will be using vue!'
               },
               {
-                  link: {text: 'About', url: 'details'},
+                  link: {text: 'Create', url: '/develop'},
                   pageTitle: 'SNext Vue About',
                   content: 'Snext will be using vue!'
               },

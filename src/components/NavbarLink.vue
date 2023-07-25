@@ -1,10 +1,10 @@
 <template>
-<a 
+<router-link
 class="nav-link"
 :class="{activeClasses}"
 aria-current="page" 
-:href="page.link.url"
-> {{ page.link.text }} </a>
+:to="page.link.url"
+> {{ page.link.text }} </router-link>
 </template>
 
 <script>

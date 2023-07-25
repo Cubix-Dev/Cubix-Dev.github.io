@@ -8,10 +8,13 @@
             <p class="masthead-subheading font-weight-light mb-0">Bring your project to the SNext Level</p>
         </div>
     </header>
+    <CFooter></CFooter>
 </template>
 
 <script>
+import CFooter from './CFooter.vue'
 export default {
+    components: {CFooter},
     props: ['page']
 }
 </script>
