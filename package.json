@@ -1,39 +1,20 @@
 {
-  "name": "cubixdev",
-  "version": "0.0.1",
+  "name": "nuxt-app",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
-  },
-  "dependencies": {
-    "@vueuse/core": "^10.2.1",
-    "bootstrap": "^5.3.0",
-    "bootstrap-icons": "^1.10.5",
-    "core-js": "^3.8.3",
-    "firebase": "^10.1.0",
-    "swiper": "^9.4.1",
-    "vue": "^3.2.13",
-    "vue-cookies": "^1.8.3",
-    "vue-persistent-state": "^0.2.1",
-    "vue-router": "^4.2.3",
-    "vue-sweetalert2": "^5.0.5",
-    "vue3-carousel": "^0.3.1"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "execa": "^7.1.1",
-    "naive-ui": "^2.34.4",
-    "sass": "^1.63.6",
-    "sass-loader": "^10.4.1",
-    "typescript": "^5.1.6"
+    "@nuxt/devtools": "latest",
+    "@types/node": "^18.17.1",
+    "nuxt": "^3.6.5",
+    "sass": "^1.64.2"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead",
-    "not ie 11"
-  ]
+  "dependencies": {
+    "bootstrap-icons": "^1.10.5"
+  }
 }
