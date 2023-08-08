@@ -1,5 +1,4 @@
 <template>
-    <navbar></navbar>
     <main>
         <header class="header-spacer">
          <div class="flex-box">
@@ -9,7 +8,6 @@
          </div>
       </header>
     </main>
-    <CFooter></CFooter>
 </template>
 
 <script setup>
