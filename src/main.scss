@@ -134,6 +134,10 @@ html.transition *:after {
   background: $warn;
 }
 
+.bg-med {
+  background: $grey;
+}
+
 .bg-light {
   background: $white;
   &-nav {
@@ -224,6 +228,9 @@ html.transition *:after {
 
 .pad {
   padding: 1rem;
+  &-i {
+    padding: 1.5rem;
+  }
 }
 
 .margin {
@@ -237,6 +244,9 @@ html.transition *:after {
   display: flex !important;
   align-items: center !important;
   flex-direction: column !important;
+  &-text-center {
+    text-align: center !important;
+  }
   &-left {
     align-items: left !important;
     flex-direction: unset !important;
@@ -311,7 +321,7 @@ footer {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  width: 24rem;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
@@ -559,5 +569,21 @@ footer {
       z-index: 2;
       padding: 1.25rem 1rem;
     }
+  }
+}
+
+.text-med {
+  font-size: 1.25rem
+}
+
+.grid {
+  display: grid !important; 
+  justify-content: space-evenly;
+  justify-items: center;
+  align-content: space-evenly;
+  align-items: center;
+  &-tri {
+    column-gap: 1rem;
+    row-gap: 1.5rem;
   }
 }
