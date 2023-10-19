@@ -11,9 +11,3 @@ published: true
 ## Cubix Blog Test
 
 Hey friends! 👋
-
-```ts
-function greet(name: string) {
-	console.log(`Hey ${name}! 👋`)
-}
-```
