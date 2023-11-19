@@ -1,37 +1,7 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
-
-// Cubix Colors
-$red: #e80910;
-$orange: #ff9e03;
-$yellow: #e8dc09;
-$green: #5cff70;
-$teal: #58d3e8;
-$blue: #4965f2;
-$purple: #751cff;
-$pink: #e85879;
-$white: #ffefef;
-$grey: #2c3e50;
-$black: #232323;
-$main: #ff8e03;
-$side: #ff343b;
-$good: #5cff70;
-$bad: #e50910;
-$info: #58d3e8;
-$warn: #e5dc09;
-
-// Color Themes
-$dark-theme: true !default;
-// Light
-$btn-light: $black;
-$bg-light: $white;
-$text-light: $black;
-$nav-light: #cccccc;
-// Dark
-$btn-dark: $main;
-$bg-dark: $black;
-$text-dark: #cccccc;
-$nav-dark: $black;
+@import "./_base.scss";
+@import "./_colorstyles.scss";
 
 // Style
 html {
@@ -104,52 +74,6 @@ html.transition *:before,
 html.transition *:after {
   transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 420ms !important;
   transition-delay: 0 !important;
-}
-
-.text-white {
-  color: $white;
-}
-
-.text-black {
-  color: $black
-}
-
-.bg-main {
-  background: $main;
-}
-
-.bg-side {
-  background: $side;
-}
-
-.bg-good {
-  background: $good;
-}
-
-.bg-bad {
-  background: $bad;
-}
-
-.bg-warn {
-  background: $warn;
-}
-
-.bg-med {
-  background: $grey;
-}
-
-.bg-light {
-  background: $white;
-  &-nav {
-    background: $nav-light;
-  }
-}
-
-.bg-dark {
-  background: $black;
-  &-nav {
-    background: $nav-dark;
-  }
 }
 
 .bg-gradient {
@@ -258,17 +182,30 @@ html.transition *:after {
   }
 }
 
+.inline-box {
+  width: 100%;
+  margin-right: auto;
+  margin-left: 15%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  &-desc {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .header-spacer {
-  padding-top: calc(6rem + 74px);
+  padding-top: calc(6rem + 4px);
   padding-bottom: 6rem;
   &-small {
-    padding-top: calc(3rem + 39px);
+    padding-top: calc(3rem + 3px);
     padding-bottom: 2rem;
   }
 }
 
 .header-ico {
-  width: 15rem;
+  width: 10rem;
 }
 
 .header-title {
@@ -308,11 +245,14 @@ footer {
   text-decoration: none;
   color: $white;
   padding-right: 1rem;
+  &-small {
+    width: 64px;
+  }
 }
 
 @media (min-width: 992px) {
   .header-spacer {
-    padding-top: calc(6rem + 104px);
+    padding-top: calc(6rem + 4px);
     padding-bottom: 6rem;
   }
 }

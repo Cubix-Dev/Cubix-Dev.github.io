@@ -1,22 +1,22 @@
 <script>
 	import logo from '$lib/assets/Cube.svg';
+  import console from '$lib/assets/Console.png'
 </script>
 
 <main>
     <header class="header-spacer">
-     <div class="flex-box">
-        <img class="header-ico" src={logo} alt="Cubix Logo">
-        <h1 class="header-title">Cubix</h1>
-        <p class="header-subtitle"> Play On The SNext Level </p>
+     <div class="inline-box">
+      <img class="header-ico" src={console} alt="Cubix Console">
+      <div class="inline-box-desc">
+        <img class="social-ico-small" src={logo} alt="Cubix Logo"/>
+        <h1 class="header-title">Cubix Infinite</h1>
+        <p class="header-subtitle"> Infinite ways to play! </p>
+      </div>
      </div>
   </header>
   <br>
-  <div class="flex-box-text-center pad bg-dark text-white">
-    <h2>The SNext Level Is Here</h2>
-    <p class="text-med">Cubix isnt just a platform. Its an experience. Bringing back what gamers love about older consoles and adding our own twists to create an amazing experience for players and developers alike.</p>
-  </div>
-  <div class="flex-box-text-center pad bg-med text-white"></div>
-  <br><br>
+  <!-- <div class="flex-box-text-center pad bg-med text-white"></div> -->
+  <!-- <br><br> -->
   <!--Attempt to make cards to display other sources-->
   <!-- <div class="grid">
     <div class="card">

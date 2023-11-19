@@ -1,11 +1,11 @@
 <script>
     import Foot from "../lib/foot.svelte";
     import Nav from "../lib/nav.svelte";
-    import '../main.scss';
+    import '../styles/main.scss';
 </script>
 
 <Nav></Nav>
-<main>
+<main style="margin: 15px 15px;">
     <slot></slot>
 </main>
 <Foot></Foot>

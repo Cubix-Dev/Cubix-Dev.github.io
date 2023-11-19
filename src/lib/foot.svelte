@@ -2,7 +2,7 @@
    import { Youtube, TwitterX, Instagram, Discord } from "svelte-bootstrap-icons";
 </script>
 
-<footer>
+<footer class="bg-orange">
     <p>Follow Us</p>
     <a href="https://twitter.com/CubixSN" class="text-white social-ico"> <TwitterX/> </a> 
     <a href="#" class="text-white social-ico"><Youtube/></a>

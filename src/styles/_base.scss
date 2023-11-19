@@ -1,0 +1,31 @@
+// Cubix Colors
+$red: #e80910;
+$orange: #ff7b00;
+$yellow: #e8dc09;
+$green: #5cff70;
+$teal: #67cbdd;
+$blue: #4965f2;
+$purple: #751cff;
+$pink: #e85879;
+$white: #ffefef;
+$grey: #2c3e50;
+$black: #232323;
+$main: #000000;
+$side: #ff343b;
+$good: #5cff70;
+$bad: #e50910;
+$info: #58d3e8;
+$warn: #e5dc09;
+
+// Color Themes
+$dark-theme: true !default;
+// Light
+$btn-light: $black;
+$bg-light: $white;
+$text-light: $black;
+$nav-light: #cccccc;
+// Dark
+$btn-dark: $main;
+$bg-dark: $black;
+$text-dark: #cccccc;
+$nav-dark: $black;

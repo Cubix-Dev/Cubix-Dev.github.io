@@ -1,0 +1,49 @@
+.text-white {
+    color: $white;
+}
+
+.text-black {
+    color: $black;
+}
+
+.bg-main {
+    background: $main;
+}
+
+.bg-orange {
+    background-color: $orange;
+}
+
+.bg-side {
+    background: $side;
+}
+
+.bg-good {
+    background: $good;
+}
+
+.bg-bad {
+    background: $bad;
+}
+
+.bg-warn {
+    background: $warn;
+}
+
+.bg-med {
+    background: $grey;
+}
+
+.bg-light {
+    background: $white;
+    &-nav {
+        background: $nav-light;
+    }
+}
+
+.bg-dark {
+    background: $black;
+    &-nav {
+        background: $nav-dark;
+    }
+}
