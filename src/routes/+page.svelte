@@ -17,30 +17,32 @@
       </div>
       </div>
     </header> -->
-    <header class="header-spacer" style="background-image:url({console}); background-repeat: no-repeat; background-attachment: fixed;
-    background-size: cover;">
+    <header class="header-spacer bg-light border-bottom">
       <div class="flex-box">
          <img class="header-ico" src={logo} alt="Cubix Logo">
-         <h1 class="header-title">Cubix</h1>
-         <p class="header-subtitle"> Gaming Reimagined </p>
+         <h1 class="header-title">Cubix Infinite</h1>
+         <p class="header-subtitle"> Infinite Ways To Play </p>
       </div>
    </header>
      <br>
-     <div class="flex-box-text-center pad bg-orange">
-      <div class="inline-box-desc">        
-        <h2 class="header-title margin-top"><CashStack width={24} height={24}/> Join The Early Supporters <CashStack width={24} height={24}/></h2>
-        <p class="text-white">Cubix needs your help! You can become an early supporter for the Cubix Infinite by making a donation of any amount to Cubix Organization via our kickstarter! Your donation goes towards the continued development of the Cubix Infinite and helps solidify its position on market.</p>
+     <!-- <div class="header-spacer">
+      <div class="inline-box" style="margin-left: calc(17.5rem + 5%);">
+        
       </div>
-      <a class="button btn-green" href="#">Support Us</a>
-     </div>
-     <br>
-    <div class="header-spacer">
       <div class="inline-box">
-        <img class="header-ico pad" src={Infinite} alt="Cubix Console">
+        
         <div class="inline-box-desc">
-          <h2 class="header-title margin-top">Infinite Ways To Play</h2>
-          <p class="text-white">The Cubix Infinite is built with multiplayer in mind, featuring support for up to 4 controllers connected at once! Plus with native (and free) online you can connect with what we aim to be thousands of other Infinite users! Plus share your progress with your friends with the Cubix Dream Card system. Share your save data with other consoles simply by connecting your controller! </p>
+          <h4 class="header-subtitle margin-top">Infinite Ways To Play</h4>
+          <p class="text-white"></p>
         </div>
+      </div>
+    </div> -->
+     <div class="header-spacer">
+      <div class="flex-box-text-center">
+        <img class="header-sub-ico pad" src={Infinite} alt="Cubix Console">
+          <h2 class="header-title margin-top">More Than Just "Another Gaming Console"</h2>
+          <h4 class="header-subtitle">The Infinite Does Things Differently</h4>
+          <p class="text-white">The Infinite approaches gaming differently. Made up of common PC parts, with a Linux based OS and its own boot engine, it doesn't just launch your favorite games. It takes advantage of JIT (Just In Time) compiling to ensure optimal launch time even with games that have a lot of data. The result is a system that doesn't show its age, even late into its life cycle.</p>
        </div>
     </div>
      <br>
@@ -59,13 +61,6 @@
        </div>
      </div>
      <br>
-     <div class="header-spacer">
-      <div class="flex-box-text-center">
-          <h2 class="header-title margin-top">More Than Just "Another Gaming Console"</h2>
-          <h4 class="header-subtitle">The Infinite Does Things Differently</h4>
-          <p class="text-white">The Infinite approaches gaming differently. Made up of common PC parts, with a Linux based OS and its own boot engine, it doesn't just launch your favorite games. It takes advantage of JIT (Just In Time) compiling to ensure optimal launch time even with games that have a lot of data. The result is a system that doesn't show its age, even late into its life cycle.</p>
-       </div>
-    </div>
     <div class="flex-box-text-center pad bg-orange">
       <div class="inline-box-desc">        
         <h2 class="header-title margin-top">Indie Powered</h2>

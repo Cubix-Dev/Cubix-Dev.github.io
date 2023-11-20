@@ -77,16 +77,12 @@ html.transition *:after {
   transition-delay: 0 !important;
 }
 
-
-
 .topnav {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   &-ico {
-    padding-top: 0.3125rem;
-    padding-bottom: 0.3125rem;
     margin-right: 1rem;
     font-size: 1.25rem;
     text-decoration: none;
@@ -167,6 +163,19 @@ html.transition *:after {
   }
 }
 
+.box {
+  flex: 1 1 0;
+  width: 40%;
+  height: 100% !important;
+  padding: 3rem;
+  border-width: 1rem;
+  border-style: outset;
+  border-color: $orange;
+  border-radius: 1rem;
+  background-color: $black;
+}
+
+
 .flex-box {
   width: 100%;
   margin-right: auto;
@@ -202,9 +211,10 @@ html.transition *:after {
   }
   &-delimited {
     width: 100% !important;
+    height: max-content !important;
     margin-right: auto;
     margin-left: auto;
-    align-items: left !important;
+    align-items: start;
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
@@ -228,6 +238,13 @@ html.transition *:after {
 .header-ico {
   width: 15rem;
   height: fit-content;
+  text-shadow: 0 4px 8px 0 $white;
+}
+
+.header-sub-ico {
+  width: 5rem;
+  height: fit-content;
+  text-shadow: 0 4px 8px 0 $white;
 }
 
 .header-title {
@@ -569,17 +586,6 @@ footer {
     column-gap: 1rem;
     row-gap: 1.5rem;
   }
-}
-
-.box {
-  width: 40%;
-  height: 100% !important;
-  padding: 3rem;
-  border-width: 1em;
-  border-style: outset;
-  border-color: $orange;
-  border-radius: 1rem;
-  background-color: $black;
 }
 
 .justify {
