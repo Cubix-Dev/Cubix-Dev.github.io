@@ -14,6 +14,18 @@
     background-color: $orange;
 }
 
+.bg-blue {
+    background-color: $blue;
+}
+
+.bg-green {
+    background-color: $green;
+}
+
+.bg-pink {
+    background-color: $green;
+}
+
 .bg-side {
     background: $side;
 }
@@ -30,12 +42,21 @@
     background: $warn;
 }
 
+.bg-info {
+    background: $info;
+}
+
 .bg-med {
     background: $grey;
 }
 
+.bg-disabled {
+    background: $lgrey;
+}
+
+
 .bg-light {
-    background: $bg-light;
+    background: $white;
     &-nav {
         background: $nav-light;
     }
@@ -47,3 +68,14 @@
         background: $nav-dark;
     }
 }
+
+.bg-gradient {
+    background: -webkit-linear-gradient(
+      25deg,
+      $yellow,
+      $orange,
+      $pink,
+      $purple,
+      $teal
+    );
+  }
