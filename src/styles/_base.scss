@@ -1,6 +1,6 @@
 // Cubix Colors
 $red: #e80910;
-$orange: #FF6D4D;
+$orange: #ff7b00;
 $yellow: #e8dc09;
 $green: #5cff70;
 $teal: #67cbdd;
@@ -12,9 +12,6 @@ $lgrey: #9e9e9e;
 $grey: #2c3e50;
 $black: #232323;
 $main: #171717;
-$primary: #ff6d4d;
-$secondary: #E6E6E5;
-$accent: #FF7B00;
 $side: #ff343b;
 $good: #5cff70;
 $bad: #e50910;
@@ -27,9 +24,9 @@ $dark-theme: true !default;
 $btn-light: $black;
 $bg-light: $lgrey;
 $text-light: $black;
-$nav-light: $secondary;
+$nav-light: #cccccc;
 // Dark
 $btn-dark: $main;
 $bg-dark: $black;
-$text-dark: $secondary;
+$text-dark: #cccccc;
 $nav-dark: $black;
