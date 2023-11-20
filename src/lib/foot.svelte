@@ -6,8 +6,8 @@
     <p>Follow Us</p>
     <a href="https://twitter.com/CubixSN" class="text-white social-ico"> <TwitterX/> </a> 
     <a href="#" class="text-white social-ico"><Youtube/></a>
-    <a href="#" class="text-white social-ico"><Instagram/></a>
-    <a href="dsc.gg/cubix" class="text-white social-ico"><Discord/></a>
+    <a href="https://instagram.com/cubixdev_official" class="text-white social-ico"><Instagram/></a>
+    <a href="https://dsc.gg/cubix" class="text-white social-ico"><Discord/></a>
     <br>
     <br>
     <small>© Cubix | Games are property of their respective owners.</small>
