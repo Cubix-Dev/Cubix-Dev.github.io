@@ -8,7 +8,6 @@ html {
   width: 100%;
   background: $main;
   font-family: Ubuntu;
-  overflow-wrap: break-word;
 }
 
 html[data-theme="dark"] {
@@ -77,8 +76,15 @@ html.transition *:after {
   transition-delay: 0 !important;
 }
 
-.emphasis {
-  font-size: large;
+.bg-gradient {
+  background: -webkit-linear-gradient(
+    25deg,
+    $yellow,
+    $orange,
+    $pink,
+    $purple,
+    $teal
+  );
 }
 
 .topnav {
@@ -147,24 +153,10 @@ html.transition *:after {
   &-i {
     padding: 1.5rem;
   }
-  &-6 {
-    padding: 6rem;
-  }
 }
 
 .margin {
-  &-right {
-    margin-right: 0;
-  }
-  &-left {
-    margin-left: 5%;
-  }
-  &-bottom {
-    margin-bottom: 0;
-  }
-  &-top {
-    margin-top: 0;
-  }
+  margin-left: 5%;
 }
 
 .box {
@@ -202,11 +194,9 @@ html.transition *:after {
 }
 
 .inline-box {
-  width: 80%;
-  height: max-content !important;
+  width: 100%;
   margin-right: auto;
-  margin-left: 5%;
-  align-items: left !important;
+  margin-left: 15%;
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
@@ -214,42 +204,19 @@ html.transition *:after {
     display: flex;
     flex-direction: column;
   }
-  &-delimited {
-    width: 100% !important;
-    height: max-content !important;
-    margin-right: auto;
-    margin-left: auto;
-    align-items: start;
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-  &-right {
-    margin-left: auto;
-    margin-right: 5%;
-    align-items: right !important;
-  }
 }
 
 .header-spacer {
-  padding-top: calc(2rem + 4px);
-  padding-bottom: 2rem;
+  padding-top: calc(6rem + 4px);
+  padding-bottom: 6rem;
   &-small {
-    padding-top: calc(1rem + 1px);
-    padding-bottom: 0.5rem;
+    padding-top: calc(3rem + 3px);
+    padding-bottom: 2rem;
   }
 }
 
 .header-ico {
-  width: 15rem;
-  height: fit-content;
-  text-shadow: 0 4px 8px 0 $white;
-}
-
-.header-sub-ico {
-  width: 5rem;
-  height: fit-content;
-  text-shadow: 0 4px 8px 0 $white;
+  width: 10rem;
 }
 
 .header-title {
@@ -560,27 +527,6 @@ footer {
   font-size: 1.25rem
 }
 
-.button {
-  border: none;
-  color: white;
-  border-radius: 1rem;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-
-.btn {
-  background: $blue;
-  &-green {
-    background: $green;
-  }
-  &-pink {
-    background: $pink;
-  }
-}
-
 .grid {
   display: grid !important; 
   justify-content: space-evenly;
@@ -591,8 +537,4 @@ footer {
     column-gap: 1rem;
     row-gap: 1.5rem;
   }
-}
-
-.justify {
-  justify-content: space-evenly;
 }

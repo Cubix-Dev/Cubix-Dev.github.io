@@ -14,22 +14,6 @@
     background-color: $orange;
 }
 
-.bg-blue {
-    background-color: $blue;
-}
-
-.bg-green {
-    background-color: $green;
-}
-
-.bg-pink {
-    background-color: $green;
-}
-
-.bg-lgrey {
-    background-color: $lgrey;
-}
-
 .bg-side {
     background: $side;
 }
@@ -44,10 +28,6 @@
 
 .bg-warn {
     background: $warn;
-}
-
-.bg-info {
-    background: $info;
 }
 
 .bg-med {
@@ -67,14 +47,3 @@
         background: $nav-dark;
     }
 }
-
-.bg-gradient {
-    background: -webkit-linear-gradient(
-      25deg,
-      $yellow,
-      $orange,
-      $pink,
-      $purple,
-      $teal
-    );
-  }
