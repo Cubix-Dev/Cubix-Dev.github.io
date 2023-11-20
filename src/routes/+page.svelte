@@ -44,20 +44,6 @@
      </div>
    </div>
    <br><br>
-   <div class="inline-box-delimited justify">
-    <div class="box">
-      <div class="inline-box-desc">
-        <h2 class="header-title margin-top">Re-Imagining How We Play Together</h2>
-        <p class="text-white">The Cubix Infinite isn't just a gaming console. Its an experience. The system includes 4 ports for controllers so you can enjoy your favorite games with friends. We've completely changed how you play games together thanks to Cubix Dream Transfer, a new feature that allows you to share your save data from your controller to any system. Take your progress with without worring about save corruption.</p>
-      </div>
-    </div>
-     <div class="box">
-      <div class="inline-box-desc">
-        <h2 class="header-title margin-top">Your Games In Your Control</h2>
-        <p class="text-white">The Infinite lets you expand your horizons, not confining you to an internet connection. Plug in, play where ever you see fit. Once the game is on your system its yours forever. No nonsense with dying eShops or holding your games hostage with subscription services. Plus you can share your library with not just other users on the system but your friends as well with Cubix Dream Transfer.</p>
-      </div>
-     </div>
-   </div>
     
     <!-- <div class="header-spacer">
       <div class="inline-box">
