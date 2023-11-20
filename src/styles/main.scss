@@ -77,6 +77,10 @@ html.transition *:after {
   transition-delay: 0 !important;
 }
 
+.emphasis {
+  font-size: large;
+}
+
 .topnav {
   position: relative;
   display: flex;
@@ -166,7 +170,7 @@ html.transition *:after {
 .box {
   flex: 1 1 0;
   width: 40%;
-  height: 100% !important;
+  height: max-content !important;
   padding: 3rem;
   border-width: 1rem;
   border-style: outset;
@@ -199,6 +203,7 @@ html.transition *:after {
 
 .inline-box {
   width: 80%;
+  height: max-content !important;
   margin-right: auto;
   margin-left: 5%;
   align-items: left !important;

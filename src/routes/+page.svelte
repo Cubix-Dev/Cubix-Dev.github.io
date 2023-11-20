@@ -1,11 +1,58 @@
 <script>
-  import { CashStack } from "svelte-bootstrap-icons";
+  import { Binoculars } from "svelte-bootstrap-icons";
 	import logo from '$lib/assets/Cube.svg';
   import console from '$lib/assets/ImgConsole.png'
   import Infinite from '$lib/assets/infinite.png'
 </script>
 
 <main>
+  <section id="#">
+    <header class="header-spacer flex-box bg-lgrey"> <!--style="background-image: url({console}); background-repeat: no-repeat; background-size: cover;"-->
+      <h2 class="header-subtitle margin-bottom">Cubix Infinite</h2>
+      <h1 class="header-title margin-top">Infinite Ways To Play</h1>
+      <!-- <img class="header-ico" src={console} alt="Cubix Console"> -->
+    </header>
+    <div class="flex-box">
+      <a class="button btn-orange" href="#">Learn More</a>
+    </div>
+  </section>
+  <section id="gist">
+    <div class="header-spacer">
+      <div class="flex-box-text-center">
+        <img class="header-sub-ico pad" src={Infinite} alt="Cubix Console">
+          <h2 class="header-title margin-top">More Than Just "Another Gaming Console"</h2>
+          <h4 class="header-subtitle">The Infinite Does Things Differently</h4>
+          <p class="emphasis text-white">The Infinite approaches gaming differently. Made up of common PC parts, with a Linux based OS and its own boot engine, it doesn't just launch your favorite games. It takes advantage of JIT (Just In Time) compiling to ensure optimal launch time even with games that have a lot of data. The result is a system that doesn't show its age, even late into its life cycle.</p>
+       </div>
+    </div>
+    
+  </section>
+  <section id="about">
+    <div class="header-spacer">
+      <div class="inline-box">
+        <h2 class="text-white">See What The Infinite Has To Offer</h2>
+      </div>
+      <div class="inline-box-delimited justify">
+        <div class="box">
+          <div class="inline-box-desc">
+            <h2 class="header-title margin-top">Big Power, Small Price</h2>
+            <p class="text-white">Featuring a 6-Core AMD Processor the Cubix Infinite isnt just affordable, its powerful! The system maximizes processing power and graphical capabilities with full 4K UHD Support to give simply stunning visuals!</p>
+          </div>
+         </div>
+         <div class="box">
+          <div class="inline-box-desc">
+            <h2 class="header-title margin-top">Your Games In Your Control</h2>
+            <p class="text-white">The Infinite lets you expand your horizons, not confining you to an internet connection. Plug in, play where ever you see fit. Once the game is on your system its yours forever. No nonsense with dying eShops or holding your games hostage with subscription services. </p>
+          </div>
+         </div>
+       </div>
+       <br>
+    </div>
+  </section>
+
+
+
+
     <!-- <header class="header-spacer">
     <div class="inline-box">
       <img class="header-ico" src={console} alt="Cubix Console">
@@ -17,14 +64,14 @@
       </div>
       </div>
     </header> -->
-    <header class="header-spacer bg-light border-bottom">
+    <!-- <header class="header-spacer bg-light border-bottom">
       <div class="flex-box">
          <img class="header-ico" src={logo} alt="Cubix Logo">
          <h1 class="header-title">Cubix Infinite</h1>
          <p class="header-subtitle"> Infinite Ways To Play </p>
       </div>
    </header>
-     <br>
+     <br> -->
      <!-- <div class="header-spacer">
       <div class="inline-box" style="margin-left: calc(17.5rem + 5%);">
         
@@ -37,14 +84,7 @@
         </div>
       </div>
     </div> -->
-     <div class="header-spacer">
-      <div class="flex-box-text-center">
-        <img class="header-sub-ico pad" src={Infinite} alt="Cubix Console">
-          <h2 class="header-title margin-top">More Than Just "Another Gaming Console"</h2>
-          <h4 class="header-subtitle">The Infinite Does Things Differently</h4>
-          <p class="text-white">The Infinite approaches gaming differently. Made up of common PC parts, with a Linux based OS and its own boot engine, it doesn't just launch your favorite games. It takes advantage of JIT (Just In Time) compiling to ensure optimal launch time even with games that have a lot of data. The result is a system that doesn't show its age, even late into its life cycle.</p>
-       </div>
-    </div>
+<!-- 
      <br>
      <div class="inline-box-delimited justify">
       <div class="box">
@@ -75,7 +115,7 @@
         <p class="text-white">Out the box, the Cubix Infinite already has services like an internet browser, Music Player and YouTube pre-installed for your instant enjoyment. Plus enjoy fun features like console themes, seasonal music and more!</p>
       </div>
     </div>
-  <br>
+  <br> -->
   <!-- <div class="flex-box-text-center pad bg-med text-white"></div> -->
   <!-- <br><br> -->
   <!--Attempt to make cards to display other sources-->
