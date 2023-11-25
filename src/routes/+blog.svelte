@@ -25,8 +25,8 @@
       <div class="flex-box">
          <img class="header-ico" src={Infinite} alt="Cubix Infinite Logo">
          <h4 class="text-white margin-bottom" style="font-size: larger;">Cubix</h4>
-         <h1 class="header-title margin-top">Infinite</h1>
-         <h2 class="header-subtitle"> Infinite Ways To Play </h2>
+         <h1 class="header-title margin-top">Blog</h1>
+         <h2 class="header-subtitle"> blog.text </h2>
       </div>
    </header>
 <!--
@@ -99,12 +99,12 @@
      <br>
      <div class="header-spacer">
       <div class="flex-box-text-center">
-          <h2 class="header-title margin-top">More Than Just "Another Gaming Console"</h2>
-          <h4 class="header-subtitle">The Infinite Does Things Differently</h4>
-          <p class="text-white">The Infinite approaches gaming differently. Made up of common PC parts, with a Linux based OS and its own boot engine, it doesn't just launch your favorite games. It takes advantage of JIT (Just In Time) compiling to ensure optimal launch time even with games that have a lot of data. The result is a system that doesn't show its age, even late into its life cycle.</p>
+          <h2 class="header-title margin-top">11.27.2023</h2>
+          <h4 class="header-subtitle">PLACHOLDER</h4>
+          <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At lectus urna duis convallis convallis tellus id. Tortor at risus viverra adipiscing at in. Amet massa vitae tortor condimentum. Pharetra convallis posuere morbi leo urna molestie.</p>
        </div>
-    </div>
-    <div class="flex-box-text-center pad bg-orange">
+    </div> 
+    <!--<div class="flex-box-text-center pad bg-orange">
       <div class="inline-box-desc">        
         <h2 class="header-title margin-top">Indie Powered</h2>
         <p class="text-white">The Infinite doesn't just give you big names, it supports the little guys too. With an extensive Indie dev library, you can enjoy the creations of developers from communities far and wide like <strong>TheUpdator</strong> and <strong> CodeKirby </strong>. Plus the system's Developer API is extremely developer friendly. You can become a developer on the Cubix Infinite with just a few clicks!</p>
@@ -120,6 +120,7 @@
         <p class="text-white">Out the box, the Cubix Infinite already has services like an internet browser, Music Player and YouTube pre-installed for your instant enjoyment. Plus enjoy fun features like console themes, seasonal music and more!</p>
       </div>
     </div>
+  </!-->
   <br>
   <section id="donate">
     <br>
