@@ -1,5 +1,5 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
 @import "./_base.scss";
 @import "./_colorstyles.scss";
 @import "./_animate.scss";
@@ -9,7 +9,7 @@
 html {
   width: 100%;
   background: $main;
-  font-family: Ubuntu;
+  font-family: 'Sen', sans-serif;
   overflow-wrap: break-word;
 }
 
@@ -170,6 +170,7 @@ html.transition *:after {
 }
 
 .flex-box {
+  font-family: 'Sen', sans-serif;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -184,6 +185,11 @@ html.transition *:after {
     flex-direction: unset !important;
     margin-left: 15%;
   }
+  &-right {
+    display: flex;
+    justify-content: flex-end;
+    // margin-left: 50%
+  }
   &-middle {
     margin-left: 15%;
     margin-right: 15%;
@@ -192,11 +198,10 @@ html.transition *:after {
 
 .inline-box {
   width: 80%;
-  margin-right: auto;
-  margin-left: 5%;
   align-items: left !important;
   display: flex;
   flex-direction: row;
+  text-align: center;
   gap: 0.5rem;
   &-desc {
     display: flex;
@@ -218,6 +223,40 @@ html.transition *:after {
   }
 }
 
+.wrapper-box {
+  position: relative;
+  display: flex !important;
+  align-items: center !important;
+  flex-direction: column !important;
+}
+
+.bio-box {
+  width: 50%;
+  text-align: center !important;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 0.5fr repeat(2, 2fr) 0.5fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+
+.grid-5 {
+  display: grid;
+  grid-template-columns: 0.5fr repeat(4, 2fr) 0.5fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 0px;
+}
+
+.card {
+  padding: 5px;
+  text-align: center;
+}
+
 .header-spacer {
   padding-top: calc(2rem + 4px);
   padding-bottom: 2rem;
@@ -237,11 +276,62 @@ html.transition *:after {
   line-height: 2.75rem;
   margin-bottom: 1rem !important;
   color: $white;
+  &-stretch {
+    position: absolute; /*Lets us put everything on top the header to make ituneffected by the Padding Style*/
+    z-index: 2;
+    font-size: 8vw;
+    font-weight: normal;
+    top: 0.5rem;
+    line-height: 2.75rem;
+    margin-bottom: 1rem !important;
+    color: $white-50;
+  }
 }
 
 .header-subtitle {
   font-size: 1.25rem;
   color: $white;
+  &-stretch {
+    position: absolute;
+    z-index: 3;
+    font-size: 3vw;
+    font-weight: normal;
+    top: 8.5vw;
+    line-height: 2.75rem;
+    margin-bottom: 1rem !important;
+    color: $white;
+  }
+}
+
+.header-bio {
+  &-box {
+    z-index: 4;
+    position: absolute;
+    bottom: 2vw;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 0.5fr 1.5fr 3fr 1.5fr 0.5fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 0px;
+  }
+  &-left {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    justify-self: left;
+    color: $white;
+    font-size: 3vw;
+    color: $white;
+  }
+  &-right { // ! Someone fix this box. Not sure why it doesnt align with its members.
+    padding: 0;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    justify-self: stretch;
+    text-align: center;
+    font-size: 1.5vw;
+    color: $white;
+  }
 }
 
 .spacer {
@@ -480,18 +570,6 @@ footer {
   }
   &-pink {
     background: $pink;
-  }
-}
-
-.grid {
-  display: grid !important; 
-  justify-content: space-evenly;
-  justify-items: center;
-  align-content: space-evenly;
-  align-items: center;
-  &-tri {
-    column-gap: 1rem;
-    row-gap: 1.5rem;
   }
 }
 
