@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
 @import "./_base.scss";
 @import "./_colorstyles.scss";
 @import "./_animate.scss";
@@ -9,7 +9,7 @@
 html {
   width: 100%;
   background: $main;
-  font-family: 'Sen', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   overflow-wrap: break-word;
 }
 
@@ -20,6 +20,10 @@ html[data-theme="dark"] {
 
 html[data-theme="light"] {
   $dark-theme: false !global; // Lazy Error Catching
+}
+
+.subtitle {
+    font-size: 20px;
 }
 
 input[type="checkbox"] {
@@ -170,7 +174,6 @@ html.transition *:after {
 }
 
 .flex-box {
-  font-family: 'Sen', sans-serif;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -249,6 +252,14 @@ html.transition *:after {
   grid-template-columns: 0.5fr repeat(4, 2fr) 0.5fr;
   grid-template-rows: 1fr;
   grid-column-gap: 15px;
+  grid-row-gap: 0px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 0.5fr repeat(3, 1fr) 0.5fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
 
@@ -651,4 +662,82 @@ footer {
 
 .justify {
   justify-content: space-evenly;
+}
+
+.TeaTimeSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+  &-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+  }
+  &-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-card {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding: 1.5em;
+    &-bg {
+      background-color: $orange;
+      opacity: 5%;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      border-radius: 6px;
+      flex: 1;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.highlight {
+  z-index: 5;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+}
+
+.highlight::before {
+    content: "";
+    height: 50%;
+    width: 100%;
+    display: block;
+    z-index: -5;
+    opacity: 30%;
+    position: absolute;
+    transition: all 0.3s ease;
+    background: linear-gradient(180deg, transparent 50%, $orange 50%);
+}
+
+.TeaTimeSection-card:hover > .highlight::before {
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.TeaTimeSection > h3 {
+    align-self: flex-start;
+}
+
+.subtitle {
+  font-size: 20px;
 }

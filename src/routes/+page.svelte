@@ -3,6 +3,7 @@
 	import logo from '$lib/assets/Cube.svg';
   import console from '$lib/assets/Infinite_Console.png';
   import Infinite from '$lib/assets/infinite.svg';
+  import Tea from "../lib/tea.svelte";
   
   // function openURL(uri: string) {
   //       window.open(uri);
@@ -75,24 +76,7 @@
       </div>
     </div>
   </div>
-  <div class="flex-box flex-box-text-center text-white">
-    <div>
-      <h3>
-        Your Games In Your
-        <br>
-        Control
-      </h3>
-      <div class="overlay">
-        <svg width="100" height="11">
-          <rect width="100" height="10" style="fill:#d1461f80;" />
-          Sorry, your browser does not support inline SVG.  
-        </svg>
-      </div>
-      <p>
-        
-      </p>
-    </div>
-  </div>
+  <Tea></Tea>
 </main>
 
 <style>
