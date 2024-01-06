@@ -1,6 +1,6 @@
 <script>
-    import Foot from "../lib/foot.svelte";
-    import Nav from "../lib/nav.svelte";
+    import Foot from "../lib/components/foot.svelte";
+    import Nav from "../lib/components/nav.svelte";
     import '../styles/main.scss';
 </script>
 

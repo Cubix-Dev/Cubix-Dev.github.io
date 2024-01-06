@@ -10,7 +10,7 @@
     <a href="dsc.gg/cubix" class="text-white social-ico"><Discord/></a>
     <br>
     <br>
-    <small>© Cubix | Games are property of their respective owners.</small>
+    <small>© Cubix 2024 | Games are property of their respective owners.</small>
     <br>
     <small> For legal and business inquiries, please contact our support email at <u>support@cubixdev.org </u> </small>
     <br>

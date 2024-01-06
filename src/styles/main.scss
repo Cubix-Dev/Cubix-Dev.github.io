@@ -149,21 +149,38 @@ html.transition *:after {
 }
 
 .pad {
-  padding: 1rem;
-  &-i {
+  &-force {
     padding: 1.5rem;
-  }
-  &-6 {
-    padding: 6rem;
   }
 }
 
 .margin {
+  &-force {
+    margin: 5%;
+  }
+  &-right {
+    margin-right: 5%;
+  }
+  &-left {
+    margin-left: 5%;
+  }
+  &-bottom {
+    margin-bottom: 5%;
+  }
+  &-top {
+    margin-top: 5%;
+  }
+}
+
+.no-margin {
+  &-force {
+    margin: 0;
+  }
   &-right {
     margin-right: 0;
   }
   &-left {
-    margin-left: 5%;
+    margin-left: 0;
   }
   &-bottom {
     margin-bottom: 0;
@@ -236,6 +253,7 @@ html.transition *:after {
 .bio-box {
   width: 50%;
   text-align: center !important;
+  align-items: center !important;
 }
 
 .grid-2 {
@@ -575,12 +593,12 @@ footer {
 }
 
 .btn {
-  background: $blue;
-  &-green {
-    background: $green;
+  background: $orange;
+  &-side {
+    background: $white;
   }
-  &-pink {
-    background: $pink;
+  &-acc {
+    background: $orange-accent;
   }
 }
 
@@ -740,4 +758,22 @@ footer {
 
 .subtitle {
   font-size: 20px;
+}
+
+.expand-card {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: larger;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  text-align: left;
+  outline: none;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
 }

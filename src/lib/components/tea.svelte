@@ -1,5 +1,5 @@
 <!-- TODO: Someone make this centered please! -Ship -->
-<div class="TeaTimeSection text-white">
+<div class="TeaTimeSection text-white margin-top margin-bottom">
   <h2 style="margin-bottom: 0">Why Infinite?</h2>
   <p style="margin-top: 0; text-align: center">
     More reasons to get a console we know you'll love.

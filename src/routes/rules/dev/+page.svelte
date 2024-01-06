@@ -43,4 +43,11 @@
   <p>
     Cubix may request information regarding the creator of specific songs or sounds featured in your game, especially if they are not explicitly available via a credits menu or equivalent. As the licenser of your title, Cubix reserves the right to delay or deny games due to licensing concerns.
   </p>
+  <h2>
+    User Safety
+  </h2>
+  <p>
+    To keep everything at Cubix safe, we request that you are responible for what you make.
+    <br>
+  </p>
 </main>

@@ -1,9 +1,15 @@
 .text-white {
     color: $white;
+    &-i {
+        color: $white !important;
+    }
 }
 
 .text-black {
     color: $black;
+    &-i {
+        color: $black !important;
+    }
 }
 
 .bg-main {
