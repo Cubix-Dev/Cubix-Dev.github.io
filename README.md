@@ -1,4 +1,5 @@
 # cubixdev.org
 Cubix Website
 
-Vue the website in the near future. (see what I did there?)
+The new changes can Svelte from a mile away. (still funny right guys?)
+~~the Vue one was better~~
