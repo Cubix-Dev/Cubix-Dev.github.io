@@ -9,7 +9,7 @@
             There may or may not have been a page here... 
             <br>You will never know
         </p>
-
+        <a class="btn-acc button" href="#">Go Home</a>
     </div>
     <!-- <img src="@/assets/bg404.svg">
     <a href="https://www.google.com/" data-jzz-gui-player="true" class="google">Click here for help.</a>

@@ -47,7 +47,11 @@
     User Safety
   </h2>
   <p>
-    To keep everything at Cubix safe, we request that you are responible for what you make.
-    <br>
+    To keep everything at Cubix safe, we request that you are responible for what you make. You are also not allowed to sell or obtain personal information such as:
+    <ul>
+      <li>IP Addresses</li>
+      <li>Credit Card Numbers</li>
+      <li>Real Names</li>
+    </ul>
   </p>
 </main>
