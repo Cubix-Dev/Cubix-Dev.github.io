@@ -1,9 +1,9 @@
 <script lang="ts">
   import { CashStack } from "svelte-bootstrap-icons";
-	import logo from '$lib/assets/Cube.svg';
-  import console from '$lib/assets/Infinite_Console.png';
+	import logo from "$lib/assets/Cube.svg";
+  import console from "$lib/assets/Infinite_Console.png";
   import Infinite from '$lib/assets/infinite.svg';
-  import Tea from "../lib/components/tea.svelte";
+  import Tea from "$lib/components/tea.svelte";
   import Collapse from "$lib/components/collapse.svelte";
 </script>
 
