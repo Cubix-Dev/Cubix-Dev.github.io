@@ -1,10 +1,12 @@
-<script>
+<!-- This route will be replaced soon-->
+
+<!-- <script>
 	import logo from "$lib/assets/Login_Logo.png";
-</script>
+</script> -->
 
 
 <!-- svelte-ignore a11y-missing-attribute -->
-<html class="bg-gradient">
+<!-- <html class="bg-gradient">
     <div class="justify spacer">
         <div class="content-container">
             <div class="form-container">
@@ -26,8 +28,8 @@
             </div>
         </div>
     </div>
-</html>
-
+</html> -->
+<!-- 
 <style lang="scss">
     div {
         font-family: "Plus Jakarta Sans", sans-serif;
@@ -54,4 +56,4 @@
     .border-none {
         border: none;
     }
-</style>
+</style> -->
