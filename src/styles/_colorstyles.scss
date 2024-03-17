@@ -5,6 +5,13 @@
     }
 }
 
+.text-muted {
+    color: $lgrey;
+    &-i {
+        color: $lgrey !important;
+    }
+}
+
 .text-black {
     color: $black;
     &-i {
