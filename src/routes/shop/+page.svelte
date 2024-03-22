@@ -1,26 +1,26 @@
 <script lang="ts">
   import { CaretRightFill, CaretLeftFill } from "svelte-bootstrap-icons";
-  import carousel from "../../lib/components/carousel.svelte"
+  import Carousel from "$lib/components/carousel.svelte"
   /*This array should be a table of image variables imported in this script. For right now, this is just a placeholder
   */
-  let images = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+  let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
 </script>
 
 <!--TODO: Create a backend from the server that allow the site
 to get featured games from the API-->
 <div class="carousel">
   <Carousel autoplay="2000">
-  {#each images as image, index (index)}
-    <div class="carouselItem" style="background-color: {image}" />
-  {/each}
-  <span slot="left-control"><img src={CaretLeftFill} alt="Caret Left"></span>
-  <span slot="right-control"><img src={CaretRighttFill} alt="Caret Right"></span>
-</Carousel>
+    {#each colors as color, index (index)}
+      <div class="carouselItem" style="background-color: {color}" />
+    {/each}
+    <span class="item-desc" slot="left-control"><img src={CaretLeftFill} alt="Caret Left"></span>
+    <span class="item-desc" slot="right-control"><img src={CaretRightFill} alt="Caret Right"></span>
+  </Carousel>
 </div>
 
 <style>
   .carousel {
-    height: 25%;
+    height: 9rem;
     width: 100%;
   }
   /*Please note that this element is 
@@ -34,7 +34,7 @@ to get featured games from the API-->
         height: 9rem
   }
 
-  span {
+  item-desc {
     display: inline-block;
     margin-top: 6rem;
   }

@@ -3,80 +3,7 @@
   Modified by ShipmasterKyle
 -->
 
-<div class="carousel">
-  <div class="slides" bind:this={siema}>
-    <slot></slot>
-  </div>
-  {#if controls}
-    <button class="left" on:click={left} use:resetInterval={autoplay} aria-label="left">
-      <slot name="left-control"></slot>
-    </button>
-    <button class="right" on:click={right} use:resetInterval={autoplay} aria-label="right">
-      <slot name="right-control"></slot>
-    </button>
-  {/if}
-    {#if dots}
-  <ul>
-    {#each {length: totalDots} as _, i}
-    <li on:click={() => go(i*currentPerPage)} class={isDotActive(currentIndex, i) ? "active" : ""}></li>
-    {/each}
-  </ul>
-    {/if}
-</div>
-
-<style>
-  .carousel {
-    position: relative;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-
-  button {
-    position: absolute;
-    width: 6rem;
-    height: 100%;
-    top: 0;
-    z-index: 50;
-    background-color: rgba(0, 0, 0, 0.0);
-    background-image: linear-gradient(to right,#eeeeee,#ffffff80);
-  }
-  button:focus {
-    outline: none;
-  }
-
-  .left {
-    left: 0vw;
-  }
-
-  .right {
-    right: 0vw;
-  }
-  ul {
-    list-style-type: none;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: -30px;
-    padding: 0;
-  }
-  ul li {
-    margin: 6px;
-    border-radius: 100%;
-    background-color: rgba(255,255,255,0.5);
-    height: 8px;
-    width: 8px;
-  }
-  ul li:hover {
-    background-color: rgba(255,255,255,0.85);
-  }
-  ul li.active {
-    background-color: rgba(255,255,255,1);
-  }
-</style>
-
-<script>
+<script lang="ts">
   import Siema from 'siema'
   import { onMount, createEventDispatcher } from 'svelte'
 
@@ -88,7 +15,6 @@
   export let startIndex = 0
   export let draggable = true
   export let multipleDrag = true	
-  export let dots = true	
   export let controls = true
   export let threshold = 20
   export let rtl = false
@@ -179,3 +105,49 @@
     }
   }
 </script>
+
+<div class="carousel">
+  <div class="slides" bind:this={siema}>
+    <slot></slot>
+  </div>
+  {#if controls}
+    <button class="left" on:click={left} use:resetInterval={autoplay} aria-label="left">
+      <slot name="left-control"></slot>
+    </button>
+    <button class="right" on:click={right} use:resetInterval={autoplay} aria-label="right">
+      <slot name="right-control"></slot>
+    </button>
+  {/if}
+</div>
+
+<style>
+  .carousel {
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    position: absolute;
+    width: 6rem;
+    height: 100%;
+    top: 0;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.0);
+		border: none;
+  }
+  button:focus {
+    outline: none;
+  }
+
+  .left {
+    left: 0vw;
+		    background-image: linear-gradient(to right,#eeeeee,#ffffff80);
+  }
+
+  .right {
+    right: 0vw;
+		    background-image: linear-gradient(to left,#eeeeee,#ffffff80);
+  }
+</style>

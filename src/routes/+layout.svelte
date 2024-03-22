@@ -5,7 +5,7 @@
 </script>
 
 <Nav></Nav>
-<main style="margin: 15px 15px;">
+<main style="margin-top:15px;">
     <slot></slot>
 </main>
 <Foot></Foot>

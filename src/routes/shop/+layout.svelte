@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Foot from "../../lib/components/foot.svelte";
+  import Foot from "$lib/components/foot.svelte";
   // import Chefnav from "$lib/components/chefnav.svelte";
   import '../../styles/main.scss';
 </script>
