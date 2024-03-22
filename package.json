@@ -23,6 +23,7 @@
   "devDependencies": {
     "@playwright/test": "^1.41.2",
     "@sveltejs/kit": "^2.5.0",
+    "@types/siema": "^1.4.11",
     "sass": "^1.72.0",
     "svelte-preprocess": "^5.1.3"
   },
