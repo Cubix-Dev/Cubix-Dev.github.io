@@ -142,7 +142,7 @@ to get featured games from the API-->
     align-items: center;
     overflow: hidden;
     &-image {
-      flex-shrink: 0;
+      flex-shrink: 10;
       min-width: 100%;
       min-height: 100%
     }
